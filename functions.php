@@ -483,6 +483,21 @@ function foodstats($bene)
 }
 
 
+function get_report($bene)
+{
+    include 'starter.php';
+    // $id = $_GET['id'];
+    $c = mysqli_query($conn, "SELECT * FROM core_beneficiaries WHERE id='$bene' ");
+    $count = mysqli_num_rows($c);
+    echo '<h4 class="mb-0 text-success">' . $count . '</h4>';
+    // if ($confiu) {
+    //     echo 'Updated Successfully';
+    // } else {
+    //     echo 'Failed to update record . Try again';
+    // }
+}
+
+
 function countdistrict($district)
 {
     include 'starter.php';
@@ -746,38 +761,52 @@ function changepass($id, $password, $newpass)
         echo 'Incorrect Password';
     }
 }
-function transactions()
+function transactions($bene)
 {
-
-
     $id = $_SESSION['id'];
     include 'starter.php';
 
-    $sel = mysqli_query($conn, "SELECT * FROM  core_account WHERE donor = 'kwame asante'");
+    $sel = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene' ORDER BY  pay_date DESC");
+    $num = 1;
     while ($row = mysqli_fetch_array($sel)) {
         echo '<tr>
         <td>
             <div class="d-flex align-items-center">
-                <small class="text-uppercase text-muted mr-2">Transaction Amount</small>
-                <a href="student-invoice.php"
-                   class="text-body small"><span class="js-lists-values-document">' . $row['amount'] . '</span></a>
+                <small class="text-uppercase text-muted mr-2">' . $num . '</small>
+               
             </div>
         </td>
-        
-        <td class="text-center">
+        <td>
             <div class="d-flex align-items-center">
-                <small class="text-uppercase text-muted mr-2">Status</small>
-                <i class="material-icons text-success md-18 mr-2">lens</i>
-                <small class="text-uppercase js-lists-values-status">paid</small>
+                <small class="text-uppercase text-muted mr-2">' . $row['donor_name'] . '</small>
+               
             </div>
         </td>
-        <td class="text-right">
-            <div class="d-flex align-items-center text-right">
-                <small class="text-uppercase text-muted mr-2">Date</small>
-                <small class="text-uppercase js-lists-values-date">' . $row['dateadded'] . '</small>
+        <td>
+            <div class="d-flex align-items-center">
+                <small class="text-uppercase text-muted mr-2">' . $row['currency'] . '</small>
+                
             </div>
         </td>
+        <td>
+            <div class="d-flex align-items-center">
+                <small class="text-uppercase text-muted mr-2">' . $row['amount'] . '</small>
+                
+            </div>
+        </td>
+
+        <td>
+        <div class="d-flex align-items-center">
+            <small class="text-uppercase text-muted mr-2">' . $row['payment_method'] . '</small>
+            
+        </div>
+    </td>
+        
+        
+        
     </tr>';
+
+    $num = $num + 1;
         // code...
     }
 }
@@ -839,6 +868,7 @@ function registered()
         echo '<tr>
         <td>' . $row['id'] . '</td>
         <td>' . $row['donor_name'] . '</td>
+        <td>' . $row['beneficiary_name'] . '</td>
         <td> <span class="js-lists-values-employee-name">' . $row['staff_name'] . '</span></td>
         
         <td>' . $row['phone_number'] . '</td>
@@ -1139,7 +1169,7 @@ function countmembers_spec($bene)
 function showdonors()
 {
     include 'starter.php';
-    $c = mysqli_query($conn, 'SELECT * FROM core_account ORDER BY  pay_date DESC');
+    $c = mysqli_query($conn, 'SELECT * FROM core_account ORDER BY  pay_date DESC LIMIT 20');
 
     while ($row = mysqli_fetch_array($c)) {
 
@@ -1206,31 +1236,33 @@ function showdonors_spec($bene)
 
 
 }
-function transactionstotal()
+function transactionstotal($bene)
 {
     // session_start();
     $id = $_SESSION['id'];
     include 'starter.php';
 
-    $u = mysqli_query($conn, 'SELECT * FROM members ORDER BY id DESC ');
+    $u = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene' ORDER BY  pay_date DESC");
     // $y = mysqli_query($conn, 'SELECT * FROM transactions ORDER BY uid DESC ');
 
     $amount = 0;
     while ($row = mysqli_fetch_array($u)) {
-        $y = mysqli_query($conn, "SELECT * FROM  transactions WHERE uid = '$id'");
+
+        $amount = $amount + $row['amount'];
+        // $y = mysqli_query($conn, "SELECT * FROM  transactions WHERE uid = '$id'");
 
 
-        while ($row2 = mysqli_fetch_array($y)) {
+        // while ($row2 = mysqli_fetch_array($y)) {
 
-            // echo $id;
-            // echo $row2['uid'];
-            // echo $row['id'];
+        //     // echo $id;
+        //     // echo $row2['uid'];
+        //     // echo $row['id'];
 
-            if ($row2['uid'] == $row['id']) {
+        //     if ($row2['uid'] == $row['id']) {
 
-                $amount = $amount + $row2['amount'];
-            }
-        }
+        //         $amount = $amount + $row2['amount'];
+        //     }
+        // }
     }
 
     return $amount;

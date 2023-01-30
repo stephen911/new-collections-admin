@@ -142,7 +142,7 @@ $user = adminmembers();
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="form-row-preview">
                                             <form action="" novalidate method="get" class="spec" enctype='multipart/form-data'>
-                                               
+
 
                                                 <div class="mb-3">
                                                     <!-- <label for="emailaddress" class="form-label">Name</label>
@@ -150,7 +150,7 @@ $user = adminmembers();
                                                     <input id="email" type="hidden" placeholder="" value="<?php echo  $user['id']; ?>" class="form-control" name="id">
                                                 </div>
 
-                                             
+
                                                 <!-- <div class="mb-3">
                                                     <label for="emailaddress" class="form-label">Phone Number</label>
                                                     <input class="form-control" type="text" id="name" required placeholder="Enter Staff's Phone Number" name="contact" >
@@ -159,12 +159,12 @@ $user = adminmembers();
                                                 <div class="mb-3">
                                                     <label for="example-select" class="form-label">Beneficiary's Name</label>
                                                     <select class="form-select" id="example-select" name="bene">
-                                                        
-                                                    
+
+
                                                         <?php getbene_spec() ?>
 
                                                     </select>
-                                                </div> 
+                                                </div>
 
 
                                                 <!-- <div class="mb-3">
@@ -172,19 +172,19 @@ $user = adminmembers();
                                                     <input class="form-control" type="text" id="pin" required placeholder="Enter Staff's Pin" name="pin" >
                                                 </div> -->
 
-                                                
 
-                                               
+
+
                                         </div>
 
-                                       
 
 
 
 
 
 
-                                    
+
+
 
                                         <div class="mb-3 text-center">
                                             <button class="btn btn-primary" name="btnupdate" type="submit"> Display </button>
@@ -202,194 +202,184 @@ $user = adminmembers();
                 </div>
 
 
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <!-- Profile -->
-                            <div class="card bg-primary">
-                                <div class="card-body profile-user-box">
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                            <div class="row align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="avatar-lg">
-                                                        <img src="assets/images/omni.jpeg" alt="" class="rounded-circle img-thumbnail">
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div>
-                                                        <h4 class="mt-1 mb-1 text-white"><?php 
-                                                        
-                                                        if (isset($_GET['btnupdate'])) {
-                                                            echo  $_GET['bene'];
-                                                        }else{
-                                                            echo  $user['first_name'];
-
-                                                        }
-                                                        
-                                                         ?></h4>
-                                                        <!-- <p class="font-13 text-white-50"> <//?php echo $user['email']; ?></p> -->
-
-                                                        <ul class="mb-0 list-inline text-light">
-                                                        <?php
-                                    // if (isset($_POST['btnupdate'])) {
-                                    //     ssfoodstats($_POST['bene']);
-                                    // } else {
-                                    //     echo '<h4 class="card-title">District Statistics</h4>';
-                                    // }
-
-                                    ?>
-                                                            
-                                                            
-                                                        </ul>
-
-                                                        
-
-                                                        <ul class="mb-0 list-inline text-light">
-                                                            <li class="list-inline-item me-3">
-                                                                <h5 class="mb-1 text-white"><?php 
-                                                                if (isset($_GET['btnupdate'])) {
-                                                                    echo totalstatus_spec($_GET['bene']); 
-                                                                   echo ' <p class="mb-0 font-13 text-white-50">Number of Donors</p>'; 
-                                                                }else{
-                                                                    
-                                                                    echo '<h5 class="mb-1 text-white">0</h5>'; 
-                                                                   echo ' <p class="mb-0 font-13 text-white-50">Number of Donors</p>'; 
-        
-                                                                }
-                                                                
-                                                                
-                                                                 ?></h5>
-                                                                
-                                                            </li>
-                                                            <li class="list-inline-item">
-
-                                                            
-
-
-                                                                <h5 class="mb-1 text-white"><?php 
-
-if (isset($_GET['btnupdate'])) {
-    echo countmembers_spec($_GET['bene']); 
-   echo ' <p class="mb-0 font-13 text-white-50">Total Amount</p>'; 
-}else{
-    
-    echo '<h5 class="mb-1 text-white">GHS 0</h5>'; 
-   echo ' <p class="mb-0 font-13 text-white-50">Total Amount</p>'; 
-
-}
-
-                                                                
-                                                                
-                                                                
-                                                               ?></h5>
-                                                              
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!-- Profile -->
+                        <div class="card bg-primary">
+                            <div class="card-body profile-user-box">
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+                                                <div class="avatar-lg">
+                                                    <img src="assets/images/omni.jpeg" alt="" class="rounded-circle img-thumbnail">
                                                 </div>
                                             </div>
-                                        </div> <!-- end col-->
+                                            <div class="col">
+                                                <div>
+                                                    <h4 class="mt-1 mb-1 text-white"><?php
 
-                                        <div class="col-sm-4">
-                                            <!-- <div class="text-center mt-sm-0 mt-3 text-sm-end">
+                                                                                        if (isset($_GET['btnupdate'])) {
+                                                                                            echo  $_GET['bene'];
+                                                                                        } else {
+                                                                                            echo  $user['first_name'];
+                                                                                        }
+
+                                                                                        ?></h4>
+                                                    <!-- <p class="font-13 text-white-50"> <//?php echo $user['email']; ?></p> -->
+
+                                                    <ul class="mb-0 list-inline text-light">
+                                                        <?php
+                                                        // if (isset($_POST['btnupdate'])) {
+                                                        //     ssfoodstats($_POST['bene']);
+                                                        // } else {
+                                                        //     echo '<h4 class="card-title">District Statistics</h4>';
+                                                        // }
+
+                                                        ?>
+
+
+                                                    </ul>
+
+
+
+                                                    <ul class="mb-0 list-inline text-light">
+                                                        <li class="list-inline-item me-3">
+                                                            <h5 class="mb-1 text-white"><?php
+                                                                                        if (isset($_GET['btnupdate'])) {
+                                                                                            echo totalstatus_spec($_GET['bene']);
+                                                                                            echo ' <p class="mb-0 font-13 text-white-50">Number of Donors</p>';
+                                                                                        } else {
+
+                                                                                            echo '<h5 class="mb-1 text-white">0</h5>';
+                                                                                            echo ' <p class="mb-0 font-13 text-white-50">Number of Donors</p>';
+                                                                                        }
+
+
+                                                                                        ?></h5>
+
+                                                        </li>
+                                                        <li class="list-inline-item">
+
+
+
+
+                                                            <h5 class="mb-1 text-white"><?php
+
+                                                                                        if (isset($_GET['btnupdate'])) {
+                                                                                            echo countmembers_spec($_GET['bene']);
+                                                                                            echo ' <p class="mb-0 font-13 text-white-50">Total Amount</p>';
+                                                                                        } else {
+
+                                                                                            echo '<h5 class="mb-1 text-white">GHS 0</h5>';
+                                                                                            echo ' <p class="mb-0 font-13 text-white-50">Total Amount</p>';
+                                                                                        }
+
+
+
+
+                                                                                        ?></h5>
+
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- end col-->
+
+                                    <div class="col-sm-4">
+                                        <!-- <div class="text-center mt-sm-0 mt-3 text-sm-end">
                                                     <a href="edit.php" class="btn btn-light">
                                                         <i class="mdi mdi-account-edit me-1"></i> Edit Profile
                                                     </a>
                                                 </div>
                                             </div>  -->
-                                            <!-- end col-->
-                                        </div> <!-- end row -->
+                                        <!-- end col-->
+                                    </div> <!-- end row -->
 
-                                    </div> <!-- end card-body/ profile-user-box-->
-                                </div>
-                                <!--end profile/ card -->
-                            </div> <!-- end col-->
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="card tilebox-one">
-                                    <div class="card-body">
-                                        <i class="ri-shopping-basket-2-line float-end text-muted"></i>
-                                        <h6 class="text-muted text-uppercase mt-0">Total</h6>
-                                        <h2 class="m-b-20"><?php 
-                                        
-                                        if (isset($_GET['btnupdate'])) {
-                                            echo countmembers_spec($_GET['bene']); 
-                                            
-                                        }else{
-                                            
-                                            echo 'GHS 0'; 
-                                          
-                                        
-                                        }
-                                        
-                                        
-                                        ?></h2>
-                                        <!-- <span class="badge bg-primary"> +11% </span> <span class="text-muted">From previous period</span> -->
-                                    </div> <!-- end card-body-->
-                                </div>
-                                <!--end card-->
-                            </div><!-- end col -->
-
-                            <div class="col-sm-4">
-                                <div class="card tilebox-one">
-                                    <div class="card-body">
-                                        <i class="ri-shopping-basket-2-line float-end text-muted"></i>
-                                        <h6 class="text-muted text-uppercase mt-0">Staff</h6>
-                                        <h2 class="m-b-20"><?php echo totalstaff() ?></h2>
-                                        <!-- <span class="badge bg-primary"> +11% </span> <span class="text-muted">From previous period</span> -->
-                                    </div> <!-- end card-body-->
-                                </div>
-                                <!--end card-->
-                            </div><!-- end col -->
-
-                            <div class="col-sm-4">
-                                <div class="card tilebox-one">
-                                    <div class="card-body">
-                                        <i class="ri-shopping-basket-2-line float-end text-muted"></i>
-                                        <h6 class="text-muted text-uppercase mt-0">Beneficiary's Name</h6>
-                                        <h2 class="m-b-20"><?php 
-                                        
-                                        if (isset($_GET['btnupdate'])) {
-                                            echo $_GET['bene'];
-                                            
-                                        }else{
-                                            
-                                            echo  "None";
-                                          
-                                        
-                                        }
-                                        
-                                       ?></h2>
-                                        <!-- <span class="badge bg-primary"> +11% </span> <span class="text-muted">From previous period</span> -->
-                                    </div> <!-- end card-body-->
-                                </div>
-                                <!--end card-->
-                            </div><!-- end col -->
-
-    
-
-                            
-
-                        </div>
-
-                      
-
-                        <div class="card">
-                            <div class="card-header d-flex justify-content-between align-items-center">
-                                <h4 class="header-title">Statistics</h4>
-
+                                </div> <!-- end card-body/ profile-user-box-->
                             </div>
+                            <!--end profile/ card -->
+                        </div> <!-- end col-->
+                    </div>
+                    <!-- end row -->
 
-                            <?php 
-                            if (isset($_GET['btnupdate'])) {
-                                echo showdonors_spec($_GET['bene']);
-                                
-                            }else{
-                                
-                                echo  '<div class="border border-light p-3 rounded mb-3">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="card tilebox-one">
+                                <div class="card-body">
+                                    <i class="ri-shopping-basket-2-line float-end text-muted"></i>
+                                    <h6 class="text-muted text-uppercase mt-0">Total</h6>
+                                    <h2 class="m-b-20"><?php
+
+                                                        if (isset($_GET['btnupdate'])) {
+                                                            echo countmembers_spec($_GET['bene']);
+                                                        } else {
+
+                                                            echo 'GHS 0';
+                                                        }
+
+
+                                                        ?></h2>
+                                    <!-- <span class="badge bg-primary"> +11% </span> <span class="text-muted">From previous period</span> -->
+                                </div> <!-- end card-body-->
+                            </div>
+                            <!--end card-->
+                        </div><!-- end col -->
+
+                        <div class="col-sm-4">
+                            <div class="card tilebox-one">
+                                <div class="card-body">
+                                    <i class="ri-shopping-basket-2-line float-end text-muted"></i>
+                                    <h6 class="text-muted text-uppercase mt-0">Staff</h6>
+                                    <h2 class="m-b-20"><?php echo totalstaff() ?></h2>
+                                    <!-- <span class="badge bg-primary"> +11% </span> <span class="text-muted">From previous period</span> -->
+                                </div> <!-- end card-body-->
+                            </div>
+                            <!--end card-->
+                        </div><!-- end col -->
+
+                        <div class="col-sm-4">
+                            <div class="card tilebox-one">
+                                <div class="card-body">
+                                    <i class="ri-shopping-basket-2-line float-end text-muted"></i>
+                                    <h6 class="text-muted text-uppercase mt-0">Beneficiary's Name</h6>
+                                    <h2 class="m-b-20"><?php
+
+                                                        if (isset($_GET['btnupdate'])) {
+                                                            echo $_GET['bene'];
+                                                        } else {
+
+                                                            echo  "None";
+                                                        }
+
+                                                        ?></h2>
+                                    <!-- <span class="badge bg-primary"> +11% </span> <span class="text-muted">From previous period</span> -->
+                                </div> <!-- end card-body-->
+                            </div>
+                            <!--end card-->
+                        </div><!-- end col -->
+
+
+
+
+
+                    </div>
+
+
+
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h4 class="header-title">Statistics</h4>
+
+                        </div>
+
+                        <?php
+                        if (isset($_GET['btnupdate'])) {
+                            echo showdonors_spec($_GET['bene']);
+                        } else {
+
+                            echo  '<div class="border border-light p-3 rounded mb-3">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
                                         <p class="font-18 mb-1"> Select Beneficiary to Display Results</p>
@@ -404,35 +394,33 @@ if (isset($_GET['btnupdate'])) {
                                     </div>
                                 </div>
                             </div>';
-                              
-                            
-                            }
-                            
-                            
-                             ?>
+                        }
 
-                        </div>
+
+                        ?>
+
                     </div>
+                </div>
 
 
 
 
 
-                    <!-- end row -->
+                <!-- end row -->
 
-                </div> <!-- container -->
+            </div> <!-- container -->
 
-            </div> <!-- content -->
+        </div> <!-- content -->
 
-            <!-- Footer Start -->
-            <?php include "footer.php" ?>
-            <!-- end Footer -->
+        <!-- Footer Start -->
+        <?php include "footer.php" ?>
+        <!-- end Footer -->
 
-        </div>
+    </div>
 
-        <!-- ============================================================== -->
-        <!-- End Page content -->
-        <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
 
     </div>
     <!-- END wrapper -->

@@ -33,6 +33,13 @@ if (isset($_GET['action'])) {
 
             break;
 
+        case 'repo':
+            extract($_POST);
+            // extract($_POST);
+            get_report($bene);
+
+            break;
+
         case 'ticket':
             extract($_POST);
             // extract($_POST);

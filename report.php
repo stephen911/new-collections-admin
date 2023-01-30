@@ -15,7 +15,7 @@ $user = adminmembers();
 
 <head>
     <meta charset="utf-8" />
-    <title>OmniBsic Donote - Report</title>
+    <title>OmniBsic Donate - Report</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -32,6 +32,12 @@ $user = adminmembers();
     <!-- App css -->
     <link href="assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="app-style" />
 </head>
+<style type="text/css" media="print">
+@page {
+    size: auto;   /* auto is the initial value */
+    margin: 0;  /* this affects the margin in the printer settings */
+}
+</style>
 
 <body>
     <!-- Begin page -->
@@ -116,7 +122,7 @@ $user = adminmembers();
                                 <div class="page-title-box">
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">GNACC</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">OmniBSIC</a></li>
                                             <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
                                             <li class="breadcrumb-item active">Report</li>
                                         </ol>
@@ -127,6 +133,78 @@ $user = adminmembers();
                         </div>
                         <!-- end page title -->
 
+
+                        <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body noprint">
+                                    <h4 class="header-title">Edit Info</h4>
+                                    <p class="text-muted font-14">
+                                        Edit Your Info
+                                    </p>
+
+
+                                    <div class="tab-content">
+                                        <div class="tab-pane show active" id="form-row-preview">
+                                            <form action="" novalidate method="get" class="repo" enctype='multipart/form-data'>
+
+
+                                                <div class="mb-3">
+                                                    <!-- <label for="emailaddress" class="form-label">Name</label>
+                                                    <input class="form-control" type="text" id="name" required placeholder="Enter Staff's Name" name="name" > -->
+                                                    <input id="email" type="hidden" placeholder="" value="<?php echo  $user['id']; ?>" class="form-control" name="id">
+                                                </div>
+
+
+                                                <!-- <div class="mb-3">
+                                                    <label for="emailaddress" class="form-label">Phone Number</label>
+                                                    <input class="form-control" type="text" id="name" required placeholder="Enter Staff's Phone Number" name="contact" >
+                                                </div> -->
+
+                                                <div class="mb-3">
+                                                    <label for="example-select" class="form-label">Beneficiary's Name</label>
+                                                    <select class="form-select" id="example-select" name="bene">
+
+
+                                                        <?php getbene_spec() ?>
+
+                                                    </select>
+                                                </div>
+
+
+                                                <!-- <div class="mb-3">
+                                                    <label for="emailaddress" class="form-label">Pin</label>
+                                                    <input class="form-control" type="text" id="pin" required placeholder="Enter Staff's Pin" name="pin" >
+                                                </div> -->
+
+
+
+
+                                        </div>
+
+
+
+
+
+
+
+
+
+
+                                        <div class="mb-3 text-center">
+                                            <button class="btn btn-primary" name="btnupdate" type="submit"> Generate report </button>
+                                        </div>
+
+                                        </form>
+                                    </div> <!-- end preview-->
+
+                                    <!-- end preview code-->
+                                </div> <!-- end tab-content-->
+
+                            </div> <!-- end card-body -->
+                        </div> <!-- end card-->
+                    </div> <!-- end col -->
+
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
@@ -135,7 +213,7 @@ $user = adminmembers();
                                         <!-- Report Logo-->
                                         <div class="clearfix">
                                             <div class="float-start mb-3">
-                                                <img src="assets/images/logo.png" alt="dark logo" height="42">
+                                                <img src="assets/images/omni.png" alt="dark logo" height="42">
                                             </div>
                                             <div class="float-end">
                                                 <h4 class="m-0 d-print-none">Report</h4>
@@ -144,43 +222,49 @@ $user = adminmembers();
 
                                         <!-- Report Detail-->
                                         <div class="row">
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-12">
                                                 
-                                                <div class="float-end mt-3">
-                                                    <p><b>Hello, <?php echo $user['first_name']; ?></b></p>
-                                                    <p class="text-muted font-13">Thank you!. Please Go ahead and download your <a href="cert.php"> certificate </a>, and do not hesitate to contact us with any questions.</p>
+                                                <div class="float-start">
+                                                    <p><b>Generated by:  <?php echo $user['first_name']; ?></b></p>
+                                                    <!-- <p class="text-muted font-13">Total Collections</p> -->
                                                 </div>
+                                                <div class="float-end">
+                                                    <p><b>Beneficiary Name:  &nbsp;&nbsp;&nbsp; <?php  
+                                                                                             if (isset($_GET['btnupdate'])) {
+                                                                                                echo $_GET['bene'];
+                                                                                            } else {
+                                                                                                echo  'None';
+    
+                                                                                            }
+                                                  ?></b></p>
+                                                    <!-- <p class="text-muted font-13">Total Collections</p> -->
+                                                </div>
+
+                                             
             
                                             </div><!-- end col -->
                                             <div class="col-sm-4 offset-sm-2">
-                                                <div class="mt-3 float-sm-end">
-                                                    <!-- <p class="font-13"><strong>Transaction Date: </strong> <span class="float-end">&nbsp;&nbsp;&nbsp; </?//php  transactionsdate(); ?></span></p> -->
+                                                <!-- <div class="mt-3 float-sm-end">
+                                                    <p class="font-13"><strong>Beneficiary Name: </strong> <span class="float-end">&nbsp;&nbsp;&nbsp; <?php  echo $_GET['bene']; ?></span></p> -->
+                                                    <!-- <p class="font-13"><strong>Transaction Status: </strong> <span class="badge bg-success float-end">Paid</span></p> -->
 
-                                                    <?php if($user['paystatus'] == "paid") {
-                                                    echo '<p class="font-13"><strong>Transaction Status: </strong> <span class="badge bg-success float-end">Paid</span></p>';
-
-                                                    }else{
-                                                        echo '<p class="font-13"><strong>Transaction Status: </strong> <span class="badge bg-danger float-end">N/A</span></p>';
-
-                                                    }
-                                                    
-                                                    ?>
-                                                    <p class="font-13"><strong>Transaction No: </strong> <span class="float-end"><//?php  ReportId(); ?></span></p>
-                                                </div>
-                                            </div><!-- end col -->
+                                                   
+                                                    <!-- <p class="font-13"><strong>Transaction No: </strong> <span class="float-end"><//?php  ReportId(); ?></span></p> -->
+                                                <!-- </div> -->
+                                            </div>
                                         </div>
                                         <!-- end row -->
-            
+<!--             
                                         <div class="row mt-6">
                                             <div class="col-sm-6">
                                                 <h6>Billing Info</h6>
                                                 <address>
-                                                    <?php echo $user['name'] ?><br>
-                                                    <?php echo $user['contact'] ?><br>
-                                                    <!-- San Franisco, CA 94107<br>
-                                                    <abbr title="Phone">P:</abbr> (123) 456-7890c -->
+                                                    <//?php echo $user['name'] ?><br>
+                                                    <//?php echo $user['contact'] ?><br>
+                                                    San Franisco, CA 94107<br>
+                                                    <abbr title="Phone">P:</abbr> (123) 456-7890c
                                                 </address>
-                                            </div> <!-- end col-->
+                                            </div>  -->
             
                                             <!-- <div class="col-sm-4">
                                                 <h6>Shipping Address</h6>
@@ -192,11 +276,11 @@ $user = adminmembers();
                                                 </address>
                                             </div>  -->
             
-                                            <div class="col-sm-6">
+                                            <!-- <div class="col-sm-6">
                                                 <div class="text-sm-end">
-                                                    <img src="assets/images/barcode.png" alt="barcode-image" class="img-fluid me-2" />
+                                                    <img src="assets/images/qr.png" alt="barcode-image" class="img-fluid me-2" />
                                                 </div>
-                                            </div> <!-- end col-->
+                                            </div>  -->
                                         </div>    
                                         <!-- end row -->        
     
@@ -206,16 +290,31 @@ $user = adminmembers();
                                                     <table class="table mt-4">
                                                         <thead>
                                                         <tr><th>#</th>
-                                                            <th>Membership Type</th>
-                                                            <th>Transaction Date</th>
-                                                            <th>Transaction ID</th>
+                                                            <th>Name</th>
+                                                            <th>Currency</th>
                                                             <th>Amount</th>
-                                                            <th class="text-end">Total</th>
+                                                            <th>Payment Method</th>
+                                                            <!-- <th class="text-end">Total</th> -->
                                                         </tr></thead>
                                                         <tbody>
                                                         
                                                        
-                                                        <?php transactions($_SESSION['id']); ?>
+                                                        <?php 
+
+                                                      
+
+                                                                                        if (isset($_GET['btnupdate'])) {
+                                                                                            echo transactions($_GET['bene']);
+                                                                                        } else {
+                                                                                            echo  '<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please Select a Beneficiary to generate report</p>';
+
+                                                                                        }
+
+                                                                                      
+                                                        
+                                                        
+                                                        
+                                                         ?>
                                                        
                                                         </tbody>
                                                     </table>
@@ -227,17 +326,26 @@ $user = adminmembers();
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="clearfix pt-3">
-                                                    <h6 class="text-muted">Contact Us:</h6>
+                                                    <h6 class="text-muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact Us:</h6>
                                                     <small>
-                                                        +233 24 499 6991
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +233 244 564 5644
                                                     </small>
                                                 </div>
                                             </div> <!-- end col -->
                                             <div class="col-sm-6">
                                                 <div class="float-end mt-3 mt-sm-0">
-                                                    <p><b>Sub-total:</b> <span class="float-end"><?php  ?></span></p>
+                                                    <p><b>Sub-total: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b> <span class="float-end"><?php  ?></span></p>
                                                     <!-- <p><b>VAT (12.5):</b> <span class="float-end">$515.00</span></p> -->
-                                                    <h3><?php echo 'Gh₵ '. transactionstotal(); ?></h3>
+                                                    <h3><?php 
+
+
+                                                    if (isset($_GET['btnupdate'])) {
+                                                        echo 'Gh₵ ' .transactionstotal($_GET['bene'] . '  ' );
+                                                    } else {
+                                                        echo  'Gh₵ 0';
+                                                    }
+                                                    
+                                                     ?></h3>
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </div> <!-- end col -->
@@ -256,6 +364,7 @@ $user = adminmembers();
                                 </div> <!-- end card -->
                             </div> <!-- end col-->
                         </div>
+               
                         <!-- end row -->
                         
                     </div> <!-- container -->
@@ -267,6 +376,7 @@ $user = adminmembers();
                 <!-- end Footer -->
 
             </div>
+            
 
        
 

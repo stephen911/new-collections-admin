@@ -349,6 +349,15 @@
             <span> Add Beneficiary</span>
         </a>
     </li>
+
+    <li class="side-nav-item">
+        <a href="report.php"  class="side-nav-link">
+            <i class="uil-globe"></i>
+            <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
+            <span>Reports</span>
+        </a>
+    </li>
+
     <!-- <li class="side-nav-item">
         <a href="upload_counsellors.php"  class="side-nav-link">
             <i class="uil-globe"></i>

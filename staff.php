@@ -159,10 +159,10 @@ $user = adminmembers();
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="#">OMNIBSIC</a></li>
                                         <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                                        <li class="breadcrumb-item active">Counsellors</li>
+                                        <li class="breadcrumb-item active">Tellers</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Counsellors</h4>
+                                <h4 class="page-title">Tellers</h4>
                             </div>
                         </div>
                     </div>
