@@ -351,6 +351,14 @@
     </li>
 
     <li class="side-nav-item">
+        <a href="add_event.php"  class="side-nav-link">
+            <i class="uil-globe"></i>
+            <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
+            <span> Add Event</span>
+        </a>
+    </li>
+
+    <li class="side-nav-item">
         <a href="report.php"  class="side-nav-link">
             <i class="uil-globe"></i>
             <!-- <span class="badge bg-secondary text-light float-end">New</span> -->

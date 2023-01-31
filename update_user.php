@@ -211,6 +211,17 @@ $user1 = userstaff();
 
                                                     </select>
                                                 </div> 
+
+                                                <div class="mb-3">
+                                                    <label for="example-select" class="form-label">Event</label>
+                                                    <select class="form-select" id="example-select" name="event">
+                                                    <option selected value="<?php echo ($user1['event'] == '') ? '' : $user1['event']; ?>"><?php echo ($user1['event'] == '') ? 'Assign Event ' : $user1['event']; ?></option>
+                                                    
+                                                        <?php getevent() ?>
+
+                                                    </select>
+                                                </div> 
+                                                
                                                 
 
                                                 <div class="mb-3">

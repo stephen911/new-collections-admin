@@ -89,13 +89,13 @@ function upmembers()
 
 
 
-function updatestaff($id, $name, $email,  $contact, $pin, $bene)
+function updatestaff($id, $name, $email,  $contact, $pin, $bene, $event)
 
 {
     include 'starter.php';
     // $id = $_GET['id'];
     extract($_POST);
-    $up = mysqli_query($conn, "UPDATE core_staffuser SET username = '$name', email='$email', contact= '$contact', pin='$pin', bene_uid='$bene'   WHERE id='$id'  ");
+    $up = mysqli_query($conn, "UPDATE core_staffuser SET username = '$name', email='$email', contact= '$contact', pin='$pin', bene_uid='$bene', event='$event'   WHERE id='$id'  ");
     if ($up) {
         echo 'Updated Successfully';
     } else {
@@ -703,7 +703,7 @@ function register1($name, $contact,)
 }
 
 
-function addstaff($name, $contact, $bene, $pin)
+function addstaff($name, $contact, $bene, $pin, $event)
 {
   
     include 'starter.php';
@@ -722,10 +722,25 @@ function addstaff($name, $contact, $bene, $pin)
     $password = 'pbkdf2_sha256$390000$GRYVoUS4ebSJFxTkXtz5zU$Qcz9n/jTD0FbnMu/me8kg5RFydEhmlvPvKfaajTQFXM=';
     $num = 1;
 
-    $ins = mysqli_query($conn, "INSERT INTO core_staffuser (username,contact,bene_uid,pin,password,is_staff,is_superuser,is_active) VALUES ('$name','$contact','$bene','$pin','$password','$num','$num','$num')");
+    $ins = mysqli_query($conn, "INSERT INTO core_staffuser (username,contact,bene_uid,pin,password,is_staff,is_superuser,is_active,event) VALUES ('$name','$contact','$bene','$pin','$password','$num','$num','$num', '$event')");
 
 	if ($ins) {
 		echo "staffadded";
+	} else {
+		echo "failed";
+	}
+}
+
+
+
+function addevent($name)
+{
+  
+    include 'starter.php';
+
+    $ins = mysqli_query($conn, "INSERT INTO core_event (event) VALUES ('$name')");
+	if ($ins) {
+		echo "eventadded";
 	} else {
 		echo "failed";
 	}
@@ -826,6 +841,23 @@ function getbene()
         ';
 
         // echo '<input id="email" type="hidden"  value="' . $row['image'] . '" class="form-control" name="photo">';
+
+        
+    }
+}
+
+
+function getevent()
+{
+    include 'starter.php';
+    $u = mysqli_query($conn, 'SELECT * FROM core_event ORDER BY id DESC ');
+    // $y = mysqli_query($conn, 'SELECT * FROM transactions ORDER BY uid DESC ');
+
+    while ($row = mysqli_fetch_array($u)) {
+
+        echo '
+        <option value="' . $row['event'] . '">' . $row['event'] . '</option>
+        ';
 
         
     }

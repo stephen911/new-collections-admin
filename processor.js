@@ -219,6 +219,20 @@ $(function () {
       }).then(function (result) {
         // window.location = "users.php";
       });
+    } 
+    else if (response == "eventadded") {
+      swal({
+        title: "Success",
+        text: "Event added Successfully",
+        timer: 1000,
+        type: "success",
+        padding: "2em",
+        onOpen: function () {
+          swal.showLoading();
+        },
+      }).then(function (result) {
+        // window.location = "users.php";
+      });
     } else if (response == "attended") {
       swal({
         title: "Success",
@@ -540,6 +554,24 @@ $(function () {
     // var id = $(this).attr('id');
     var staff = {
       url: "processor.php?action=staff",
+      type: "post",
+      data: new FormData(this),
+      cache: false,
+      contentType: false,
+      processData: false,
+      beforeSend: before,
+      success: resp,
+    };
+    $.ajax(staff);
+  });
+
+
+  $(".event").submit(function (e) {
+    e.preventDefault();
+    // before();
+    // var id = $(this).attr('id');
+    var staff = {
+      url: "processor.php?action=event",
       type: "post",
       data: new FormData(this),
       cache: false,

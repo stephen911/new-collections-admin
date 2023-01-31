@@ -156,59 +156,17 @@ $user = adminmembers();
 
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="form-row-preview">
-                                            <form action="" novalidate method="get" class="staff" enctype='multipart/form-data'>
-                                               
-
+                                            <form action="" novalidate method="get" class="event">
                                                 <div class="mb-3">
-                                                    <label for="emailaddress" class="form-label">Name</label>
-                                                    <input class="form-control" type="text" id="name" required placeholder="Enter Staff's Name" name="name" >
+                                                    <label for="emailaddress" class="form-label">Event Name</label>
+                                                    <input class="form-control" type="text" id="name" required placeholder="Enter Name of Event" name="name" >
                                                     <input id="email" type="hidden" placeholder="" value="<?php echo  $user['id']; ?>" class="form-control" name="id">
-                                                </div>
-
-                                             
-                                                <div class="mb-3">
-                                                    <label for="emailaddress" class="form-label">Phone Number</label>
-                                                    <input class="form-control" type="text" id="name" required placeholder="Enter Staff's Phone Number" name="contact" >
-                                                </div>
-
-                                                <div class="mb-3">
-                                                    <label for="example-select" class="form-label">Beneficiary's Name</label>
-                                                    <select class="form-select" id="example-select" name="bene">
-                                                    
-                                                        <?php getbene() ?>
-
-                                                    </select>
-                                                </div> 
-
-                                                <div class="mb-3">
-                                                    <label for="example-select" class="form-label">Event</label>
-                                                    <select class="form-select" id="example-select" name="event">                
-                                                        <?php getevent() ?>
-                                                    </select>
-                                                </div> 
-
-
-                                                <div class="mb-3">
-                                                    <label for="emailaddress" class="form-label">Pin</label>
-                                                    <input class="form-control" type="text" id="pin" required placeholder="Enter Staff's Pin" name="pin" >
-                                                </div>
-
-                                                
-
-                                               
+                                                </div>         
                                         </div>
 
-                                       
-
-
-
-
-
-
-                                    
 
                                         <div class="mb-3 text-center">
-                                            <button class="btn btn-primary" type="submit"> Add Staff </button>
+                                            <button class="btn btn-primary" type="submit"> Add Event </button>
                                         </div>
 
                                         </form>
