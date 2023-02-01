@@ -1464,6 +1464,25 @@ function cheque_spec($bene)
     // echo  number_format($ghs, 2);
 }
 
+
+function gifts_spec($bene)
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $gifts = 0;
+   
+    while ($row = mysqli_fetch_array($c)) {
+        if ($row['payment_method'] == 'Gifts') {
+            
+                $gifts = $gifts + 1;
+            }
+
+    }
+
+    echo  $gifts;
+    // echo  number_format($ghs, 2);
+}
+
 function gbp()
 {
     include 'starter.php';
