@@ -220,6 +220,20 @@ $(function () {
         // window.location = "users.php";
       });
     } 
+    else if (response == "rateadded") {
+      swal({
+        title: "Success",
+        text: "Rate added Successfully",
+        timer: 1000,
+        type: "success",
+        padding: "2em",
+        onOpen: function () {
+          swal.showLoading();
+        },
+      }).then(function (result) {
+        // window.location = "users.php";
+      });
+    } 
     else if (response == "eventadded") {
       swal({
         title: "Success",
@@ -327,6 +341,23 @@ $(function () {
     // var id = $(this).attr('id');
     var staff = {
       url: "processor.php?action=updatestaff",
+      type: "post",
+      data: new FormData(this),
+      cache: false,
+      contentType: false,
+      processData: false,
+      beforeSend: before,
+      success: resp,
+    };
+    $.ajax(staff);
+  });
+
+  $(".updaterate").submit(function (e) {
+    e.preventDefault();
+    // before();
+    // var id = $(this).attr('id');
+    var staff = {
+      url: "processor.php?action=updaterate",
       type: "post",
       data: new FormData(this),
       cache: false,
@@ -565,6 +596,22 @@ $(function () {
     $.ajax(staff);
   });
 
+  $(".rate").submit(function (e) {
+    e.preventDefault();
+    // before();
+    // var id = $(this).attr('id');
+    var staff = {
+      url: "processor.php?action=rate",
+      type: "post",
+      data: new FormData(this),
+      cache: false,
+      contentType: false,
+      processData: false,
+      beforeSend: before,
+      success: resp,
+    };
+    $.ajax(staff);
+  });
 
   $(".event").submit(function (e) {
     e.preventDefault();

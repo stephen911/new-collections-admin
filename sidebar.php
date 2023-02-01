@@ -307,14 +307,14 @@
         <a href="dashboard_user.php"  class="side-nav-link">
         <i class="uil-home-alt"></i>
             <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
-            <span> Specific </span>
+            <span> Specific Beneficiary</span>
         </a>
     </li>
     <li class="side-nav-item">
         <a href="users.php"  class="side-nav-link">
             <i class="uil-globe"></i>
             <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
-            <span> Donors</span>
+            <span> Donors </span>
         </a>
     </li>
 
@@ -322,7 +322,7 @@
         <a href="staff.php"  class="side-nav-link">
             <i class="uil-globe"></i>
             <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
-            <span>Staff</span>
+            <span>Staffs</span>
         </a>
     </li>
 
@@ -363,6 +363,21 @@
             <i class="uil-globe"></i>
             <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
             <span>Reports</span>
+        </a>
+    </li>
+    <li class="side-nav-item">
+        <a href="view_rates.php"  class="side-nav-link">
+            <i class="uil-globe"></i>
+            <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
+            <span>Rates</span>
+        </a>
+    </li>
+
+    <li class="side-nav-item">
+        <a href="rates.php"  class="side-nav-link">
+            <i class="uil-globe"></i>
+            <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
+            <span>Add Rates</span>
         </a>
     </li>
 

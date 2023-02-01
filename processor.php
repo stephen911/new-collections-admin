@@ -18,6 +18,12 @@ if (isset($_GET['action'])) {
             updatestaff($id, $name, $email, $contact, $pin, $bene, $event);
             break;
 
+        case 'updaterate':
+            extract($_POST);
+            // extract($_POST);
+            updaterate($id, $usd, $gbp, $eur, $cfa);
+            break;
+
         case 'cfuser':
             extract($_POST);
             // extract($_POST);
@@ -71,7 +77,12 @@ if (isset($_GET['action'])) {
             addstaff($name, $contact, $bene, $pin, $event);
 
             break;
+        
+        case 'rate':
+            extract($_POST);
+            addrate($usd, $gbp, $eur, $cfa);
 
+            break;
         case 'event':
             extract($_POST);
             addevent($name);

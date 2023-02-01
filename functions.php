@@ -103,6 +103,19 @@ function updatestaff($id, $name, $email,  $contact, $pin, $bene, $event)
     }
 }
 
+function updaterate($id, $usd, $gbp, $eur, $cfa)
+
+{
+    include 'starter.php';
+    extract($_POST);
+    $up = mysqli_query($conn, "UPDATE core_rates SET usd='$usd',gbp='$gbp',eur='$eur',cfa='$cfa' WHERE id='$id'  ");
+    if ($up) {
+        echo 'Updated Successfully';
+    } else {
+        echo 'Failed to update record . Try again';
+    }
+}
+
 
 function userstaff()
 {
@@ -682,68 +695,75 @@ function register($name, $email, $password)
 
 function register1($name, $contact,)
 {
-  
+
     include 'starter.php';
 
 
-	$filename = $_FILES["image"]["name"];
-	$tempname = $_FILES["image"]["tmp_name"];
-	$folder = "assets/images/" . $filename;
+    $filename = $_FILES["image"]["name"];
+    $tempname = $_FILES["image"]["tmp_name"];
+    $folder = "assets/images/" . $filename;
 
     $dd = date('jS F, Y');
 
     $ins = mysqli_query($conn, "INSERT INTO core_beneficiaries (name,contact,image,date) VALUES('$name','$contact','$folder','$dd')");
 
-	// Now let's move the uploaded image into the folder: image
-	if (move_uploaded_file($tempname, $folder) && $ins) {
-		echo "beneadded";
-	} else {
-		echo "failed";
-	}
+    // Now let's move the uploaded image into the folder: image
+    if (move_uploaded_file($tempname, $folder) && $ins) {
+        echo "beneadded";
+    } else {
+        echo "failed";
+    }
 }
 
 
 function addstaff($name, $contact, $bene, $pin, $event)
 {
-  
+
     include 'starter.php';
 
-    
 
-
-    // $iterations=390000; 
-    // $algorithm='sha256'; 
-
-
-    // $salt = base64_encode(openssl_random_pseudo_bytes(9));
-
-    // $hash = hash_pbkdf2($algorithm, $password, $salt, $iterations, 32, true);
 
     $password = 'pbkdf2_sha256$390000$GRYVoUS4ebSJFxTkXtz5zU$Qcz9n/jTD0FbnMu/me8kg5RFydEhmlvPvKfaajTQFXM=';
     $num = 1;
 
     $ins = mysqli_query($conn, "INSERT INTO core_staffuser (username,contact,bene_uid,pin,password,is_staff,is_superuser,is_active,event) VALUES ('$name','$contact','$bene','$pin','$password','$num','$num','$num', '$event')");
 
-	if ($ins) {
-		echo "staffadded";
-	} else {
-		echo "failed";
-	}
+    if ($ins) {
+        echo "staffadded";
+    } else {
+        echo "failed";
+    }
+}
+
+
+function addrate($usd, $gbp, $eur, $cfa)
+{
+
+    include 'starter.php';
+
+    $dd = date('jS F, Y');
+    $ins = mysqli_query($conn, "INSERT INTO core_rates (usd,gbp,eur,cfa,date) VALUES ('$usd','$gbp','$eur','$cfa','$dd')");
+
+    if ($ins) {
+        echo "rateadded";
+    } else {
+        echo "failed";
+    }
 }
 
 
 
 function addevent($name)
 {
-  
+
     include 'starter.php';
 
     $ins = mysqli_query($conn, "INSERT INTO core_event (event) VALUES ('$name')");
-	if ($ins) {
-		echo "eventadded";
-	} else {
-		echo "failed";
-	}
+    if ($ins) {
+        echo "eventadded";
+    } else {
+        echo "failed";
+    }
 }
 
 
@@ -821,7 +841,7 @@ function transactions($bene)
         
     </tr>';
 
-    $num = $num + 1;
+        $num = $num + 1;
         // code...
     }
 }
@@ -842,7 +862,7 @@ function getbene()
 
         // echo '<input id="email" type="hidden"  value="' . $row['image'] . '" class="form-control" name="photo">';
 
-        
+
     }
 }
 
@@ -858,8 +878,6 @@ function getevent()
         echo '
         <option value="' . $row['event'] . '">' . $row['event'] . '</option>
         ';
-
-        
     }
 }
 
@@ -880,7 +898,7 @@ function getbene_spec()
 
         // echo '<input id="email" type="hidden"  value="' . $row['image'] . '" class="form-control" name="photo">';
 
-        
+
     }
 }
 
@@ -950,6 +968,37 @@ function staff()
     </tr>';
     }
 }
+
+
+function rates()
+{
+    include 'starter.php';
+    $u = mysqli_query($conn, 'SELECT * FROM core_rates ORDER BY id DESC ');
+    // $y = mysqli_query($conn, 'SELECT * FROM transactions ORDER BY uid DESC ');
+
+    while ($row = mysqli_fetch_array($u)) {
+        // $y = mysqli_query($conn, 'SELECT * FROM transactions WHERE uid = ' . $row['id'] . ' ');
+
+        // $row2 = mysqli_fetch_array($y);
+
+        echo '<tr>
+                <td>' . $row['id'] . '</td>
+                <td>' . $row['usd'] . '</td>
+                <td>' . $row['gbp'] . '</td>
+                <td> <span class="js-lists-values-employee-name">' . $row['eur'] . '</span></td>
+
+
+                <td><span class="js-lists-values-employee-title">' . $row['cfa'] . '</span></td>
+
+
+                <td><a class="btn btn-primary" href="update_rate.php?id=' . $row['id'] . '"><i class="fa fa-edit"></i></a></td>                                                
+                </tr>';
+    }
+}
+
+
+
+
 
 function bene()
 {
@@ -1281,23 +1330,12 @@ function transactionstotal($bene)
     while ($row = mysqli_fetch_array($u)) {
 
         $amount = $amount + $row['amount'];
-        // $y = mysqli_query($conn, "SELECT * FROM  transactions WHERE uid = '$id'");
-
-
-        // while ($row2 = mysqli_fetch_array($y)) {
-
-        //     // echo $id;
-        //     // echo $row2['uid'];
-        //     // echo $row['id'];
-
-        //     if ($row2['uid'] == $row['id']) {
-
-        //         $amount = $amount + $row2['amount'];
-        //     }
-        // }
     }
+    // $amountt = new \NumberFormatter( 'de_DE', \NumberFormatter::CURRENCY );
 
-    return $amount;
+    // return $amountt->format( $amount );
+
+    return number_format($amount, 2);
 }
 
 
