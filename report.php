@@ -261,12 +261,12 @@ $user = adminmembers();
                                                 </div>
                                                 <div class="float-end">
                                                     <p><b>Cash: &nbsp; <?php
-                                                                                                if (isset($_GET['btnupdate'])) {
-                                                                                                    echo cash_spec($_GET['bene']);
-                                                                                                } else {
-                                                                                                    echo  'GHS 0';
-                                                                                                }
-                                                                                                ?></b></p>
+                                                                        if (isset($_GET['btnupdate'])) {
+                                                                            echo cash_spec($_GET['bene']);
+                                                                        } else {
+                                                                            echo  'GHS 0';
+                                                                        }
+                                                                        ?></b></p>
 
                                                 </div>
 
@@ -300,12 +300,12 @@ $user = adminmembers();
                                                 </div>
                                                 <div class="float-end">
                                                     <p><b>Momo: &nbsp; <?php
-                                                                                                if (isset($_GET['btnupdate'])) {
-                                                                                                    echo momo_spec($_GET['bene']);
-                                                                                                } else {
-                                                                                                    echo  'GHS 0';
-                                                                                                }
-                                                                                                ?></b></p>
+                                                                        if (isset($_GET['btnupdate'])) {
+                                                                            echo momo_spec($_GET['bene']);
+                                                                        } else {
+                                                                            echo  'GHS 0';
+                                                                        }
+                                                                        ?></b></p>
 
                                                 </div>
 
@@ -339,12 +339,12 @@ $user = adminmembers();
                                                 </div>
                                                 <div class="float-end">
                                                     <p><b>Credit Card: &nbsp; <?php
-                                                                                                if (isset($_GET['btnupdate'])) {
-                                                                                                    echo visa_spec($_GET['bene']);
-                                                                                                } else {
-                                                                                                    echo  'GHS 0';
-                                                                                                }
-                                                                                                ?></b></p>
+                                                                                if (isset($_GET['btnupdate'])) {
+                                                                                    echo visa_spec($_GET['bene']);
+                                                                                } else {
+                                                                                    echo  'GHS 0';
+                                                                                }
+                                                                                ?></b></p>
 
                                                 </div>
 
@@ -379,12 +379,12 @@ $user = adminmembers();
                                                 </div>
                                                 <div class="float-end">
                                                     <p><b>Cheque: &nbsp; <?php
-                                                                                                if (isset($_GET['btnupdate'])) {
-                                                                                                    echo cheque_spec($_GET['bene']);
-                                                                                                } else {
-                                                                                                    echo  'GHS 0';
-                                                                                                }
-                                                                                                ?></b></p>
+                                                                            if (isset($_GET['btnupdate'])) {
+                                                                                echo cheque_spec($_GET['bene']);
+                                                                            } else {
+                                                                                echo  'GHS 0';
+                                                                            }
+                                                                            ?></b></p>
 
                                                 </div>
 
