@@ -4,6 +4,8 @@ include 'functions.php';
 // include 'yolkpay.php';
 // $yolk = new YolkPay();
 
+header("Refresh:10");
+
 checker();
 $user = adminmembers();
 //  var_dump($_SESSION['id']);
@@ -303,24 +305,88 @@ $user = adminmembers();
                         </div> <!-- end col-->
                     </div>
                     <!-- end row -->
-
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="card tilebox-one">
                                 <div class="card-body">
                                     <i class="ri-shopping-basket-2-line float-end text-muted"></i>
-                                    <h6 class="text-muted text-uppercase mt-0">Total</h6>
+                                    <h6 class="text-muted text-uppercase mt-0">USD</h6>
                                     <h2 class="m-b-20"><?php
-
                                                         if (isset($_GET['btnupdate'])) {
-                                                            echo countmembers_spec($_GET['bene']);
+                                                            echo usd_spec($_GET['bene']);
                                                         } else {
-
-                                                            echo 'GHS 0';
+                                                            echo 'USD 0';
                                                         }
 
 
+
+
                                                         ?></h2>
+                                    <!-- <span class="badge bg-primary"> +11% </span> <span class="text-muted">From previous period</span> -->
+                                </div> <!-- end card-body-->
+                            </div>
+                            <!--end card-->
+                        </div><!-- end col -->
+
+                        <div class="col-sm-4">
+                            <div class="card tilebox-one">
+                                <div class="card-body">
+                                    <i class="ri-shopping-basket-2-line float-end text-muted"></i>
+                                    <h6 class="text-muted text-uppercase mt-0">GBP</h6>
+                                    <h2 class="m-b-20"><?php
+
+                                                        if (isset($_GET['btnupdate'])) {
+                                                            echo gbp_spec($_GET['bene']);
+                                                        } else {
+                                                            echo 'GBP 0';
+                                                        }
+                                                        ?></h2>
+                                    <!-- <span class="badge bg-primary"> +11% </span> <span class="text-muted">From previous period</span> -->
+                                </div> <!-- end card-body-->
+                            </div>
+                            <!--end card-->
+                        </div><!-- end col -->
+
+                        <div class="col-sm-4">
+                            <div class="card tilebox-one">
+                                <div class="card-body">
+                                    <i class="ri-shopping-basket-2-line float-end text-muted"></i>
+                                    <h6 class="text-muted text-uppercase mt-0">EUR</h6>
+                                    <h2 class="m-b-20"><?php
+                                                        if (isset($_GET['btnupdate'])) {
+                                                            echo eur_spec($_GET['bene']);
+                                                        } else {
+                                                            echo 'EUR 0';
+                                                        }
+                                                        ?></h2>
+                                    <!-- <span class="badge bg-primary"> +11% </span> <span class="text-muted">From previous period</span> -->
+                                </div> <!-- end card-body-->
+                            </div>
+                            <!--end card-->
+                        </div><!-- end col -->
+
+
+
+
+
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="card tilebox-one">
+                                <div class="card-body">
+                                    <i class="ri-shopping-basket-2-line float-end text-muted"></i>
+                                    <h6 class="text-muted text-uppercase mt-0">CFA</h6>
+                                    <h2 class="m-b-20"><?php 
+                                     if (isset($_GET['btnupdate'])) {
+                                        echo cfa_spec($_GET['bene']);
+                                    } else {
+                                        echo 'CFA 0';
+                                    }
+            
+                                    
+                                   ?></h2>
                                     <!-- <span class="badge bg-primary"> +11% </span> <span class="text-muted">From previous period</span> -->
                                 </div> <!-- end card-body-->
                             </div>
@@ -363,8 +429,9 @@ $user = adminmembers();
 
 
 
-
                     </div>
+
+                    
 
 
 

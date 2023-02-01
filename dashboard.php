@@ -157,6 +157,7 @@ $user = adminmembers();
                                                                 <h5 class="mb-1 text-white"><?php echo countmembers() ?></h5>
                                                                 <p class="mb-0 font-13 text-white-50">Total Amount</p>
                                                             </li>
+                                                          
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -185,8 +186,52 @@ $user = adminmembers();
                                 <div class="card tilebox-one">
                                     <div class="card-body">
                                         <i class="ri-shopping-basket-2-line float-end text-muted"></i>
-                                        <h6 class="text-muted text-uppercase mt-0">Total</h6>
-                                        <h2 class="m-b-20"><?php echo countmembers() ?></h2>
+                                        <h6 class="text-muted text-uppercase mt-0">USD</h6>
+                                        <h2 class="m-b-20"><?php echo usd() ?></h2>
+                                        <!-- <span class="badge bg-primary"> +11% </span> <span class="text-muted">From previous period</span> -->
+                                    </div> <!-- end card-body-->
+                                </div>
+                                <!--end card-->
+                            </div><!-- end col -->
+
+                            <div class="col-sm-4">
+                                <div class="card tilebox-one">
+                                    <div class="card-body">
+                                        <i class="ri-shopping-basket-2-line float-end text-muted"></i>
+                                        <h6 class="text-muted text-uppercase mt-0">GBP</h6>
+                                        <h2 class="m-b-20"><?php echo gbp() ?></h2>
+                                        <!-- <span class="badge bg-primary"> +11% </span> <span class="text-muted">From previous period</span> -->
+                                    </div> <!-- end card-body-->
+                                </div>
+                                <!--end card-->
+                            </div><!-- end col -->
+
+                            <div class="col-sm-4">
+                                <div class="card tilebox-one">
+                                    <div class="card-body">
+                                        <i class="ri-shopping-basket-2-line float-end text-muted"></i>
+                                        <h6 class="text-muted text-uppercase mt-0">EUR</h6>
+                                        <h2 class="m-b-20"><?php echo eur() ?></h2>
+                                        <!-- <span class="badge bg-primary"> +11% </span> <span class="text-muted">From previous period</span> -->
+                                    </div> <!-- end card-body-->
+                                </div>
+                                <!--end card-->
+                            </div><!-- end col -->
+
+                           
+
+    
+
+                            
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="card tilebox-one">
+                                    <div class="card-body">
+                                        <i class="ri-shopping-basket-2-line float-end text-muted"></i>
+                                        <h6 class="text-muted text-uppercase mt-0">CFA</h6>
+                                        <h2 class="m-b-20"><?php echo cfa() ?></h2>
                                         <!-- <span class="badge bg-primary"> +11% </span> <span class="text-muted">From previous period</span> -->
                                     </div> <!-- end card-body-->
                                 </div>
@@ -216,7 +261,6 @@ $user = adminmembers();
                                 </div>
                                 <!--end card-->
                             </div><!-- end col -->
-
     
 
                             

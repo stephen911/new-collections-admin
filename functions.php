@@ -1212,37 +1212,384 @@ function countmembers()
 {
     include 'starter.php';
     $c = mysqli_query($conn, 'SELECT * FROM core_account');
+    $d = mysqli_query($conn, 'SELECT * FROM core_rates');
+    $row2 = mysqli_fetch_array($d);
+    $amount = 0;
+    $usd = 0;
+    $eur = 0;
+    $gbp = 0;
+    $cfa = 0;
+    $ghc = 0;
+
+    while ($row = mysqli_fetch_array($c)) {
+        if ($row['currency'] == 'USD') {
+            $usd = $usd + $row['amount'];
+        } else if ($row['currency'] == 'GBP') {
+            $gbp = $gbp + $row['amount'];
+        } else if ($row['currency'] == 'EUR') {
+            $eur = $eur + $row['amount'];
+        } else if ($row['currency'] == 'CFA') {
+            $cfa = $cfa + $row['amount'];
+        } else if ($row['currency'] == 'GHS') {
+            $ghc = $ghc + $row['amount'];
+        }
+    }
+
+    $usd = $usd * $row2['usd'];
+    $gbp = $gbp * $row2['gbp'];
+    $eur = $eur * $row2['eur'];
+    $cfa = $cfa * $row2['cfa'];
+
+
+    $ghs = $ghc + $usd + $gbp + $eur + $cfa;
+
+    echo  'GH₵ ' . number_format($ghs, 2);
+}
+
+function usd()
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, 'SELECT * FROM core_account');
     $amount = 0;
     while ($row = mysqli_fetch_array($c)) {
-        $amount = $amount + $row['amount'];
-        // $count = $c['amount'];
-
-
-
+        if ($row['currency'] == 'USD') {
+            $amount = $amount + $row['amount'];
+        }
     }
-    // $amount = 0;
-    // $amount = $amount + $c['amount'];
-    // $count = $c['amount'];
-    // $count = mysqli_num_rows($c);
 
-    echo  'GH₵ ' . $amount;
+    echo  'USD ' . number_format($amount, 2);
+}
+
+function usd_spec($bene)
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $amount = 0;
+    while ($row = mysqli_fetch_array($c)) {
+        if ($row['currency'] == 'USD') {
+            $amount = $amount + $row['amount'];
+        }
+    }
+
+    echo  'USD ' . number_format($amount, 2);
+}
+
+
+function cash_spec($bene)
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $amount = 0;
+    $d = mysqli_query($conn, 'SELECT * FROM core_rates');
+    $row2 = mysqli_fetch_array($d);
+    $amount = 0;
+    $usd = 0;
+    $eur = 0;
+    $gbp = 0;
+    $cfa = 0;
+    $ghc = 0;
+    while ($row = mysqli_fetch_array($c)) {
+        if ($row['payment_method'] == 'Cash') {
+
+
+            while ($row = mysqli_fetch_array($c)) {
+                if ($row['currency'] == 'USD') {
+                    $usd = $usd + $row['amount'];
+                } else if ($row['currency'] == 'GBP') {
+                    $gbp = $gbp + $row['amount'];
+                } else if ($row['currency'] == 'EUR') {
+                    $eur = $eur + $row['amount'];
+                } else if ($row['currency'] == 'CFA') {
+                    $cfa = $cfa + $row['amount'];
+                } else if ($row['currency'] == 'GHS') {
+                    $ghc = $ghc + $row['amount'];
+                }
+            }
+
+            $usd = $usd * $row2['usd'];
+            $gbp = $gbp * $row2['gbp'];
+            $eur = $eur * $row2['eur'];
+            $cfa = $cfa * $row2['cfa'];
+
+
+            $ghc = $ghc + $usd + $gbp + $eur + $cfa;
+
+            // echo  'GH₵ ' . number_format($ghs, 2);
+        }
+    }
+
+    echo  'GH₵ ' . number_format($ghc, 2);
+    // echo  number_format($ghs, 2);
+}
+
+function momo_spec($bene)
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $amount = 0;
+    $d = mysqli_query($conn, 'SELECT * FROM core_rates');
+    $row2 = mysqli_fetch_array($d);
+    $amount = 0;
+    $usd = 0;
+    $eur = 0;
+    $gbp = 0;
+    $cfa = 0;
+    $ghc = 0;
+    while ($row = mysqli_fetch_array($c)) {
+        if ($row['payment_method'] == 'Momo') {
+
+
+            while ($row = mysqli_fetch_array($c)) {
+                if ($row['currency'] == 'USD') {
+                    $usd = $usd + $row['amount'];
+                } else if ($row['currency'] == 'GBP') {
+                    $gbp = $gbp + $row['amount'];
+                } else if ($row['currency'] == 'EUR') {
+                    $eur = $eur + $row['amount'];
+                } else if ($row['currency'] == 'CFA') {
+                    $cfa = $cfa + $row['amount'];
+                } else if ($row['currency'] == 'GHS') {
+                    $ghc = $ghc + $row['amount'];
+                }
+            }
+
+            $usd = $usd * $row2['usd'];
+            $gbp = $gbp * $row2['gbp'];
+            $eur = $eur * $row2['eur'];
+            $cfa = $cfa * $row2['cfa'];
+
+
+            $ghs = $ghc + $usd + $gbp + $eur + $cfa;
+
+            // echo  'GH₵ ' . number_format($ghs, 2);
+        }
+    }
+
+    echo  'GH₵ ' . number_format($ghs, 2);
+    // echo  number_format($ghs, 2);
+}
+
+function visa_spec($bene)
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $amount = 0;
+    $d = mysqli_query($conn, 'SELECT * FROM core_rates');
+    $row2 = mysqli_fetch_array($d);
+    $amount = 0;
+    $usd = 0;
+    $eur = 0;
+    $gbp = 0;
+    $cfa = 0;
+    $ghc = 0;
+    while ($row = mysqli_fetch_array($c)) {
+        if ($row['payment_method'] == 'Visa') {
+
+
+            while ($row = mysqli_fetch_array($c)) {
+                if ($row['currency'] == 'USD') {
+                    $usd = $usd + $row['amount'];
+                } else if ($row['currency'] == 'GBP') {
+                    $gbp = $gbp + $row['amount'];
+                } else if ($row['currency'] == 'EUR') {
+                    $eur = $eur + $row['amount'];
+                } else if ($row['currency'] == 'CFA') {
+                    $cfa = $cfa + $row['amount'];
+                } else if ($row['currency'] == 'GHS') {
+                    $ghc = $ghc + $row['amount'];
+                }
+            }
+
+            $usd = $usd * $row2['usd'];
+            $gbp = $gbp * $row2['gbp'];
+            $eur = $eur * $row2['eur'];
+            $cfa = $cfa * $row2['cfa'];
+
+
+            $ghc = $ghc + $usd + $gbp + $eur + $cfa;
+
+            // echo  'GH₵ ' . number_format($ghs, 2);
+        }
+    }
+
+    echo  'GH₵ ' . number_format($ghc, 2);
+    // echo  number_format($ghs, 2);
+}
+
+
+function cheque_spec($bene)
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $amount = 0;
+    $d = mysqli_query($conn, 'SELECT * FROM core_rates');
+    $row2 = mysqli_fetch_array($d);
+    $amount = 0;
+    $usd = 0;
+    $eur = 0;
+    $gbp = 0;
+    $cfa = 0;
+    $ghc = 0;
+    while ($row = mysqli_fetch_array($c)) {
+        if ($row['payment_method'] == 'Cheque') {
+
+
+            while ($row = mysqli_fetch_array($c)) {
+                if ($row['currency'] == 'USD') {
+                    $usd = $usd + $row['amount'];
+                } else if ($row['currency'] == 'GBP') {
+                    $gbp = $gbp + $row['amount'];
+                } else if ($row['currency'] == 'EUR') {
+                    $eur = $eur + $row['amount'];
+                } else if ($row['currency'] == 'CFA') {
+                    $cfa = $cfa + $row['amount'];
+                } else if ($row['currency'] == 'GHS') {
+                    $ghc = $ghc + $row['amount'];
+                }
+            }
+
+            $usd = $usd * $row2['usd'];
+            $gbp = $gbp * $row2['gbp'];
+            $eur = $eur * $row2['eur'];
+            $cfa = $cfa * $row2['cfa'];
+
+
+            $ghc = $ghc + $usd + $gbp + $eur + $cfa;
+
+            // echo  'GH₵ ' . number_format($ghs, 2);
+        }
+    }
+
+    echo  'GH₵ ' . number_format($ghc, 2);
+    // echo  number_format($ghs, 2);
+}
+
+function gbp()
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, 'SELECT * FROM core_account');
+    $amount = 0;
+    while ($row = mysqli_fetch_array($c)) {
+        if ($row['currency'] == 'GBP') {
+            $amount = $amount + $row['amount'];
+        }
+    }
+
+    echo  'GBP ' . number_format($amount, 2);
+}
+
+
+function gbp_spec($bene)
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $amount = 0;
+    while ($row = mysqli_fetch_array($c)) {
+        if ($row['currency'] == 'GBP') {
+            $amount = $amount + $row['amount'];
+        }
+    }
+
+    echo  'GBP ' . number_format($amount, 2);
+}
+
+function eur()
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, 'SELECT * FROM core_account');
+    $amount = 0;
+    while ($row = mysqli_fetch_array($c)) {
+        if ($row['currency'] == 'EUR') {
+            $amount = $amount + $row['amount'];
+        }
+    }
+
+    echo  'EUR ' . number_format($amount, 2);
+}
+
+
+
+function eur_spec($bene)
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $amount = 0;
+    while ($row = mysqli_fetch_array($c)) {
+        if ($row['currency'] == 'EUR') {
+            $amount = $amount + $row['amount'];
+        }
+    }
+
+    echo  'EUR ' . number_format($amount, 2);
+}
+
+function cfa()
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, 'SELECT * FROM core_account');
+    $amount = 0;
+    while ($row = mysqli_fetch_array($c)) {
+        if ($row['currency'] == 'CFA') {
+            $amount = $amount + $row['amount'];
+        }
+    }
+
+    echo  'CFA ' . number_format($amount, 2);
+}
+
+
+function cfa_spec($bene)
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $amount = 0;
+    while ($row = mysqli_fetch_array($c)) {
+        if ($row['currency'] == 'CFA') {
+            $amount = $amount + $row['amount'];
+        }
+    }
+
+    echo  'CFA ' . number_format($amount, 2);
 }
 
 function countmembers_spec($bene)
 {
     include 'starter.php';
     $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    include 'starter.php';
+    // $c = mysqli_query($conn, 'SELECT * FROM core_account');
+    $d = mysqli_query($conn, 'SELECT * FROM core_rates');
+    $row2 = mysqli_fetch_array($d);
     $amount = 0;
-    while ($row = mysqli_fetch_array($c)) {
-        $amount = $amount + $row['amount'];
-        // $count = $c['amount'];
-    }
-    // $amount = 0;
-    // $amount = $amount + $c['amount'];
-    // $count = $c['amount'];
-    // $count = mysqli_num_rows($c);
+    $usd = 0;
+    $eur = 0;
+    $gbp = 0;
+    $cfa = 0;
+    $ghc = 0;
 
-    echo  'GH₵ ' . $amount;
+    while ($row = mysqli_fetch_array($c)) {
+        if ($row['currency'] == 'USD') {
+            $usd = $usd + $row['amount'];
+        } else if ($row['currency'] == 'GBP') {
+            $gbp = $gbp + $row['amount'];
+        } else if ($row['currency'] == 'EUR') {
+            $eur = $eur + $row['amount'];
+        } else if ($row['currency'] == 'CFA') {
+            $cfa = $cfa + $row['amount'];
+        } else if ($row['currency'] == 'GHS') {
+            $ghc = $ghc + $row['amount'];
+        }
+    }
+
+    $usd = $usd * $row2['usd'];
+    $gbp = $gbp * $row2['gbp'];
+    $eur = $eur * $row2['eur'];
+    $cfa = $cfa * $row2['cfa'];
+
+
+    $ghs = $ghc + $usd + $gbp + $eur + $cfa;
+
+    echo  'GH₵ ' . number_format($ghs, 2);
 }
 
 
@@ -1325,17 +1672,52 @@ function transactionstotal($bene)
 
     $u = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene' ORDER BY  pay_date DESC");
     // $y = mysqli_query($conn, 'SELECT * FROM transactions ORDER BY uid DESC ');
+    $c = mysqli_query($conn, 'SELECT * FROM core_account');
+    $d = mysqli_query($conn, 'SELECT * FROM core_rates');
+    $row2 = mysqli_fetch_array($d);
+    $amount = 0;
+    $usd = 0;
+    $eur = 0;
+    $gbp = 0;
+    $cfa = 0;
+    $ghc = 0;
 
     $amount = 0;
     while ($row = mysqli_fetch_array($u)) {
+    
+        if ($row['currency'] == 'USD') {
+            $usd = $usd + $row['amount'];
+        } else if ($row['currency'] == 'GBP') {
+            $gbp = $gbp + $row['amount'];
+        } else if ($row['currency'] == 'EUR') {
+            $eur = $eur + $row['amount'];
+        } else if ($row['currency'] == 'CFA') {
+            $cfa = $cfa + $row['amount'];
+        } else if ($row['currency'] == 'GHS') {
+            $ghc = $ghc + $row['amount'];
+        }
+    
 
-        $amount = $amount + $row['amount'];
+    
+        // $amount = $amount + $row['amount'];
     }
+
+
+    $usd = $usd * $row2['usd'];
+    $gbp = $gbp * $row2['gbp'];
+    $eur = $eur * $row2['eur'];
+    $cfa = $cfa * $row2['cfa'];
+
+
+    $ghc = $ghc + $usd + $gbp + $eur + $cfa;
+
+//    number_format($ghc, 2);
+
     // $amountt = new \NumberFormatter( 'de_DE', \NumberFormatter::CURRENCY );
 
     // return $amountt->format( $amount );
 
-    return number_format($amount, 2);
+    return number_format($ghc, 2);
 }
 
 
