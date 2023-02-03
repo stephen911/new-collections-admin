@@ -125,7 +125,7 @@ $user = adminmembers();
                                         <li class="breadcrumb-item active">Dashboard</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Dashboard</h4>
+                                <h4 class="page-title">Specific Beneficiary  Dashboard</h4>
                             </div>
                         </div>
                     </div>
@@ -135,9 +135,9 @@ $user = adminmembers();
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Edit Info</h4>
+                                    <h4 class="header-title">Specific Beneficiary Dashboard</h4>
                                     <p class="text-muted font-14">
-                                        Edit Your Info
+                                        Specific Beneficiary Dashboard
                                     </p>
 
 
