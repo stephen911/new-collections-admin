@@ -467,7 +467,7 @@ $user = adminmembers();
                                                         if (isset($_GET['btnupdate'])) {
                                                             echo transactions($_GET['bene']);
                                                         } else {
-                                                            echo  '<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please Select a Beneficiary to generate report</p>';
+                                                            echo  '<marquee><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please Select a Beneficiary from a section below this page to generate report</h4></marquee>';
                                                         }
 
 
@@ -499,7 +499,7 @@ $user = adminmembers();
                                                 
                                                 <h6 class="text-muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date:</h6>
                                                 <small>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date:  <?php echo date('jS F, Y'); ?>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo date('jS F, Y'); ?>
                                                 </small>
                                             </div>
                                             
@@ -541,9 +541,9 @@ $user = adminmembers();
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body noprint">
-                                    <h4 class="header-title">Edit Info</h4>
+                                    <h4 class="header-title">Select Beneficiary</h4>
                                     <p class="text-muted font-14">
-                                        Edit Your Info
+                                        To Generate the Report
                                     </p>
 
 

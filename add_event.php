@@ -132,10 +132,10 @@ $user = adminmembers();
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="#">OMNIBSIC</a></li>
                                         <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                                        <li class="breadcrumb-item active">Edit Info</li>
+                                        <li class="breadcrumb-item active">Add Events</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Edit Info</h4>
+                                <h4 class="page-title">Add Events</h4>
                             </div>
                         </div>
                     </div>
@@ -148,9 +148,9 @@ $user = adminmembers();
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Edit Info</h4>
+                                    <h4 class="header-title">Add Events</h4>
                                     <p class="text-muted font-14">
-                                        Edit Your Info
+                                        Add Events here
                                     </p>
 
 

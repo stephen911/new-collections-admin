@@ -250,7 +250,7 @@ $user = adminmembers();
                             <th>Staff Name</th>
                             <th>Contact</th>
                             <th>Payment Method</th>
-                            <th>Currency</th>
+                           
                             <th>Amount</th>
                             <th>Pay Date</th>
                             
@@ -270,7 +270,7 @@ $user = adminmembers();
                         <th>Staff Name</th>
                         <th>Contact</th>
                         <th>Payment Method</th>
-                        <th>Currency</th>
+
                         <th>Amount</th>
                         <th>Pay Date</th>
                             <th>Edit</th>

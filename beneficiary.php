@@ -231,9 +231,9 @@ $user = adminmembers();
                             <div class="card">
                                 <div class="card-body">
 
-                                    <h4 class="header-title">Donors Table</h4>
+                                    <h4 class="header-title">Beneciary Table</h4>
                                     <p class="text-muted font-14">
-                                        Admin Table
+                                    Beneciary Table
                                     </p>
 
                         
