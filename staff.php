@@ -159,10 +159,10 @@ $user = adminmembers();
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="#">OMNIBSIC</a></li>
                                         <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                                        <li class="breadcrumb-item active">Tellers</li>
+                                        <li class="breadcrumb-item active">Staff</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Tellers</h4>
+                                <h4 class="page-title">Staff</h4>
                             </div>
                         </div>
                     </div>
@@ -231,9 +231,9 @@ $user = adminmembers();
                             <div class="card">
                                 <div class="card-body">
 
-                                    <h4 class="header-title">Donors Table</h4>
+                                    <h4 class="header-title">Staff Table</h4>
                                     <p class="text-muted font-14">
-                                        Admin Table
+                                        Staff Table
                                     </p>
 
                         
