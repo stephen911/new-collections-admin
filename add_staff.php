@@ -160,8 +160,8 @@ $user = adminmembers();
                                                
 
                                                 <div class="mb-3">
-                                                    <label for="emailaddress" class="form-label">Name</label>
-                                                    <input class="form-control" type="text" id="name" required placeholder="Enter Staff's Name" name="name" >
+                                                    <label for="emailaddress" class="form-label">Username</label>
+                                                    <input class="form-control" type="text" id="name" required placeholder="Enter Username" name="name" >
                                                     <input id="email" type="hidden" placeholder="" value="<?php echo  $user['id']; ?>" class="form-control" name="id">
                                                 </div>
 

@@ -254,8 +254,7 @@ $user = adminmembers();
                             <th>Amount</th>
                             <th>Pay Date</th>
                             
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            
                         </tr>
                     </thead>
                     <tbody>';
@@ -273,8 +272,7 @@ $user = adminmembers();
 
                         <th>Amount</th>
                         <th>Pay Date</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            
                             
                         </tr>';
 

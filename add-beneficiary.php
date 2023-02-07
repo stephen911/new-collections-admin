@@ -211,10 +211,24 @@ $user = adminmembers();
 
                                                     </select>
                                                 </div> -->
+
+                                                
                                                 <div class="mb-3">
                                                     <label for="emailaddress" class="form-label">Phone Number</label>
                                                     <input class="form-control" type="text" id="name" required placeholder="Enter your phone Number" name="contact" >
                                                 </div>
+                                                <br>
+                                                <hr>
+                                                    <label for="emailaddresss" class="form-label">Event Details</label>
+                                                    <hr>
+                                                    
+                                                    <!-- <input class="form-control" type="text" id="name" required placeholder="Enter your phone Number" name="contact" > -->
+                                                <!-- <hr> -->
+                                                <!-- <div class="mb-3">
+                                                    <label for="emailaddress" class="form-label">Description</label>
+                                                    <input class="form-control" type="text" id="name" required placeholder="Description" name="desc" >
+                                                     <input id="email" type="hidden" placeholder="" value="</?php echo  $user['id']; ?>" class="form-control" name="id"> 
+                                                </div> -->
 
                                                 <div class="mb-3">
                                                     <label for="example-fileinput" class="form-label">Image</label>

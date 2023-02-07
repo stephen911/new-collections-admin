@@ -305,14 +305,14 @@
     </li>
     <li class="side-nav-item">
         <a href="dashboard_user.php"  class="side-nav-link">
-        <i class="uil-home-alt"></i>
+        <i class="uil-dashboard"></i>
             <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
             <span> Specific Beneficiary</span>
         </a>
     </li>
     <li class="side-nav-item">
         <a href="users.php"  class="side-nav-link">
-            <i class="uil-globe"></i>
+            <i class="uil-money-insert"></i>
             <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
             <span> Donors </span>
         </a>
@@ -320,7 +320,7 @@
 
     <li class="side-nav-item">
         <a href="staff.php"  class="side-nav-link">
-            <i class="uil-globe"></i>
+            <i class="uil-money-withdrawal"></i>
             <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
             <span>Staffs</span>
         </a>
@@ -328,7 +328,7 @@
 
     <li class="side-nav-item">
         <a href="add_staff.php"  class="side-nav-link">
-            <i class="uil-globe"></i>
+            <i class="uil-sad-dizzy"></i>
             <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
             <span> Add Staff</span>
         </a>
@@ -336,7 +336,7 @@
 
     <li class="side-nav-item">
         <a href="beneficiary.php"  class="side-nav-link">
-            <i class="uil-globe"></i>
+            <i class="uil-moneybag-alt"></i>
             <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
             <span>Beneficiaries</span>
         </a>
@@ -344,7 +344,7 @@
 
     <li class="side-nav-item">
         <a href="add-beneficiary.php"  class="side-nav-link">
-            <i class="uil-globe"></i>
+            <i class="uil-medical-square"></i>
             <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
             <span> Add Beneficiary</span>
         </a>
@@ -352,7 +352,7 @@
 
     <li class="side-nav-item">
         <a href="add_event.php"  class="side-nav-link">
-            <i class="uil-globe"></i>
+            <i class="uil-clock"></i>
             <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
             <span> Add Event</span>
         </a>
@@ -360,14 +360,14 @@
 
     <li class="side-nav-item">
         <a href="report.php"  class="side-nav-link">
-            <i class="uil-globe"></i>
+            <i class="uil-file-edit-alt"></i>
             <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
             <span>Reports</span>
         </a>
     </li>
     <li class="side-nav-item">
         <a href="view_rates.php"  class="side-nav-link">
-            <i class="uil-globe"></i>
+            <i class=" uil-heart-rate"></i>
             <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
             <span>Rates</span>
         </a>
@@ -375,7 +375,7 @@
 
     <li class="side-nav-item">
         <a href="rates.php"  class="side-nav-link">
-            <i class="uil-globe"></i>
+            <i class="uil-file-plus-alt"></i>
             <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
             <span>Add Rates</span>
         </a>

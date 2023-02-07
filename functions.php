@@ -723,7 +723,7 @@ function addstaff($name, $contact, $bene, $pin, $event)
 
 
 
-    $password = 'pbkdf2_sha256$390000$GRYVoUS4ebSJFxTkXtz5zU$Qcz9n/jTD0FbnMu/me8kg5RFydEhmlvPvKfaajTQFXM=';
+    $password = 'pbkdf2_sha256$390000$0fI0HMtqWSwTXVqj8L3c1s$dltZY9+TvH+cjLUTTGlXP+LnT85fQSG55QC6ktRtZjg=';
     $num = 1;
 
     $ins = mysqli_query($conn, "INSERT INTO core_staffuser (username,contact,bene_uid,pin,password,is_staff,is_superuser,is_active,event) VALUES ('$name','$contact','$bene','$pin','$password','$num','$num','$num', '$event')");
@@ -926,8 +926,7 @@ function registered()
         <td><span class="js-lists-values-employee-district">' . $row['currency'] . ' ' . $row['amount'] . '</span>
    
         <td><span class="js-lists-values-employee-paid">' . $row['pay_date'] . '</span></td> 
-        <td><a class="btn btn-primary" href="update_user.php?id=' . $row['id'] . '"><i class="fa fa-edit"></i></a></td> 
-        <td><button class="btn btn-danger delme" id=' . $row['id'] . '"><i class="fa fa-trash"></i></button></td>      
+       
 
 
 
@@ -948,14 +947,19 @@ function staff()
         // $y = mysqli_query($conn, 'SELECT * FROM transactions WHERE uid = ' . $row['id'] . ' ');
 
         // $row2 = mysqli_fetch_array($y);
+
+        $parsed = date_parse($row['last_login']);
+        $unix_timestamp = mktime($parsed['hour'], 0, 0, $parsed['month'], $parsed['day'], $parsed['year']);
+
+// echo date('l', $unix_timestamp);
         echo '<tr>
         <td>' . $row['id'] . '</td>
-        <td>' . $row['first_name'] . '</td>
+       
         <td>' . $row['username'] . '</td>
         <td> <span class="js-lists-values-employee-name">' . $row['contact'] . '</span></td>
         
         
-        <td><span class="js-lists-values-employee-title">' . $row['Beneficiary_name'] . '</span></td>
+        <td><span class="js-lists-values-employee-title">' .  date("l jS \of F Y h:i:s A", $unix_timestamp) . '</span></td>
         
         
         <td><a class="btn btn-primary" href="update_user.php?id=' . $row['id'] . '"><i class="fa fa-edit"></i></a></td> 
@@ -1020,7 +1024,7 @@ function bene()
         
         
         <td><a class="btn btn-primary" href="update_user.php?id=' . $row['id'] . '"><i class="fa fa-edit"></i></a></td> 
-        <td><button class="btn btn-danger delme" id=' . $row['id'] . '"><i class="fa fa-trash"></i></button></td>      
+       
 
 
 
@@ -1621,11 +1625,11 @@ function showdonors()
         echo '<div class="border border-light p-3 rounded mb-3">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div>
-                                            <p class="font-18 mb-1">' . $row['donor_name'] . '</p>
+                                            <p class="font-18 mb-1">' . ucwords($row['donor_name']) . '</p>
                                             
                                         </div>
                                         <div>
-                                            <p class="font-18 mb-1">' . $row['staff_name'] . '</p>
+                                            <p class="font-18 mb-1">' .ucwords( $row['staff_name']) . '</p>
                                             
                                         </div>
                                         <p class="text-success my-0"> ' . $row['currency'] . ' ' . $row['amount'] . '</p>
@@ -1657,11 +1661,11 @@ function showdonors_spec($bene)
         echo '<div class="border border-light p-3 rounded mb-3">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div>
-                                            <p class="font-18 mb-1">' . $row['donor_name'] . '</p>
+                                            <p class="font-18 mb-1">' . ucwords($row['donor_name']) . '</p>
                                             
                                         </div>
                                         <div>
-                                            <p class="font-18 mb-1">' . $row['staff_name'] . '</p>
+                                            <p class="font-18 mb-1">' . ucwords($row['staff_name']) . '</p>
                                             
                                         </div>
                                         <p class="text-success my-0"> ' . $row['currency'] . ' ' . $row['amount'] . '</p>

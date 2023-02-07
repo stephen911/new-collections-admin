@@ -222,7 +222,7 @@ $user = adminmembers();
                                                     <h4 class="mt-1 mb-1 text-white"><?php
 
                                                                                         if (isset($_GET['btnupdate'])) {
-                                                                                            echo  $_GET['bene'];
+                                                                                            echo  ucwords($_GET['bene']);
                                                                                         } else {
                                                                                             echo  $user['first_name'];
                                                                                         }
@@ -413,7 +413,7 @@ $user = adminmembers();
                                     <h2 class="m-b-20"><?php
 
                                                         if (isset($_GET['btnupdate'])) {
-                                                            echo $_GET['bene'];
+                                                            echo ucwords($_GET['bene']);
                                                         } else {
 
                                                             echo  "None";

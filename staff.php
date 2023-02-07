@@ -245,11 +245,11 @@ $user = adminmembers();
 
                                                     echo '<tr>
                             <th>ID</th>
-                            <th>Staff Name</th>
+                           
                             <th>Username</th>
                             
                             <th>Contact</th>
-                            <th>Beneficiary Name</th>
+                            <th>Last Login</th>
                            
                             
                             <th>Edit</th>
@@ -264,10 +264,10 @@ $user = adminmembers();
                         <tr>
                         <th>ID</th>
                         
-                        <th>Staff Name</th>
+                     
                         <th>Username</th>
                         <th>Contact</th>
-                        <th>Beneficiary Name</th>
+                        <th>Last Login</th>
                         
                             <th>Edit</th>
                             <th>Delete</th>

@@ -252,7 +252,7 @@ $user = adminmembers();
                            
                             
                             <th>Edit</th>
-                            <th>Delete</th>
+                           
                         </tr>
                     </thead>
                     <tbody>';
@@ -268,7 +268,7 @@ $user = adminmembers();
                         <th>Image</th>
                         
                             <th>Edit</th>
-                            <th>Delete</th>
+                         
                             
                         </tr>';
 
