@@ -88,7 +88,7 @@ $user = adminmembers();
                 <!-- <div class="leftbar-user">
                     <a href="#">
                         <img src="assets/images/omni.jpeg" alt="user-image" height="42" class="rounded-circle shadow-sm">
-                        <span class="leftbar-user-name"><strong><?php echo $user['first_name']; ?></strong></span>
+                        <span class="leftbar-user-name"><strong></?php echo $user['first_name']; ?></strong></span>
                     </a>
                 </div> -->
 

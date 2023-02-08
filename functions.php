@@ -1651,7 +1651,6 @@ function showdonors()
                                     </div>
                                 </div>';
     }
-
 }
 
 
@@ -1664,16 +1663,29 @@ function showdonors_spec($bene)
 
         echo '<div class="border border-light p-3 rounded mb-3">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <div>
+                                        <div  style="height:30px;
+                                        width:10%;
+                                        overflow:hidden;
+                                        cursor:pointer;
+                                        ">
                                             <p class="font-18 mb-1">' . ucwords($row['donor_name']) . '</p>
                                             
                                         </div>
-                                        <div>
+                                        <div  style="height:30px;
+                                        width:10%;
+                                        overflow:hidden;
+                                        cursor:pointer;
+                                        ">
                                             <p class="font-18 mb-1">' . ucwords($row['staff_name']) . '</p>
                                             
                                         </div>
+                                        <div  style="height:30px;
+                                        width:10%;
+                                        overflow:hidden;
+                                        cursor:pointer;
+                                        ">
                                         <p class="text-success my-0"> ' . $row['currency'] . ' ' . $row['amount'] . '</p>
-
+                                        </div>
                                         <div class="avatar-sm">
                                             <span class="avatar-title bg-sucsess rounded-circle h3 my-0">
                                                 <i class="mdi mdi-account-multiple"></i>
