@@ -17,7 +17,7 @@ $user = adminmembers();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Dashboard</title>
 
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="assets/images/bsic.ico">
 
 
     <meta name="robots" content="noindex">
@@ -47,7 +47,7 @@ $user = adminmembers();
  
 
 
-    <!-- <link rel="icon" href="default/files/assets/images/favicon.ico" type="image/x-icon"> -->
+    <!-- <link rel="icon" href="default/files/assets/images/bsic.ico" type="image/x-icon"> -->
     <!-- Google font-->
     <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet"> -->
     <!-- Required Fremwork -->

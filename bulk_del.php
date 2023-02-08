@@ -27,7 +27,7 @@ $user = users();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Delete Users</title>
 
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="assets/images/bsic.ico">
 
 
     <meta name="robots" content="noindex">

@@ -31,7 +31,7 @@ $user = adminmembers();
     <meta content="Coderthemes" name="author" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon2.ico">
+    <link rel="shortcut icon" href="assets/images/bsic.ico">
 
     <!-- Theme Config Js -->
     <script src="assets/js/hyper-config.js"></script>

@@ -21,7 +21,7 @@ $user = adminmembers();
     <meta content="Coderthemes" name="author" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" href="assets/images/bsic.ico">
 
     <!-- Theme Config Js -->
     <script src="assets/js/hyper-config.js"></script>
@@ -178,9 +178,9 @@ $user = adminmembers();
                                         <div class="col-sm-8">
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="avatar-lg">
+                                                    <!-- <div class="avatar-lg">
                                                         <img src="assets/images/omni.jpeg" alt="" class="rounded-circle img-thumbnail">
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                                 <div class="col">
                                                     <div>
