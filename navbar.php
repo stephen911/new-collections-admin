@@ -7,7 +7,7 @@
                         <!-- Logo light -->
                         <a href="#" class="logo-light">
                             <span class="logo-lg">
-                                <img src="assets/images/omni.jpeg" alt="logo" height="32">
+                                <img src="assets/images/omni.jpeg" alt="logo" height="50">
                             </span>
                             <span class="logo-sm">
                                 <img src="assets/images/omni.jpeg" alt="small logo" height="22">
@@ -78,9 +78,9 @@
                         <li class="dropdown notification-list">
                             <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                                 aria-expanded="false">
-                                <span class="account-user-avatar"> 
+                                <!-- <span class="account-user-avatar"> 
                                     <img src="assets/images/omni.jpeg" alt="user-image" class="rounded-circle">
-                                </span>
+                                </span> -->
                                 <span>
                                     <span class="account-user-name"><?php echo $user['first_name'] ; ?></span>
                                     <span class="account-position"><?php echo $user['email'] ; ?></span>
@@ -92,17 +92,7 @@
                                     <h6 class="text-overflow m-0">Welcome, <?php echo $user['first_name'] ; ?></h6>
                                 </div>
 
-                                <!-- item-->
-                                <!-- <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="mdi mdi-account-circle me-1"></i>
-                                    <span>My Account</span>
-                                </a> -->
 
-                                <!-- item-->
-                                <!-- <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="mdi mdi-account-edit me-1"></i>
-                                    <span>Settings</span>
-                                </a> -->
 
                                 
                                 <a href="logout.php" class="dropdown-item notify-item">

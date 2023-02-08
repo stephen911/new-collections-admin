@@ -951,7 +951,7 @@ function staff()
         $parsed = date_parse($row['last_login']);
         $unix_timestamp = mktime($parsed['hour'], 0, 0, $parsed['month'], $parsed['day'], $parsed['year']);
 
-// echo date('l', $unix_timestamp);
+        // echo date('l', $unix_timestamp);
         echo '<tr>
         <td>' . $row['id'] . '</td>
        
@@ -1293,32 +1293,31 @@ function cash_spec($bene)
     $cfa = 0;
     $ghc = 0;
     while ($row = mysqli_fetch_array($c)) {
-        
-        
+
+
         if ($row['payment_method'] == 'Cash') {
-            
-                if ($row['currency'] == 'USD') {
-                    $usd = $usd + $row['amount'];
-                } else if ($row['currency'] == 'GBP') {
-                    $gbp = $gbp + $row['amount'];
-                } else if ($row['currency'] == 'EUR') {
-                    $eur = $eur + $row['amount'];
-                } else if ($row['currency'] == 'CFA') {
-                    $cfa = $cfa + $row['amount'];
-                } else if ($row['currency'] == 'GHS') {
-                    $ghc = $ghc + $row['amount'];
-                }
+
+            if ($row['currency'] == 'USD') {
+                $usd = $usd + $row['amount'];
+            } else if ($row['currency'] == 'GBP') {
+                $gbp = $gbp + $row['amount'];
+            } else if ($row['currency'] == 'EUR') {
+                $eur = $eur + $row['amount'];
+            } else if ($row['currency'] == 'CFA') {
+                $cfa = $cfa + $row['amount'];
+            } else if ($row['currency'] == 'GHS') {
+                $ghc = $ghc + $row['amount'];
+            }
         }
-    
     }
 
-            $usd = $usd * $row2['usd'];
-            $gbp = $gbp * $row2['gbp'];
-            $eur = $eur * $row2['eur'];
-            $cfa = $cfa * $row2['cfa'];
+    $usd = $usd * $row2['usd'];
+    $gbp = $gbp * $row2['gbp'];
+    $eur = $eur * $row2['eur'];
+    $cfa = $cfa * $row2['cfa'];
 
 
-            $amount = $ghc + $usd + $gbp + $eur + $cfa;
+    $amount = $ghc + $usd + $gbp + $eur + $cfa;
 
     echo  'GH₵ ' . number_format($amount, 2);
     // echo  number_format($ghs, 2);
@@ -1341,28 +1340,25 @@ function momo_spec($bene)
 
 
         if ($row['payment_method'] == 'Momo') {
-            
-                if ($row['currency'] == 'USD') {
-                    $usd = $usd + $row['amount'];
-                } else if ($row['currency'] == 'GBP') {
-                    $gbp = $gbp + $row['amount'];
-                } else if ($row['currency'] == 'EUR') {
-                    $eur = $eur + $row['amount'];
-                } else if ($row['currency'] == 'CFA') {
-                    $cfa = $cfa + $row['amount'];
-                } else if ($row['currency'] == 'GHS') {
-                    $ghc = $ghc + $row['amount'];
-                }
-       
+
+            if ($row['currency'] == 'USD') {
+                $usd = $usd + $row['amount'];
+            } else if ($row['currency'] == 'GBP') {
+                $gbp = $gbp + $row['amount'];
+            } else if ($row['currency'] == 'EUR') {
+                $eur = $eur + $row['amount'];
+            } else if ($row['currency'] == 'CFA') {
+                $cfa = $cfa + $row['amount'];
+            } else if ($row['currency'] == 'GHS') {
+                $ghc = $ghc + $row['amount'];
+            }
+
 
             $usd = $usd * $row2['usd'];
             $gbp = $gbp * $row2['gbp'];
             $eur = $eur * $row2['eur'];
             $cfa = $cfa * $row2['cfa'];
-
-
         }
-
     }
     $amount = $ghc + $usd + $gbp + $eur + $cfa;
 
@@ -1388,19 +1384,19 @@ function visa_spec($bene)
         if ($row['payment_method'] == 'Visa') {
 
 
-           
-                if ($row['currency'] == 'USD') {
-                    $usd = $usd + $row['amount'];
-                } else if ($row['currency'] == 'GBP') {
-                    $gbp = $gbp + $row['amount'];
-                } else if ($row['currency'] == 'EUR') {
-                    $eur = $eur + $row['amount'];
-                } else if ($row['currency'] == 'CFA') {
-                    $cfa = $cfa + $row['amount'];
-                } else if ($row['currency'] == 'GHS') {
-                    $ghc = $ghc + $row['amount'];
-                }
-            
+
+            if ($row['currency'] == 'USD') {
+                $usd = $usd + $row['amount'];
+            } else if ($row['currency'] == 'GBP') {
+                $gbp = $gbp + $row['amount'];
+            } else if ($row['currency'] == 'EUR') {
+                $eur = $eur + $row['amount'];
+            } else if ($row['currency'] == 'CFA') {
+                $cfa = $cfa + $row['amount'];
+            } else if ($row['currency'] == 'GHS') {
+                $ghc = $ghc + $row['amount'];
+            }
+
 
             $usd = $usd * $row2['usd'];
             $gbp = $gbp * $row2['gbp'];
@@ -1432,26 +1428,26 @@ function cheque_spec($bene)
     $gbp = 0;
     $cfa = 0;
     $ghc = 0;
-    
-    
-    
+
+
+
     while ($row = mysqli_fetch_array($c)) {
 
-                if ($row['payment_method'] == 'Cheque') {
+        if ($row['payment_method'] == 'Cheque') {
 
 
-                if ($row['currency'] == 'USD') {
-                    $usd = $usd + $row['amount'];
-                } else if ($row['currency'] == 'GBP') {
-                    $gbp = $gbp + $row['amount'];
-                } else if ($row['currency'] == 'EUR') {
-                    $eur = $eur + $row['amount'];
-                } else if ($row['currency'] == 'CFA') {
-                    $cfa = $cfa + $row['amount'];
-                } else if ($row['currency'] == 'GHS') {
-                    $ghc = $ghc + $row['amount'];
-                }
-            
+            if ($row['currency'] == 'USD') {
+                $usd = $usd + $row['amount'];
+            } else if ($row['currency'] == 'GBP') {
+                $gbp = $gbp + $row['amount'];
+            } else if ($row['currency'] == 'EUR') {
+                $eur = $eur + $row['amount'];
+            } else if ($row['currency'] == 'CFA') {
+                $cfa = $cfa + $row['amount'];
+            } else if ($row['currency'] == 'GHS') {
+                $ghc = $ghc + $row['amount'];
+            }
+
 
             $usd = $usd * $row2['usd'];
             $gbp = $gbp * $row2['gbp'];
@@ -1475,14 +1471,13 @@ function gifts_spec($bene)
     include 'starter.php';
     $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
     $gifts = 0;
-   
+
     while ($row = mysqli_fetch_array($c)) {
-        if ($row['payment_method'] == 'Gifts') {     
-                $gifts = $gifts + 1;
-          }
+        if ($row['payment_method'] == 'Gifts') {
+            $gifts = $gifts + 1;
+        }
     }
     echo  $gifts;
-
 }
 
 function gbp()
@@ -1624,16 +1619,30 @@ function showdonors()
 
         echo '<div class="border border-light p-3 rounded mb-3">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <div>
-                                            <p class="font-18 mb-1">' . ucwords($row['donor_name']) . '</p>
+                                        <div style="height:30px;
+                                        width:10%;
+                                        overflow:hidden;
+                                        cursor:pointer;
+                                        ">
+                                            <p class="font-18 mb-1 ">' . ucwords($row['donor_name']) . '</p>
                                             
                                         </div>
-                                        <div>
-                                            <p class="font-18 mb-1">' .ucwords( $row['staff_name']) . '</p>
-                                            
+                                        <div  class="float-end" style="height:30px;
+                                        width:10%;
+                                        overflow:hidden;
+                                        cursor:pointer;
+                                        "
+                                        >
+                                            <p class="font-18 mb-1">' . ucwords($row['staff_name']) . '</p>                                
                                         </div>
+                                        <div  class="float-end" style="height:30px;
+                                        width:10%;
+                                        overflow:hidden;
+                                        cursor:pointer;
+                                        "
+                                        >
                                         <p class="text-success my-0"> ' . $row['currency'] . ' ' . $row['amount'] . '</p>
-
+                                        </div>
                                         <div class="avatar-sm">
                                             <span class="avatar-title bg-sucsess rounded-circle h3 my-0">
                                                 <i class="mdi mdi-account-multiple"></i>
@@ -1642,11 +1651,6 @@ function showdonors()
                                     </div>
                                 </div>';
     }
-    // $amount = 0;
-    // $amount = $amount + $c['amount'];
-    // $count = $c['amount'];
-    // $count = mysqli_num_rows($c);
-
 
 }
 
@@ -1705,7 +1709,7 @@ function transactionstotal($bene)
 
     $amount = 0;
     while ($row = mysqli_fetch_array($u)) {
-    
+
         if ($row['currency'] == 'USD') {
             $usd = $usd + $row['amount'];
         } else if ($row['currency'] == 'GBP') {
@@ -1717,9 +1721,9 @@ function transactionstotal($bene)
         } else if ($row['currency'] == 'GHS') {
             $ghc = $ghc + $row['amount'];
         }
-    
 
-    
+
+
         // $amount = $amount + $row['amount'];
     }
 
@@ -1732,7 +1736,7 @@ function transactionstotal($bene)
 
     $ghc = $ghc + $usd + $gbp + $eur + $cfa;
 
-//    number_format($ghc, 2);
+    //    number_format($ghc, 2);
 
     // $amountt = new \NumberFormatter( 'de_DE', \NumberFormatter::CURRENCY );
 

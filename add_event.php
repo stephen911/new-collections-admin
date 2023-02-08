@@ -85,12 +85,12 @@ $user = adminmembers();
             <!-- Sidebar -left -->
             <div class="h-100" id="leftside-menu-container" data-simplebar>
                 <!-- Leftbar User -->
-                <div class="leftbar-user">
+                <!-- <div class="leftbar-user">
                     <a href="#">
                         <img src="assets/images/omni.jpeg" alt="user-image" height="42" class="rounded-circle shadow-sm">
                         <span class="leftbar-user-name"><strong><?php echo $user['first_name']; ?></strong></span>
                     </a>
-                </div>
+                </div> -->
 
                 <!--- Sidemenu -->
                 <?php include "sidebar.php" ?>
