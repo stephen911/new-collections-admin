@@ -103,6 +103,37 @@ function updatestaff($id, $name, $email,  $contact, $pin, $bene, $event)
     }
 }
 
+
+function updatebene($id, $name, $contact)
+
+{
+    include 'starter.php';
+    // $id = $_GET['id'];
+    extract($_POST);
+
+
+    $filename = $_FILES["image"]["name"];
+    $tempname = $_FILES["image"]["tmp_name"];
+    $folder = "assets/images/" . $filename;
+
+    $dd = date('jS F, Y');
+
+    $ins = mysqli_query($conn, "UPDATE core_beneficiaries SET name = '$name', contact = '$contact', image='$folder', date = '$dd' WHERE id='$id'  ");
+
+    // Now let's move the uploaded image into the folder: image
+    if (move_uploaded_file($tempname, $folder) && $ins) {
+        echo "Updated Successfully";
+    } else {
+        echo "failed";
+    }
+    // $up = mysqli_query($conn, "UPDATE core_staffuser SET username = '$name', email='$email', contact= '$contact', pin='$pin', bene_uid='$bene', event='$event'   WHERE id='$id'  ");
+    // if ($up) {
+    //     echo 'Updated Successfully';
+    // } else {
+    //     echo 'Failed to update record . Try again';
+    // }
+}
+
 function updaterate($id, $usd, $gbp, $eur, $cfa)
 
 {
@@ -110,7 +141,7 @@ function updaterate($id, $usd, $gbp, $eur, $cfa)
     extract($_POST);
     $up = mysqli_query($conn, "UPDATE core_rates SET usd='$usd',gbp='$gbp',eur='$eur',cfa='$cfa' WHERE id='$id'  ");
     if ($up) {
-        echo 'Updated Successfully';
+        echo 'Updated Successfully';        
     } else {
         echo 'Failed to update record . Try again';
     }
@@ -125,6 +156,32 @@ function userstaff()
     $id = $_GET['id'];
 
     $d = mysqli_query($conn, "SELECT * FROM core_staffuser WHERE id ='$id'");
+    $row = mysqli_fetch_array($d);
+
+    return $row;
+}
+
+function userrate()
+{
+    include 'starter.php';
+    // session_start();
+    // $id = $_SESSION['id'];
+    $id = $_GET['id'];
+
+    $d = mysqli_query($conn, "SELECT * FROM core_rates WHERE id ='$id'");
+    $row = mysqli_fetch_array($d);
+
+    return $row;
+}
+
+function userbene()
+{
+    include 'starter.php';
+    // session_start();
+    // $id = $_SESSION['id'];
+    $id = $_GET['id'];
+
+    $d = mysqli_query($conn, "SELECT * FROM core_beneficiaries WHERE id ='$id'");
     $row = mysqli_fetch_array($d);
 
     return $row;
@@ -1023,7 +1080,7 @@ function bene()
         <td><span class="js-lists-values-employee-title">' . $row['image'] . '</span></td>
         
         
-        <td><a class="btn btn-primary" href="update_user.php?id=' . $row['id'] . '"><i class="fa fa-edit"></i></a></td> 
+        <td><a class="btn btn-primary" href="update_bene.php?id=' . $row['id'] . '"><i class="fa fa-edit"></i></a></td> 
        
 
 
@@ -1640,8 +1697,25 @@ function showdonors()
                                         overflow:hidden;
                                         cursor:pointer;
                                         "
-                                        >
-                                        <p class="text-success my-0"> ' . $row['currency'] . ' ' . $row['amount'] . '</p>
+                                        >';
+
+
+                                        if ($row['amount'] == NULL) {
+                                            echo ' 
+                                            <p class="text-success my-0"> Gifts </p>
+                                            ';
+
+                                        }else{
+                                            echo '
+                                         <p class="text-success my-0"> ' . $row['currency'] . ' ' . $row['amount'] . '</p>
+                                        ';
+                                        }
+
+                                        echo '
+
+
+                                        
+                                        
                                         </div>
                                         <div class="avatar-sm">
                                             <span class="avatar-title bg-sucsess rounded-circle h3 my-0">
@@ -1662,37 +1736,55 @@ function showdonors_spec($bene)
     while ($row = mysqli_fetch_array($c)) {
 
         echo '<div class="border border-light p-3 rounded mb-3">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div  style="height:30px;
-                                        width:10%;
-                                        overflow:hidden;
-                                        cursor:pointer;
-                                        ">
-                                            <p class="font-18 mb-1">' . ucwords($row['donor_name']) . '</p>
-                                            
-                                        </div>
-                                        <div  style="height:30px;
-                                        width:10%;
-                                        overflow:hidden;
-                                        cursor:pointer;
-                                        ">
-                                            <p class="font-18 mb-1">' . ucwords($row['staff_name']) . '</p>
-                                            
-                                        </div>
-                                        <div  style="height:30px;
-                                        width:10%;
-                                        overflow:hidden;
-                                        cursor:pointer;
-                                        ">
-                                        <p class="text-success my-0"> ' . $row['currency'] . ' ' . $row['amount'] . '</p>
-                                        </div>
-                                        <div class="avatar-sm">
-                                            <span class="avatar-title bg-sucsess rounded-circle h3 my-0">
-                                                <i class="mdi mdi-account-multiple"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>';
+        <div class="d-flex justify-content-between align-items-center">
+            <div style="height:30px;
+            width:10%;
+            overflow:hidden;
+            cursor:pointer;
+            ">
+                <p class="font-18 mb-1 ">' . ucwords($row['donor_name']) . '</p>
+                
+            </div>
+            <div  class="float-end" style="height:30px;
+            width:10%;
+            overflow:hidden;
+            cursor:pointer;
+            "
+            >
+                <p class="font-18 mb-1">' . ucwords($row['staff_name']) . '</p>                                
+            </div>
+            <div  class="float-end" style="height:30px;
+            width:10%;
+            overflow:hidden;
+            cursor:pointer;
+            "
+            >';
+
+
+            if ($row['amount'] == NULL) {
+                echo ' 
+                <p class="text-success my-0"> Gifts </p>
+                ';
+
+            }else{
+                echo '
+             <p class="text-success my-0"> ' . $row['currency'] . ' ' . $row['amount'] . '</p>
+            ';
+            }
+
+            echo '
+
+
+            
+            
+            </div>
+            <div class="avatar-sm">
+                <span class="avatar-title bg-sucsess rounded-circle h3 my-0">
+                    <i class="mdi mdi-account-multiple"></i>
+                </span>
+            </div>
+        </div>
+    </div>';
     }
     // $amount = 0;
     // $amount = $amount + $c['amount'];

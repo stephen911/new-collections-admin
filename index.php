@@ -36,8 +36,8 @@
 
                         <!-- Logo -->
                         <div class="card-header pt-4 pb-4 text-center bg-primary">
-                            <a href="index-2.php">
-                                <span><img src="assets/images/omni.jpeg" alt="logo" height="40"></span>
+                            <a href="#">
+                                <span><img src="assets/images/omni.jpeg" alt="logo" height="60", width="120"></span>
                             </a>
                         </div>
 
@@ -56,7 +56,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <a href="pages-recoverpw.php" class="text-muted float-end"><small>Forgot your password?</small></a>
+                                    <!-- <a href="pages-recoverpw.php" class="text-muted float-end"><small>Forgot your password?</small></a> -->
                                     <label for="password" class="form-label">Password</label>
                                     <div class="input-group input-group-merge">
                                         <input type="password" id="password" class="form-control" placeholder="Enter your password" name="password">
@@ -67,10 +67,10 @@
                                 </div>
 
                                 <div class="mb-3 mb-3">
-                                    <div class="form-check">
+                                    <!-- <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="checkbox-signin" checked>
                                         <label class="form-check-label" for="checkbox-signin">Remember me</label>
-                                    </div>
+                                    </div> -->
                                 </div>
 
                                 <div class="mb-3 mb-0 text-center">
@@ -82,11 +82,11 @@
                     </div>
                     <!-- end card -->
 
-                    <div class="row mt-3">
+                    <!-- <div class="row mt-3">
                         <div class="col-12 text-center">
                             <p class="text-muted">Don't have an account? <a href="pages-register.php" class="text-muted ms-1"><b>Sign Up</b></a></p>
-                        </div> <!-- end col -->
-                    </div>
+                        </div> 
+                    </div> -->
                     <!-- end row -->
 
                 </div> <!-- end col -->

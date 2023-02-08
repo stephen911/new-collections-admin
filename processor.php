@@ -18,6 +18,12 @@ if (isset($_GET['action'])) {
             updatestaff($id, $name, $email, $contact, $pin, $bene, $event);
             break;
 
+        case 'updatebene':
+            extract($_POST);
+            // extract($_POST);
+            updatebene($id, $name, $contact);
+            break;
+
         case 'updaterate':
             extract($_POST);
             // extract($_POST);

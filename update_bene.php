@@ -4,7 +4,7 @@ include 'yolkpay.php';
 $yolk = new YolkPay();
 checker();
 $user = adminmembers();
-$user1 = userrate();
+$user1 = userbene();
 //  var_dump($_SESSION['id']);
 
 // if (isset($_POST['btnupdate'])) {
@@ -25,7 +25,7 @@ $user1 = userrate();
 
 <head>
     <meta charset="utf-8" />
-    <title>Profile | OMNIBSIC - Update Rates</title>
+    <title>Profile | OMNIBSIC - Update Staff</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -148,60 +148,55 @@ $user1 = userrate();
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Rates</h4>
+                                    <h4 class="header-title">Edit Info</h4>
                                     <p class="text-muted font-14">
-                                        Add Rates
+                                        Edit Your Info
                                     </p>
 
-
+                                  
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="form-row-preview">
-                                            <form action="" novalidate method="get" class="updaterate" enctype='multipart/form-data'>
+                                            <form action="" novalidate method="get" class="updatebene" enctype='multipart/form-data'>
+                                                
+
+                                                <div class="mb-3">
+                                                    <label for="emailaddress" class="form-label">Name</label>
+                                                    <input class="form-control" type="text" id="name" required placeholder="Enter Name" name="name" value="<?php echo ($user1['name'] == '') ? '' : $user1['name']; ?>">
+                                                    <input id="email" type="hidden" placeholder="Name to be shown on Certificate" value="<?php echo  $user1['id']; ?>" class="form-control" name="id">
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="exampleInputEmail1" class="form-label">Phone Number</label>
+
+                                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Phone Number" name="contact"  value="<?php echo ($user1['contact'] == '') ? '' : $user1['contact']; ?>">
+                                                   
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="example-fileinput" class="form-label">Image</label>
+                                                    <input type="file" id="example-fileinput" class="form-control" id="image" name="image">
+                                                </div>
+
+                                               
+                                                </div>
+
                                                
 
-                                                <div class="mb-3">
-                                                    <label for="emailaddress" class="form-label">USD</label>
-                                                    <!-- <input class="form-control" type="text" id="name" required placeholder="United States Dollars" name="usd" > -->
-                                                    <input class="form-control" type="text" id="name" required placeholder="United States Dollars" name="usd" value="<?php echo ($user1['usd'] == '') ? '' : $user1['usd']; ?>">
-                                                    <input id="email" type="hidden" placeholder="" value="<?php echo  $user['id']; ?>" class="form-control" name="id">
+                                                <div class="mb-3 text-center">
+                                                    <button class="btn btn-primary" type="submit"> Update </button>
                                                 </div>
 
-                                                <div class="mb-3">
-                                                    <label for="emailaddress" class="form-label">GBP</label>
-                                                    <!-- <input class="form-control" type="text" id="name" required placeholder="Great British Pounds" name="gbp" > -->
-                                                    <input class="form-control" type="text" id="name" required placeholder="Great British Pounds" name="gbp" value="<?php echo ($user1['gbp'] == '') ? '' : $user1['gbp']; ?>">
+                                            </form>
+                                        </div> <!-- end preview-->
 
-                                                </div>
+                                        <!-- end preview code-->
+                                    </div> <!-- end tab-content-->
 
-                                                <div class="mb-3">
-                                                    <label for="emailaddress" class="form-label">EUR</label>
-                                                    <!-- <input class="form-control" type="text" id="name" required placeholder="Euro" name="eur" > -->
-                                                    <input class="form-control" type="text" id="name" required placeholder="Euro" name="eur" value="<?php echo ($user1['eur'] == '') ? '' : $user1['eur']; ?>">
-
-                                                    
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="emailaddress" class="form-label">CFA</label>
-                                                    <!-- <input class="form-control" type="text" id="name" required placeholder="CFA" name="cfa" > -->
-                                                    <input class="form-control" type="text" id="name" required placeholder="CFA" name="cfa" value="<?php echo ($user1['cfa'] == '') ? '' : $user1['cfa']; ?>">
-
-                                                    
-                                                </div>  
-                                        </div>
-                                        <div class="mb-3 text-center">
-                                            <button class="btn btn-primary" type="submit"> Update Rate </button>
-                                        </div>
-
-                                        </form>
-                                    </div> <!-- end preview-->
-
-                                    <!-- end preview code-->
-                                </div> <!-- end tab-content-->
-
-                            </div> <!-- end card-body -->
-                        </div> <!-- end card-->
-                    </div> <!-- end col -->
-                </div>
+                                </div> <!-- end card-body -->
+                            </div> <!-- end card-->
+                        </div> <!-- end col -->
+                    </div>
+                    <!-- end row -->
 
                 </div> <!-- container -->
 
@@ -733,6 +728,5 @@ $user1 = userrate();
 
 </body>
 
-<!-- Mirrored from coderthemes.com/hyper_2/modern/pages-profile.php by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 14 Nov 2022 09:18:07 GMT -->
 
 </html>

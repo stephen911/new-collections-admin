@@ -5,15 +5,7 @@ $yolk = new YolkPay();
 checker();
 $user = adminmembers();
 $user1 = userstaff();
-//  var_dump($_SESSION['id']);
 
-// if (isset($_POST['btnupdate'])) {
-//     extract($_POST);
-//     updateuser($id, $title, $name, $gender, $email, $contact, $telegram, $lincesed, $nameofschool, $region, $district, $foodpref, $heard);
-// }
-
-// // Yolk mailer
-// $mail = new Mail();
 ?>
 
 
@@ -21,7 +13,6 @@ $user1 = userstaff();
 <html lang="en" data-layout-mode="detached" data-topbar-color="dark" data-sidenav-color="light" data-sidenav-user="true">
 
 
-<!-- Mirrored from coderthemes.com/hyper_2/modern/pages-profile.php by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 14 Nov 2022 09:18:05 GMT -->
 
 <head>
     <meta charset="utf-8" />
@@ -157,35 +148,7 @@ $user1 = userstaff();
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="form-row-preview">
                                             <form action="" novalidate method="get" class="updatestaff" enctype='multipart/form-data'>
-                                                <!-- <div class="mb-3">
-                                                    <label for="example-select" class="form-label">Title</label>
-                                                    <select class="form-select" id="example-select" name="title">
-                                                        <option selected></option>
-                                                        <option>Rev.</option>
-                                                        <option>Mr.</option>
-                                                        <option>Mrs.</option>
-                                                        <option>Miss</option>
-                                                        <option>Dr.</option>
-                                                        <option>Sis.</option>
-                                                        <option>Fr.</option>
-                                                        <option>Ps.</option>
-                                                        <option>Others</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="mb-3">
-                                                    <label for="fullname" class="form-label">First Name</label>
-                                                    <input class="form-control" type="text" id="fullname" placeholder="Enter your First Name" required name="fname">
-                                                    <input id="email" type="hidden" placeholder="Name to be shown on Certificate" value="</?php echo  $user['id']; ?>" class="form-control" name="id">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="fullname" class="form-label">Last Name</label>
-                                                    <input class="form-control" type="text" id="fullname" placeholder="Enter your Last Name" required name="lname">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="fullname" class="form-label">Other Names</label>
-                                                    <input class="form-control" type="text" id="fullname" placeholder="Other Name" required name="oname">
-                                                </div> -->
+                                               
 
                                                 <div class="mb-3">
                                                     <label for="emailaddress" class="form-label">Username</label>
@@ -197,9 +160,7 @@ $user1 = userstaff();
                                                     <label for="exampleInputEmail1" class="form-label">Email address</label>
 
                                                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email"  value="<?php echo ($user1['email'] == '') ? '' : $user1['email']; ?>">
-                                                    <!-- <input id="email" type="hidden" placeholder="Name to be shown on Certificate" value="<//?php echo  $user['id']; ?>" class="form-control" name="id"> -->
-
-                                                    <!-- <small id="emailHelp" class="form-text text-muted">Please make sure you remember the password to the email you are providing</small> -->
+                                                  
                                                 </div>
 
                                                 <div class="mb-3">

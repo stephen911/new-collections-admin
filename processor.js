@@ -352,6 +352,23 @@ $(function () {
     $.ajax(staff);
   });
 
+  $(".updatebene").submit(function (e) {
+    e.preventDefault();
+    // before();
+    // var id = $(this).attr('id');
+    var staff = {
+      url: "processor.php?action=updatebene",
+      type: "post",
+      data: new FormData(this),
+      cache: false,
+      contentType: false,
+      processData: false,
+      beforeSend: before,
+      success: resp,
+    };
+    $.ajax(staff);
+  });
+
   $(".updaterate").submit(function (e) {
     e.preventDefault();
     // before();
