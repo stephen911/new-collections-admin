@@ -163,7 +163,7 @@ $user1 = userrate();
                                                     <label for="emailaddress" class="form-label">USD</label>
                                                     <!-- <input class="form-control" type="text" id="name" required placeholder="United States Dollars" name="usd" > -->
                                                     <input class="form-control" type="text" id="name" required placeholder="United States Dollars" name="usd" value="<?php echo ($user1['usd'] == '') ? '' : $user1['usd']; ?>">
-                                                    <input id="email" type="hidden" placeholder="" value="<?php echo  $user['id']; ?>" class="form-control" name="id">
+                                                    <input id="email" type="hidden" placeholder="" value="<?php echo  $user1['id']; ?>" class="form-control" name="id">
                                                 </div>
 
                                                 <div class="mb-3">

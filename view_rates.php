@@ -5,6 +5,7 @@ include 'functions.php';
 
 checker();
 $user = adminmembers();
+$user1 = userrate();
 //  var_dump($_SESSION['id']);
 ?>
 <!DOCTYPE html>
