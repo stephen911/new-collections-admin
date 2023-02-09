@@ -52,70 +52,7 @@ $(function () {
       }).then(function (result) {
         window.location.reload();
       });
-    } else if (response == "removedfromcart") {
-      swal({
-        title: "Done!",
-        text: "Item removed successfusly",
-        timer: 1000,
-        type: "success",
-        padding: "2em",
-        onOpen: function () {
-          swal.showLoading();
-        },
-      }).then(function (result) {
-        // window.location.reload();
-        $("#cartcount").load("processor/processor.php?action=countcart");
-        $("#minicart").load("processor/processor.php?action=viewcart");
-        $("#cartot").load("processor/processor.php?action=carttotal");
-        $("#vcart").load("processor/processor.php?action=viewmaincart");
-        $("#checkcart").load("processor/processor.php?action=checkoutcart");
-        $("#mku").load("processor/processor.php?action=cartsubtotal");
-        $("#ordtt").load("processor/processor.php?action=carttotal");
-        swal.close();
-      });
-    } else if (response == "couponapplied") {
-      swal({
-        title: "Done!",
-        text: "Coupon applied Successfuly",
-        timer: 1000,
-        type: "success",
-        padding: "2em",
-        onOpen: function () {
-          swal.showLoading();
-        },
-      }).then(function (result) {
-        // window.location.reload();
-        $("#cartcount").load("processor/processor.php?action=countcart");
-        $("#minicart").load("processor/processor.php?action=viewcart");
-        $("#cartot").load("processor/processor.php?action=carttotal");
-        $("#vcart").load("processor/processor.php?action=viewmaincart");
-        $("#checkcart").load("processor/processor.php?action=checkoutcart");
-        // $("#swee").load('processor/processor.php?action=carttotal1');
-        $("#diskc").load("processor/processor.php?action=discount");
-
-        $("#mku").load("processor/processor.php?action=cartsubtotal");
-
-        $("#ordtt").load("processor/processor.php?action=carttotal");
-        swal.close();
-      });
-    } else if (response == "addedtocart") {
-      swal({
-        title: "Done!",
-        text: "Item Added",
-        timer: 1000,
-        type: "success",
-        padding: "2em",
-        onOpen: function () {
-          swal.showLoading();
-        },
-      }).then(function (result) {
-        // window.location.reload();
-        $("#cartcount").load("processor/processor.php?action=countcart");
-        $("#minicart").load("processor/processor.php?action=viewcart");
-        $("#cartot").load("processor/processor.php?action=carttotal");
-        swal.close();
-      });
-    } else if (response == "loginsuccess") {
+    }  else if (response == "loginsuccess") {
       swal({
         title: "Login Successful!",
         text: "will be redirected soon",
@@ -563,8 +500,7 @@ $(function () {
 
   $(".register").submit(function (e) {
     e.preventDefault();
-    // before();
-    // var id = $(this).attr('id');
+
     var staff = {
       url: "processor.php?action=register",
       type: "post",
@@ -581,8 +517,7 @@ $(function () {
 
   $(".bene").submit(function (e) {
     e.preventDefault();
-    // before();
-    // var id = $(this).attr('id');
+
     var staff = {
       url: "processor.php?action=bene",
       type: "post",
@@ -598,8 +533,7 @@ $(function () {
 
   $(".staff").submit(function (e) {
     e.preventDefault();
-    // before();
-    // var id = $(this).attr('id');
+
     var staff = {
       url: "processor.php?action=staff",
       type: "post",
@@ -615,8 +549,7 @@ $(function () {
 
   $(".rate").submit(function (e) {
     e.preventDefault();
-    // before();
-    // var id = $(this).attr('id');
+
     var staff = {
       url: "processor.php?action=rate",
       type: "post",
@@ -632,8 +565,7 @@ $(function () {
 
   $(".event").submit(function (e) {
     e.preventDefault();
-    // before();
-    // var id = $(this).attr('id');
+
     var staff = {
       url: "processor.php?action=event",
       type: "post",
@@ -665,18 +597,12 @@ $(function () {
           url: "processor.php?action=attend",
           type: "post",
           data: { id: $(this).attr("id") },
-          // cache: false,
-          // contentType: false,
-          // processData: false,
+
           beforeSend: before,
           success: resp,
         };
         $.ajax(staff);
-        // Swal.fire(
-        //   'Deleted!',
-        //   'Your file has been deleted.',
-        //   'success'
-        // )
+
       }
     });
   });
@@ -700,18 +626,12 @@ $(function () {
           url: "processor.php?action=payrenewal",
           type: "post",
           data: { id: $(this).attr("id") },
-          // cache: false,
-          // contentType: false,
-          // processData: false,
+
           beforeSend: before,
           success: resp,
         };
         $.ajax(staff);
-        // Swal.fire(
-        //   'Deleted!',
-        //   'Your file has been deleted.',
-        //   'success'
-        // )
+
       }
     });
   });
@@ -733,9 +653,7 @@ $(function () {
           url: "processor.php?action=dele",
           type: "post",
           data: { id: $(this).attr("id") },
-          // cache: false,
-          // contentType: false,
-          // processData: false,
+     
           beforeSend: before,
           success: resp,
         };
@@ -744,97 +662,7 @@ $(function () {
       }
     });
   });
-  //   swal({
 
-  //     title: "Are you sure?",
-  //     text: "You want to confirm payment",
-  //     icon: "warning",
-  //     buttons: ["Yes", "No"],
-  //     // type: "warning",
-  //     // showDenyButton: true,
-  //     // showCancelButton: true,
-  //     // confirmButtonText: "yes",
-  //     // denyButtonTet: "No"
-  //     // showCancelButton: true,
-  //     // confirmButtonColor: '#DD6B55',
-  //     // confirmButtonText: 'Yes, I am sure!',
-  //     // denyButtonText: "No, cancel it!",
-  //     // closeOnConfirm: false,
-  //     // closeOnCancel: false
-  //     dangerMode: true,
-  //  }).then((result)=>{
-  //   // alert(result.isDenied);
-  //     // swal("Shortlisted", "Candidates are successfully shortlisted!", "success");
-
-  //    if (result){
-  //      var staff = {
-  //       url: 'processor.php?action=pay',
-  //       type: 'post',
-  //       data: {'id' : $(this).attr('id')},
-  //       // cache: false,
-  //       // contentType: false,
-  //       // processData: false,
-  //       beforeSend: before,
-  //       success: resp
-
-  //   };
-  //   $.ajax(staff);
-  //   // swal("Shortlisted!", "Candidates are successfully shortlisted!", "success");
-
-  //     } else {
-  //       swal("Cancelled", "Action Cancelled", "error");
-  //     }
-  //  });
-
-  // $.ajax(staff1);
-
-  // document.querySelector('#from1').addEventListener('submit', function(e) {
-  //   var form = this;
-
-  //   e.preventDefault(); // <--- prevent form from submitting
-
-  //   swal({
-  //       title: "Are you sure?",
-  //       text: "You will not be able to recover this imaginary file!",
-  //       icon: "warning",
-  //       buttons: [
-  //         'No, cancel it!',
-  //         'Yes, I am sure!'
-  //       ],
-  //       dangerMode: true,
-  //     }).then(function(isConfirm) {
-  //       if (isConfirm) {
-  //         swal({
-  //           title: 'Shortlisted!',
-  //           text: 'Candidates are successfully shortlisted!',
-  //           icon: 'success'
-  //         }).then(function() {
-  //           form.submit(); // <--- submit form programmatically
-  //         });
-  //       } else {
-  //         swal("Cancelled", "Your imaginary file is safe :)", "error");
-  //       }
-  //     })
-  // });
-
-  // $('.payme').click(function(e) {
-  //   e.preventDefault();
-  //   var staff = {
-  //     url: 'processor.php?action=pay',
-  //     type: 'post',
-  //     data: {'id' : $(this).attr('id')},
-  //     // cache: false,
-  //     // contentType: false,
-  //     // processData: false,
-  //     beforeSend: before,
-  //     success: resp
-
-  // };
-  // $.ajax(staff);
-
-  // });
-
-  // change password
 
   $(".changepass").submit(function (e) {
     e.preventDefault();

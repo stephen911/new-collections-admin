@@ -51,22 +51,7 @@ if (isset($_GET['action'])) {
             get_report($bene);
 
             break;
-
-        case 'ticket':
-            extract($_POST);
-            // extract($_POST);
-            confirmuser($id, $confirmation);
-
-
-            break;
-
-            // case 'enrolluser':
-            //     extract($_POST);
-            //     // extract($_POST);
-            //     enrollmembers($id, $enroll);
-
-
-            //     break;      
+      
 
         case 'login':
             extract($_POST);
@@ -122,20 +107,7 @@ if (isset($_GET['action'])) {
             }
             break;
 
-        case 'attend':
-            extract($_POST);
-            attend($id);
-            break;
-
-        case 'pay':
-            extract($_POST);
-            pay($id, $membership);
-            break;
-
-        case 'payrenewal':
-            extract($_POST);
-            payrenewal($id);
-            break;
+        
 
         case 'dele':
             extract($_POST);

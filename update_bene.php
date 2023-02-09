@@ -1,7 +1,6 @@
 <?php
 include 'functions.php';
-include 'yolkpay.php';
-$yolk = new YolkPay();
+
 checker();
 $user = adminmembers();
 $user1 = userbene();

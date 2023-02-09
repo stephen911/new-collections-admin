@@ -1,6 +1,6 @@
 <?php
 include 'functions.php';
-// header("Refresh:5");
+header("Refresh:5");
 // include 'yolkpay.php';
 // $yolk = new YolkPay();
 
