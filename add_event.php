@@ -712,6 +712,5 @@ $user = adminmembers();
 
 </body>
 
-<!-- Mirrored from coderthemes.com/hyper_2/modern/pages-profile.php by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 14 Nov 2022 09:18:07 GMT -->
 
 </html>

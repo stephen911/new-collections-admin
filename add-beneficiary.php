@@ -1013,7 +1013,7 @@ $user = adminmembers();
     <!-- Chart.js -->
     <script src="assets/vendor/chart.js/chart.min.js"></script>
 
-    <!-- Profile Demo App js -->
+    <!-- Collections Demo App js -->
     <script src="assets/js/pages/demo.profile.js"></script>
 
     <script src="assets/js/sweetalert2.all.min.js"></script>

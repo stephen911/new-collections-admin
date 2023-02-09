@@ -21,7 +21,7 @@ $user = adminmembers();
 <html lang="en" data-layout-mode="detached" data-topbar-color="dark" data-sidenav-color="light" data-sidenav-user="true">
 <head>
     <meta charset="utf-8" />
-    <title>Profile | OMNIBSIC - Add Staff</title>
+    <title>Collections | OMNIBSIC - Add Staff</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
