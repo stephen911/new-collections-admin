@@ -156,39 +156,11 @@ $user = adminmembers();
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="form-row-preview">
                                             <form action="" novalidate method="get" class="bene" enctype='multipart/form-data'>
-                                                <!-- <div class="mb-3">
-                                                    <label for="example-select" class="form-label">Title</label>
-                                                    <select class="form-select" id="example-select" name="title">
-                                                        <option selected></option>
-                                                        <option>Rev.</option>
-                                                        <option>Mr.</option>
-                                                        <option>Mrs.</option>
-                                                        <option>Miss</option>
-                                                        <option>Dr.</option>
-                                                        <option>Sis.</option>
-                                                        <option>Fr.</option>
-                                                        <option>Ps.</option>
-                                                        <option>Others</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="mb-3">
-                                                    <label for="fullname" class="form-label">First Name</label>
-                                                    <input class="form-control" type="text" id="fullname" placeholder="Enter your First Name" required name="fname">
-                                                    <input id="email" type="hidden" placeholder="Name to be shown on Certificate" value="<?php echo  $user['id']; ?>" class="form-control" name="id">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="fullname" class="form-label">Last Name</label>
-                                                    <input class="form-control" type="text" id="fullname" placeholder="Enter your Last Name" required name="lname">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="fullname" class="form-label">Other Names</label>
-                                                    <input class="form-control" type="text" id="fullname" placeholder="Other Name" required name="oname">
-                                                </div> -->
+                                        
 
                                                 <div class="mb-3">
                                                     <label for="emailaddress" class="form-label">Name</label>
-                                                    <input class="form-control" type="text" id="name" required placeholder="Enter Beneficiaries Name" name="name" >
+                                                    <input class="form-control" type="text" id="name" required placeholder="Enter Beneficiaries Name" name="name">
                                                     <input id="email" type="hidden" placeholder="" value="<?php echo  $user['id']; ?>" class="form-control" name="id">
                                                 </div>
 
@@ -212,26 +184,25 @@ $user = adminmembers();
                                                     </select>
                                                 </div> -->
 
-                                                
-                                                <div class="mb-3">
-                                                    <label for="emailaddress" class="form-label">Phone Number</label>
-                                                    <input class="form-control" type="text" id="name" required placeholder="Enter your phone Number" name="contact" >
-                                                </div>
-                                                <br>
-                                                <hr>
-                                                    <label for="emailaddresss" class="form-label">Event Details</label>
-                                                    <hr>
-                                                    
-                                                    <!-- <input class="form-control" type="text" id="name" required placeholder="Enter your phone Number" name="contact" > -->
-                                                <!-- <hr> -->
-                                                <!-- <div class="mb-3">
-                                                    <label for="emailaddress" class="form-label">Description</label>
-                                                    <input class="form-control" type="text" id="name" required placeholder="Description" name="desc" >
-                                                     <input id="email" type="hidden" placeholder="" value="</?php echo  $user['id']; ?>" class="form-control" name="id"> 
-                                                </div> -->
 
                                                 <div class="mb-3">
-                                                    <label for="example-fileinput" class="form-label">Image</label>
+                                                    <label for="emailaddress" class="form-label">Phone Number</label>
+                                                    <input class="form-control" type="text" id="name" required placeholder="Enter your phone Number" name="contact">
+                                                </div>
+                                                <br>
+                                              
+                                                <h4 class="page-title">Event Details</h4>
+                                                <hr>
+
+                                    
+
+                                                <div class="mb-3">
+                                                    <label for="example-date" class="form-label">Event Date</label>
+                                                    <input class="form-control"  id="example-date" type="date" name="tdate">
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="example-fileinput" class="form-label">Event Flyer (Image)</label>
                                                     <input type="file" id="example-fileinput" class="form-control" id="image" name="image">
                                                 </div>
 
@@ -483,7 +454,7 @@ $user = adminmembers();
                                 </div> -->
 
                                         <div class="mb-3 text-center">
-                                            <button class="btn btn-primary" type="submit"  name="upload"> Add beneficiary </button>
+                                            <button class="btn btn-primary" type="submit" name="upload"> Add beneficiary </button>
                                         </div>
 
                                         </form>

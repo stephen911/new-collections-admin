@@ -21,7 +21,7 @@ if (isset($_GET['action'])) {
         case 'updatebene':
             extract($_POST);
             // extract($_POST);
-            updatebene($id, $name, $contact);
+            updatebene($id, $name, $contact, $tdate);
             break;
 
         case 'updaterate':
@@ -60,7 +60,7 @@ if (isset($_GET['action'])) {
 
         case 'bene':
             extract($_POST);
-            register1($name, $contact);
+            register1($name, $contact, $tdate);
             break;
 
         case 'staff':

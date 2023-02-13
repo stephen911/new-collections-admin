@@ -248,6 +248,7 @@ $user = adminmembers();
                             <th>Name</th>
                             
                             <th>Contact</th>
+                            <th>Event Date</th>
                             <th>Image</th>
                            
                             
@@ -265,6 +266,7 @@ $user = adminmembers();
                         
                         <th>Name</th>
                         <th>Contact</th>
+                        <th>Event Date</th>
                         <th>Image</th>
                         
                             <th>Edit</th>

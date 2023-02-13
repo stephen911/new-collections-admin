@@ -171,8 +171,18 @@ $user1 = userbene();
                                                    
                                                 </div>
 
+                                                <h4 class="page-title">Event Details</h4>
+                                                <hr>
+
+                                    
+
                                                 <div class="mb-3">
-                                                    <label for="example-fileinput" class="form-label">Image</label>
+                                                    <label for="example-date" class="form-label">Event Date</label>
+                                                    <input class="form-control"  id="example-date" type="date" name="tdate">
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="example-fileinput" class="form-label">Event Flyer (Image)</label>
                                                     <input type="file" id="example-fileinput" class="form-control" id="image" name="image">
                                                 </div>
 

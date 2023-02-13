@@ -104,7 +104,7 @@ function updatestaff($id, $name, $email,  $contact, $pin, $bene, $event)
 }
 
 
-function updatebene($id, $name, $contact)
+function updatebene($id, $name, $contact, $tdate)
 
 {
     include 'starter.php';
@@ -118,7 +118,7 @@ function updatebene($id, $name, $contact)
 
     $dd = date('jS F, Y');
 
-    $ins = mysqli_query($conn, "UPDATE core_beneficiaries SET name = '$name', contact = '$contact', image='$folder', date = '$dd' WHERE id='$id'  ");
+    $ins = mysqli_query($conn, "UPDATE core_beneficiaries SET name = '$name', contact = '$contact', image='$folder', date = '$tdate' WHERE id='$id'  ");
 
     // Now let's move the uploaded image into the folder: image
     if (move_uploaded_file($tempname, $folder) && $ins) {
@@ -141,7 +141,7 @@ function updaterate($id, $usd, $gbp, $eur, $cfa)
     extract($_POST);
     $up = mysqli_query($conn, "UPDATE core_rates SET usd='$usd',gbp='$gbp',eur='$eur',cfa='$cfa' WHERE id='$id'  ");
     if ($up) {
-        echo 'Updated Successfully';        
+        echo 'Updated Successfully';
     } else {
         echo 'Failed to update record . Try again';
     }
@@ -310,8 +310,6 @@ function dispaidstats($district)
     $c = mysqli_query($conn, "SELECT * FROM members WHERE district='$district' AND paystatus='paid'");
     $count = mysqli_num_rows($c);
     echo '<h4 class="mb-0 text-success">' . $count . '</h4>';
-
-    
 }
 
 function dispaidstatsper($district)
@@ -434,7 +432,7 @@ function register($name, $email, $password)
     }
 }
 
-function register1($name, $contact,)
+function register1($name, $contact, $tdate)
 {
 
     include 'starter.php';
@@ -446,7 +444,7 @@ function register1($name, $contact,)
 
     $dd = date('jS F, Y');
 
-    $ins = mysqli_query($conn, "INSERT INTO core_beneficiaries (name,contact,image,date) VALUES('$name','$contact','$folder','$dd')");
+    $ins = mysqli_query($conn, "INSERT INTO core_beneficiaries (name,contact,image,date) VALUES('$name','$contact','$folder','$tdate')");
 
     // Now let's move the uploaded image into the folder: image
     if (move_uploaded_file($tempname, $folder) && $ins) {
@@ -680,26 +678,16 @@ function staff()
         // $row2 = mysqli_fetch_array($y);
 
         $parsed = date_parse($row['last_login']);
-        $unix_timestamp = mktime($parsed['hour'], 0, 0, $parsed['month'], $parsed['day'], $parsed['year']);
+        $unix_timestamp = mktime($parsed['hour'], $parsed['minute'], $parsed['second'], $parsed['month'], $parsed['day'], $parsed['year']);
 
         // echo date('l', $unix_timestamp);
         echo '<tr>
         <td>' . $row['id'] . '</td>
-       
         <td>' . $row['username'] . '</td>
         <td> <span class="js-lists-values-employee-name">' . $row['contact'] . '</span></td>
-        
-        
         <td><span class="js-lists-values-employee-title">' .  date("l jS \of F Y h:i:s A", $unix_timestamp) . '</span></td>
-        
-        
         <td><a class="btn btn-primary" href="update_user.php?id=' . $row['id'] . '"><i class="fa fa-edit"></i></a></td> 
-        <td><button class="btn btn-danger delme" id=' . $row['id'] . '"><i class="fa fa-trash"></i></button></td>      
-
-
-
-
-                                        
+        <td><button class="btn btn-danger delme" id=' . $row['id'] . '"><i class="fa fa-trash"></i></button></td>                                         
     </tr>';
     }
 }
@@ -709,23 +697,13 @@ function rates()
 {
     include 'starter.php';
     $u = mysqli_query($conn, 'SELECT * FROM core_rates ORDER BY id DESC ');
-    // $y = mysqli_query($conn, 'SELECT * FROM transactions ORDER BY uid DESC ');
-
     while ($row = mysqli_fetch_array($u)) {
-        // $y = mysqli_query($conn, 'SELECT * FROM transactions WHERE uid = ' . $row['id'] . ' ');
-
-        // $row2 = mysqli_fetch_array($y);
-
         echo '<tr>
                 <td>' . $row['id'] . '</td>
                 <td>' . $row['usd'] . '</td>
                 <td>' . $row['gbp'] . '</td>
                 <td> <span class="js-lists-values-employee-name">' . $row['eur'] . '</span></td>
-
-
                 <td><span class="js-lists-values-employee-title">' . $row['cfa'] . '</span></td>
-
-
                 <td><a class="btn btn-primary" href="update_rate.php?id=' . $row['id'] . '"><i class="fa fa-edit"></i></a></td>                                                
                 </tr>';
     }
@@ -739,28 +717,14 @@ function bene()
 {
     include 'starter.php';
     $u = mysqli_query($conn, 'SELECT * FROM core_beneficiaries ORDER BY id DESC ');
-    // $y = mysqli_query($conn, 'SELECT * FROM transactions ORDER BY uid DESC ');
-
     while ($row = mysqli_fetch_array($u)) {
-        // $y = mysqli_query($conn, 'SELECT * FROM transactions WHERE uid = ' . $row['id'] . ' ');
-
-        // $row2 = mysqli_fetch_array($y);
         echo '<tr>
         <td>' . $row['id'] . '</td>
         <td>' . $row['name'] . '</td>
         <td> <span class="js-lists-values-employee-name">' . $row['contact'] . '</span></td>
-        
-        
+        <td> <span class="js-lists-values-employee-name">' . $row['date'] . '</span></td>
         <td><span class="js-lists-values-employee-title">' . $row['image'] . '</span></td>
-        
-        
-        <td><a class="btn btn-primary" href="update_bene.php?id=' . $row['id'] . '"><i class="fa fa-edit"></i></a></td> 
-       
-
-
-
-
-                                        
+        <td><a class="btn btn-primary" href="update_bene.php?id=' . $row['id'] . '"><i class="fa fa-edit"></i></a></td>                             
     </tr>';
     }
 }
@@ -771,8 +735,11 @@ function countmembers()
 {
     include 'starter.php';
     $c = mysqli_query($conn, 'SELECT * FROM core_account');
-    $d = mysqli_query($conn, 'SELECT * FROM core_rates');
-    $row2 = mysqli_fetch_array($d);
+    $d = mysqli_query($conn, 'SELECT * FROM core_rates ORDER BY id DESC LIMIT 1');
+    if ($d) {
+
+        $row2 = mysqli_fetch_array($d);
+    }
     $amount = 0;
     $usd = 0;
     $eur = 0;
@@ -794,15 +761,20 @@ function countmembers()
         }
     }
 
-    $usd = $usd * $row2['usd'];
-    $gbp = $gbp * $row2['gbp'];
-    $eur = $eur * $row2['eur'];
-    $cfa = $cfa * $row2['cfa'];
+    if (isset($row2['usd'])) {
 
 
-    $ghs = $ghc + $usd + $gbp + $eur + $cfa;
+        $usd = $usd * $row2['usd'];
+        $gbp = $gbp * $row2['gbp'];
+        $eur = $eur * $row2['eur'];
+        $cfa = $cfa * $row2['cfa'];
+        $ghs = $ghc + $usd + $gbp + $eur + $cfa;
 
-    echo  'GH₵ ' . number_format($ghs, 2);
+        echo  'GH₵ ' . number_format($ghs, 2);
+    } else {
+
+        echo 'Add rates';
+    }
 }
 
 function usd()
@@ -839,8 +811,12 @@ function cash_spec($bene)
     include 'starter.php';
     $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
     $amount = 0;
-    $d = mysqli_query($conn, 'SELECT * FROM core_rates');
-    $row2 = mysqli_fetch_array($d);
+    $d = mysqli_query($conn, 'SELECT * FROM core_rates ORDER BY id DESC LIMIT 1');
+    if ($d) {
+
+        $row2 = mysqli_fetch_array($d);
+    }
+    // $row2 = mysqli_fetch_array($d);
     $amount = 0;
     $usd = 0;
     $eur = 0;
@@ -866,16 +842,20 @@ function cash_spec($bene)
         }
     }
 
-    $usd = $usd * $row2['usd'];
-    $gbp = $gbp * $row2['gbp'];
-    $eur = $eur * $row2['eur'];
-    $cfa = $cfa * $row2['cfa'];
+    if (isset($row2['usd'])) {
 
 
-    $amount = $ghc + $usd + $gbp + $eur + $cfa;
+        $usd = $usd * $row2['usd'];
+        $gbp = $gbp * $row2['gbp'];
+        $eur = $eur * $row2['eur'];
+        $cfa = $cfa * $row2['cfa'];
+        $ghs = $ghc + $usd + $gbp + $eur + $cfa;
 
-    echo  'GH₵ ' . number_format($amount, 2);
-    // echo  number_format($ghs, 2);
+        return  'GH₵ ' . number_format($ghs, 2);
+    } else {
+
+        echo 'Add rates';
+    }
 }
 
 function momo_spec($bene)
@@ -883,8 +863,12 @@ function momo_spec($bene)
     include 'starter.php';
     $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
 
-    $d = mysqli_query($conn, 'SELECT * FROM core_rates');
-    $row2 = mysqli_fetch_array($d);
+    $d = mysqli_query($conn, 'SELECT * FROM core_rates ORDER BY id DESC LIMIT 1');
+    if ($d) {
+
+        $row2 = mysqli_fetch_array($d);
+    }
+    // $row2 = mysqli_fetch_array($d);
     $amount = 0;
     $usd = 0;
     $eur = 0;
@@ -909,17 +893,27 @@ function momo_spec($bene)
             }
 
 
-            $usd = $usd * $row2['usd'];
-            $gbp = $gbp * $row2['gbp'];
-            $eur = $eur * $row2['eur'];
-            $cfa = $cfa * $row2['cfa'];
+
+           
         }
     }
-    $amount = $ghc + $usd + $gbp + $eur + $cfa;
+    if (isset($row2['usd'])) {
+        $usd = $usd * $row2['usd'];
+        $gbp = $gbp * $row2['gbp'];
+        $eur = $eur * $row2['eur'];
+        $cfa = $cfa * $row2['cfa'];
+
+        $amount = $ghc + $usd + $gbp + $eur + $cfa;
 
 
-    echo  'GH₵ ' . number_format($amount, 2);
-    // echo  number_format($ghs, 2);
+
+        echo  'GH₵ ' . number_format($amount, 2);
+    } else {
+        echo 'Add rates';
+    }
+
+   
+
 }
 
 function visa_spec($bene)
@@ -927,8 +921,12 @@ function visa_spec($bene)
     include 'starter.php';
     $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
     $amount = 0;
-    $d = mysqli_query($conn, 'SELECT * FROM core_rates');
-    $row2 = mysqli_fetch_array($d);
+    $d = mysqli_query($conn, 'SELECT * FROM core_rates ORDER BY id DESC LIMIT 1');
+    if ($d) {
+
+        $row2 = mysqli_fetch_array($d);
+    }
+    // $row2 = mysqli_fetch_array($d);
     $amount = 0;
     $usd = 0;
     $eur = 0;
@@ -975,8 +973,12 @@ function cheque_spec($bene)
     include 'starter.php';
     $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
     $amount = 0;
-    $d = mysqli_query($conn, 'SELECT * FROM core_rates');
-    $row2 = mysqli_fetch_array($d);
+    $d = mysqli_query($conn, 'SELECT * FROM core_rates ORDER BY id DESC LIMIT 1');
+    if ($d) {
+
+        $row2 = mysqli_fetch_array($d);
+    }
+    // $row2 = mysqli_fetch_array($d);
     $amount = 0;
     $usd = 0;
     $eur = 0;
@@ -1035,6 +1037,120 @@ function gifts_spec($bene)
     echo  $gifts;
 }
 
+
+function cash_spec_num($bene)
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $cash = 0;
+
+    while ($row = mysqli_fetch_array($c)) {
+        if ($row['payment_method'] == 'Cash') {
+            $cash = $cash + 1;
+        }
+    }
+    return $cash;
+}
+
+function momo_spec_num($bene)
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $momo = 0;
+
+    while ($row = mysqli_fetch_array($c)) {
+        if ($row['payment_method'] == 'Momo') {
+            $momo = $momo + 1;
+        }
+    }
+    return $momo;
+}
+
+
+
+function visa_spec_num($bene)
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $visa = 0;
+
+    while ($row = mysqli_fetch_array($c)) {
+        if ($row['payment_method'] == 'Visa') {
+            $visa = $visa + 1;
+        }
+    }
+    return $visa;
+}
+
+function cheque_spec_num($bene)
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $cheque = 0;
+
+    while ($row = mysqli_fetch_array($c)) {
+        if ($row['payment_method'] == 'Cheque') {
+            $cheque = $cheque + 1;
+        }
+    }
+    return $cheque;
+}
+
+function usd_spec_num($bene)
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $usd = 0;
+
+    while ($row = mysqli_fetch_array($c)) {
+        if ($row['currency'] == 'USD') {
+            $usd = $usd + 1;
+        }
+    }
+    return $usd;
+}
+
+function gbp_spec_num($bene)
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $gbp = 0;
+
+    while ($row = mysqli_fetch_array($c)) {
+        if ($row['currency'] == 'GBP') {
+            $gbp = $gbp + 1;
+        }
+    }
+    return $gbp;
+}
+
+function eur_spec_num($bene)
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $eur = 0;
+
+    while ($row = mysqli_fetch_array($c)) {
+        if ($row['currency'] == 'EUR') {
+            $eur = $eur + 1;
+        }
+    }
+    return $eur;
+}
+
+function cfa_spec_num($bene)
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $cfa = 0;
+
+    while ($row = mysqli_fetch_array($c)) {
+        if ($row['currency'] == 'CFA') {
+            $cfa = $cfa + 1;
+        }
+    }
+    return $cfa;
+}
 function gbp()
 {
     include 'starter.php';
@@ -1129,8 +1245,12 @@ function countmembers_spec($bene)
     $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
     include 'starter.php';
     // $c = mysqli_query($conn, 'SELECT * FROM core_account');
-    $d = mysqli_query($conn, 'SELECT * FROM core_rates');
-    $row2 = mysqli_fetch_array($d);
+    $d = mysqli_query($conn, 'SELECT * FROM core_rates ORDER BY id DESC LIMIT 1');
+    if ($d) {
+
+        $row2 = mysqli_fetch_array($d);
+    }
+    // $row2 = mysqli_fetch_array($d);
     $amount = 0;
     $usd = 0;
     $eur = 0;
@@ -1151,16 +1271,20 @@ function countmembers_spec($bene)
             $ghc = $ghc + $row['amount'];
         }
     }
-
-    $usd = $usd * $row2['usd'];
-    $gbp = $gbp * $row2['gbp'];
-    $eur = $eur * $row2['eur'];
-    $cfa = $cfa * $row2['cfa'];
+    if (isset($row2['usd'])) {
 
 
-    $ghs = $ghc + $usd + $gbp + $eur + $cfa;
+        $usd = $usd * $row2['usd'];
+        $gbp = $gbp * $row2['gbp'];
+        $eur = $eur * $row2['eur'];
+        $cfa = $cfa * $row2['cfa'];
+        $ghs = $ghc + $usd + $gbp + $eur + $cfa;
 
-    echo  'GH₵ ' . number_format($ghs, 2);
+        echo  'GH₵ ' . number_format($ghs, 2);
+    } else {
+
+        echo 'Add rates';
+    }
 }
 
 
@@ -1198,18 +1322,17 @@ function showdonors()
                                         >';
 
 
-                                        if ($row['amount'] == NULL) {
-                                            echo ' 
+        if ($row['amount'] == NULL) {
+            echo ' 
                                             <p class="text-success my-0"> Gifts </p>
                                             ';
-
-                                        }else{
-                                            echo '
+        } else {
+            echo '
                                          <p class="text-success my-0"> ' . $row['currency'] . ' ' . $row['amount'] . '</p>
                                         ';
-                                        }
+        }
 
-                                        echo '
+        echo '
 
 
                                         
@@ -1259,18 +1382,17 @@ function showdonors_spec($bene)
             >';
 
 
-            if ($row['amount'] == NULL) {
-                echo ' 
+        if ($row['amount'] == NULL) {
+            echo ' 
                 <p class="text-success my-0"> Gifts </p>
                 ';
-
-            }else{
-                echo '
+        } else {
+            echo '
              <p class="text-success my-0"> ' . $row['currency'] . ' ' . $row['amount'] . '</p>
             ';
-            }
+        }
 
-            echo '
+        echo '
 
 
             
@@ -1299,9 +1421,13 @@ function transactionstotal($bene)
 
     $u = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene' ORDER BY  pay_date DESC");
     // $y = mysqli_query($conn, 'SELECT * FROM transactions ORDER BY uid DESC ');
-    $c = mysqli_query($conn, 'SELECT * FROM core_account');
-    $d = mysqli_query($conn, 'SELECT * FROM core_rates');
-    $row2 = mysqli_fetch_array($d);
+    // $c = mysqli_query($conn, 'SELECT * FROM core_account');
+    $d = mysqli_query($conn, 'SELECT * FROM core_rates ORDER BY id DESC LIMIT 1');
+    if ($d) {
+
+        $row2 = mysqli_fetch_array($d);
+    }
+    // $row2 = mysqli_fetch_array($d);
     $amount = 0;
     $usd = 0;
     $eur = 0;
@@ -1329,22 +1455,22 @@ function transactionstotal($bene)
         // $amount = $amount + $row['amount'];
     }
 
-
-    $usd = $usd * $row2['usd'];
-    $gbp = $gbp * $row2['gbp'];
-    $eur = $eur * $row2['eur'];
-    $cfa = $cfa * $row2['cfa'];
+    if (isset($row2['usd'])) {
 
 
-    $ghc = $ghc + $usd + $gbp + $eur + $cfa;
+        $usd = $usd * $row2['usd'];
+        $gbp = $gbp * $row2['gbp'];
+        $eur = $eur * $row2['eur'];
+        $cfa = $cfa * $row2['cfa'];
 
-    //    number_format($ghc, 2);
 
-    // $amountt = new \NumberFormatter( 'de_DE', \NumberFormatter::CURRENCY );
+        $ghc = $ghc + $usd + $gbp + $eur + $cfa;
 
-    // return $amountt->format( $amount );
+        return number_format($ghc, 2);
+    } else {
 
-    return number_format($ghc, 2);
+        return 'Add rates';
+    }
 }
 
 

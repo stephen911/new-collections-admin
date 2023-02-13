@@ -233,7 +233,7 @@ $user = adminmembers();
                                                 <div class="float-start">
                                                     <p><b><?php
                                                             if (isset($_GET['btnupdate'])) {
-                                                                echo usd_spec($_GET['bene']);
+                                                                echo usd_spec($_GET['bene']).'&nbsp; <span class="badge bg-primary float-end">No.' . usd_spec_num($_GET['bene']).'   </span>';
                                                             } else {
                                                                 echo 'USD 0';
                                                             }
@@ -245,11 +245,13 @@ $user = adminmembers();
                                                 <div class="float-end">
                                                     <p><b>Cash: &nbsp; <?php
                                                                         if (isset($_GET['btnupdate'])) {
-                                                                            echo cash_spec($_GET['bene']);
+                                                                            echo cash_spec($_GET['bene']) .'&nbsp; <span class="badge bg-primary float-end">No.' . cash_spec_num($_GET['bene']).'   </span>';
                                                                         } else {
                                                                             echo  'GHS 0';
                                                                         }
                                                                         ?></b></p>
+
+                                                                        
 
                                                 </div>
 
@@ -259,7 +261,7 @@ $user = adminmembers();
                                             <div class="col-sm-4 offset-sm-2">
                                                 <!-- <div class="mt-3 float-sm-end">
                                                     <p class="font-13"><strong>Beneficiary Name: </strong> <span class="float-end">&nbsp;&nbsp;&nbsp; <?php echo $_GET['bene']; ?></span></p> -->
-                                                <!-- <p class="font-13"><strong>Transaction Status: </strong> <span class="badge bg-success float-end">Paid</span></p> -->
+                                                <!-- <p class="font-13"><strong>Transaction Status: </strong> <span class="badge bg-primary float-end">Paid</span></p> -->
 
 
                                                 <!-- <p class="font-13"><strong>Transaction No: </strong> <span class="float-end"><//?php  ReportId(); ?></span></p> -->
@@ -272,7 +274,7 @@ $user = adminmembers();
                                                 <div class="float-start">
                                                     <p><b><?php
                                                             if (isset($_GET['btnupdate'])) {
-                                                                echo gbp_spec($_GET['bene']);
+                                                                echo gbp_spec($_GET['bene']).'&nbsp; <span class="badge bg-primary float-end">No.' . gbp_spec_num($_GET['bene']).'   </span>';
                                                             } else {
                                                                 echo 'GBP 0';
                                                             }
@@ -284,7 +286,7 @@ $user = adminmembers();
                                                 <div class="float-end">
                                                     <p><b>Momo: &nbsp; <?php
                                                                         if (isset($_GET['btnupdate'])) {
-                                                                            echo momo_spec($_GET['bene']);
+                                                                            echo momo_spec($_GET['bene']) .'&nbsp; <span class="badge bg-primary float-end">No.' . momo_spec_num($_GET['bene']).'   </span>';
                                                                         } else {
                                                                             echo  'GHS 0';
                                                                         }
@@ -298,7 +300,7 @@ $user = adminmembers();
                                             <div class="col-sm-4 offset-sm-2">
                                                 <!-- <div class="mt-3 float-sm-end">
                                                     <p class="font-13"><strong>Beneficiary Name: </strong> <span class="float-end">&nbsp;&nbsp;&nbsp; <?php echo $_GET['bene']; ?></span></p> -->
-                                                <!-- <p class="font-13"><strong>Transaction Status: </strong> <span class="badge bg-success float-end">Paid</span></p> -->
+                                                <!-- <p class="font-13"><strong>Transaction Status: </strong> <span class="badge bg-primary float-end">Paid</span></p> -->
 
 
                                                 <!-- <p class="font-13"><strong>Transaction No: </strong> <span class="float-end"><//?php  ReportId(); ?></span></p> -->
@@ -311,7 +313,7 @@ $user = adminmembers();
                                                 <div class="float-start">
                                                     <p><b><?php
                                                             if (isset($_GET['btnupdate'])) {
-                                                                echo eur_spec($_GET['bene']);
+                                                                echo eur_spec($_GET['bene']).'&nbsp; <span class="badge bg-primary float-end">No.' . eur_spec_num($_GET['bene']).'   </span>';
                                                             } else {
                                                                 echo 'EUR 0';
                                                             }
@@ -323,7 +325,7 @@ $user = adminmembers();
                                                 <div class="float-end">
                                                     <p><b>Credit Card: &nbsp; <?php
                                                                                 if (isset($_GET['btnupdate'])) {
-                                                                                    echo visa_spec($_GET['bene']);
+                                                                                    echo visa_spec($_GET['bene']) .'&nbsp; <span class="badge bg-primary float-end">No.' . visa_spec_num($_GET['bene']).'   </span>';
                                                                                 } else {
                                                                                     echo  'GHS 0';
                                                                                 }
@@ -337,7 +339,7 @@ $user = adminmembers();
                                             <div class="col-sm-4 offset-sm-2">
                                                 <!-- <div class="mt-3 float-sm-end">
                                                     <p class="font-13"><strong>Beneficiary Name: </strong> <span class="float-end">&nbsp;&nbsp;&nbsp; <?php echo $_GET['bene']; ?></span></p> -->
-                                                <!-- <p class="font-13"><strong>Transaction Status: </strong> <span class="badge bg-success float-end">Paid</span></p> -->
+                                                <!-- <p class="font-13"><strong>Transaction Status: </strong> <span class="badge bg-primary float-end">Paid</span></p> -->
 
 
                                                 <!-- <p class="font-13"><strong>Transaction No: </strong> <span class="float-end"><//?php  ReportId(); ?></span></p> -->
@@ -351,7 +353,7 @@ $user = adminmembers();
                                                 <div class="float-start">
                                                     <p><b><?php
                                                             if (isset($_GET['btnupdate'])) {
-                                                                echo cfa_spec($_GET['bene']);
+                                                                echo cfa_spec($_GET['bene']).'&nbsp; <span class="badge bg-primary float-end">No.' . cfa_spec_num($_GET['bene']).'   </span>';
                                                             } else {
                                                                 echo 'CFA 0';
                                                             }
@@ -363,7 +365,7 @@ $user = adminmembers();
                                                 <div class="float-end">
                                                     <p><b>Cheque: &nbsp; <?php
                                                                             if (isset($_GET['btnupdate'])) {
-                                                                                echo cheque_spec($_GET['bene']);
+                                                                                echo cheque_spec($_GET['bene']) .'&nbsp; <span class="badge bg-primary float-end">No.' . cheque_spec_num($_GET['bene']).'   </span>';
                                                                             } else {
                                                                                 echo  'GHS 0';
                                                                             }
@@ -377,7 +379,7 @@ $user = adminmembers();
                                             <div class="col-sm-4 offset-sm-2">
                                                 <!-- <div class="mt-3 float-sm-end">
                                                     <p class="font-13"><strong>Beneficiary Name: </strong> <span class="float-end">&nbsp;&nbsp;&nbsp; <?php echo $_GET['bene']; ?></span></p> -->
-                                                <!-- <p class="font-13"><strong>Transaction Status: </strong> <span class="badge bg-success float-end">Paid</span></p> -->
+                                                <!-- <p class="font-13"><strong>Transaction Status: </strong> <span class="badge bg-primary float-end">Paid</span></p> -->
 
 
                                                 <!-- <p class="font-13"><strong>Transaction No: </strong> <span class="float-end"><//?php  ReportId(); ?></span></p> -->
@@ -405,7 +407,7 @@ $user = adminmembers();
                                             <div class="col-sm-4 offset-sm-2">
                                                 <!-- <div class="mt-3 float-sm-end">
                                                     <p class="font-13"><strong>Beneficiary Name: </strong> <span class="float-end">&nbsp;&nbsp;&nbsp; <?php echo $_GET['bene']; ?></span></p> -->
-                                                <!-- <p class="font-13"><strong>Transaction Status: </strong> <span class="badge bg-success float-end">Paid</span></p> -->
+                                                <!-- <p class="font-13"><strong>Transaction Status: </strong> <span class="badge bg-primary float-end">Paid</span></p> -->
 
 
                                                 <!-- <p class="font-13"><strong>Transaction No: </strong> <span class="float-end"><//?php  ReportId(); ?></span></p> -->
