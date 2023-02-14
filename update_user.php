@@ -4,8 +4,6 @@ include 'functions.php';
 checker();
 $user = adminmembers();
 $user1 = userstaff();
-
-
 ?>
 
 
