@@ -5,6 +5,7 @@ checker();
 $user = adminmembers();
 $user1 = userstaff();
 
+
 ?>
 
 
@@ -189,10 +190,10 @@ $user1 = userstaff();
                                                     <input class="form-control" type="text" id="contact" required placeholder="Enter your phone Number" name="contact" value="<?php echo ($user1['contact'] == '') ? '' : $user1['contact']; ?>">
                                                 </div>
 
-                                                <div class="mb-3">
+                                                <!-- <div class="mb-3">
                                                     <label for="emailaddress" class="form-label">Pin</label>
                                                     <input class="form-control" type="text" id="contact" required placeholder="Enter Pin" name="pin" value="<?php echo ($user1['pin'] == '') ? '' : $user1['pin']; ?>">
-                                                </div>
+                                                </div> -->
                                                 <!-- <div class="mb-3">
                                                     <label for="emailaddress" class="form-label">WhatsApp Number</label>
                                                     <input class="form-control" type="text" id="whatsapp" required placeholder="Enter your WhatsApp Number" name="wnumber" value="<?php echo ($user1['whatsapp'] == '') ? '' : $user1['whatsapp']; ?>">

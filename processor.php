@@ -15,7 +15,7 @@ if (isset($_GET['action'])) {
         case 'updatestaff':
             extract($_POST);
             // extract($_POST);
-            updatestaff($id, $name, $email, $contact, $pin, $bene, $event);
+            updatestaff($id, $name, $email, $contact, $bene, $event);
             break;
 
         case 'updatebene':

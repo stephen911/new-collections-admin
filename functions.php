@@ -89,13 +89,13 @@ function upmembers()
 
 
 
-function updatestaff($id, $name, $email,  $contact, $pin, $bene, $event)
+function updatestaff($id, $name, $email,  $contact, $bene, $event)
 
 {
     include 'starter.php';
     // $id = $_GET['id'];
     extract($_POST);
-    $up = mysqli_query($conn, "UPDATE core_staffuser SET username = '$name', email='$email', contact= '$contact', pin='$pin', bene_uid='$bene', event='$event'   WHERE id='$id'  ");
+    $up = mysqli_query($conn, "UPDATE core_staffuser SET username = '$name', email='$email', contact= '$contact', bene_uid='$bene', event='$event'   WHERE id='$id'  ");
     if ($up) {
         echo 'Updated Successfully';
     } else {
@@ -159,6 +159,23 @@ function userstaff()
     $row = mysqli_fetch_array($d);
 
     return $row;
+}
+
+
+function userstaffbene()
+{
+    include 'starter.php';
+    // session_start();
+    // $id = $_SESSION['id'];
+    $id = $_GET['id'];
+
+    $d = mysqli_query($conn, "SELECT * FROM core_staffuser WHERE id ='$id'");
+    $row = mysqli_fetch_array($d);
+    $uid = $row['bene_uid'];
+    $c = mysqli_query($conn, "SELECT * FROM core_beneficiaries WHERE id ='$uid'");
+    $row2 = mysqli_fetch_array($c);
+
+    return $row2['name'];
 }
 
 function userrate()
