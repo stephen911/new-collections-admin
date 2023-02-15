@@ -523,6 +523,20 @@ function addevent($name)
 }
 
 
+function addbank($name)
+{
+
+    include 'starter.php';
+
+    $ins = mysqli_query($conn, "INSERT INTO core_banks (name) VALUES ('$name')");
+    if ($ins) {
+        echo "bankadded";
+    } else {
+        echo "failed";
+    }
+}
+
+
 
 
 function changepass($id, $password, $newpass)

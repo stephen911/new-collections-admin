@@ -80,6 +80,12 @@ if (isset($_GET['action'])) {
 
             break;
 
+        case 'bank':
+            extract($_POST);
+            addbank($name);
+
+            break;
+
         case 'register':
             extract($_POST);
             if ($oname == '') {

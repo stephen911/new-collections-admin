@@ -184,6 +184,19 @@ $(function () {
       }).then(function (result) {
         // window.location = "users.php";
       });
+    }else if (response == "bankadded") {
+      swal({
+        title: "Success",
+        text: "Bank added Successfully",
+        timer: 1000,
+        type: "success",
+        padding: "2em",
+        onOpen: function () {
+          swal.showLoading();
+        },
+      }).then(function (result) {
+        // window.location = "users.php";
+      });
     } else if (response == "attended") {
       swal({
         title: "Success",
@@ -568,6 +581,23 @@ $(function () {
 
     var staff = {
       url: "processor.php?action=event",
+      type: "post",
+      data: new FormData(this),
+      cache: false,
+      contentType: false,
+      processData: false,
+      beforeSend: before,
+      success: resp,
+    };
+    $.ajax(staff);
+  });
+
+
+  $(".bank").submit(function (e) {
+    e.preventDefault();
+
+    var staff = {
+      url: "processor.php?action=bank",
       type: "post",
       data: new FormData(this),
       cache: false,
