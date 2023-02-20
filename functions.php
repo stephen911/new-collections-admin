@@ -670,11 +670,14 @@ function registered()
     include 'starter.php';
     $u = mysqli_query($conn, 'SELECT * FROM core_account ORDER BY id DESC ');
     // $y = mysqli_query($conn, 'SELECT * FROM transactions ORDER BY uid DESC ');
+   
 
     while ($row = mysqli_fetch_array($u)) {
         // $y = mysqli_query($conn, 'SELECT * FROM transactions WHERE uid = ' . $row['id'] . ' ');
 
         // $row2 = mysqli_fetch_array($y);
+        $parsed = date_parse($row['pay_date']);
+        $unix_timestamp = mktime($parsed['hour'], $parsed['minute'], $parsed['second'], $parsed['month'], $parsed['day'], $parsed['year']);
         echo '<tr>
         <td>' . $row['id'] . '</td>
         <td>' . $row['donor_name'] . '</td>
@@ -685,7 +688,7 @@ function registered()
         <td><span class="js-lists-values-employee-title">' . $row['payment_method'] . '</span></td>
         <td><span class="js-lists-values-employee-district">' . $row['currency'] . ' ' . $row['amount'] . '</span>
    
-        <td><span class="js-lists-values-employee-paid">' . $row['pay_date'] . '</span></td> 
+        <td><span class="js-lists-values-employee-paid">' .  date("l jS \of F Y h:i:s A", $unix_timestamp) .  '</span></td> 
        
 
 
@@ -1345,7 +1348,7 @@ function showdonors()
                                         >
                                             <p class="font-18 mb-1">' . ucwords($row['staff_name']) . '</p>                                
                                         </div>
-                                        <div  class="float-end" style="height:30px;
+                                        <div  class="float-end" style="height:40px;
                                         width:10%;
                                         overflow:hidden;
                                         cursor:pointer;
@@ -1355,7 +1358,7 @@ function showdonors()
 
         if ($row['amount'] == NULL) {
             echo ' 
-                                            <p class="text-success my-0"> Gifts </p>
+                                            <p class="text-success my-0"> ' . $row['desc'] . '</p>
                                             ';
         } else {
             echo '
