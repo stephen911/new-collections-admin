@@ -590,16 +590,33 @@ function transactions($bene)
             </div>
         </td>
 
-        <td>
-        <div class="d-flex align-items-center">
+        ';
+
+        if($row['payment_method'] == "Gifts"){
+            echo '<td>
+            <div class="d-flex align-items-center">
+            <small class="text-uppercase text-muted mr-2">  ' . $row['payment_method'] . ' ('  . $row['desc'] . ')</small>
+            
+        </div> </td></tr>';
+
+        }else{
+            echo '
+            <td>
+            <div class="d-flex align-items-center">
             <small class="text-uppercase text-muted mr-2">' . $row['payment_method'] . '</small>
             
         </div>
-    </td>
+        </td>
+        
+        </tr>';
+        }
+
+        
+   
         
         
         
-    </tr>';
+    
 
         $num = $num + 1;
         // code...

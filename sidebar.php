@@ -360,7 +360,7 @@
 
     <li class="side-nav-item">
         <a href="add_bank.php"  class="side-nav-link">
-            <i class="uil-clock"></i>
+            <i class="uil-home"></i>
             <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
             <span> Add Bank</span>
         </a>
