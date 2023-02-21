@@ -148,12 +148,12 @@ $user1 = userstaff();
                                             <form action="" novalidate method="get" class="updatestaff" enctype='multipart/form-data'>
                                             <div class="mb-3">
                                                     <label for="emailaddress" class="form-label">First Name</label>
-                                                    <input class="form-control" type="text" id="name" required placeholder="Enter First Name" name="fname" >
+                                                    <input class="form-control" type="text" id="name" required placeholder="Enter First Name" name="fname" value="<?php echo ($user1['first_name'] == '') ? '' : $user1['first_name']; ?>>
                                                     <!-- <input id="email" type="hidden" placeholder="" value="<?php echo  $user['id']; ?>" class="form-control" name="id"> -->
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="emailaddress" class="form-label">Last Name</label>
-                                                    <input class="form-control" type="text" id="name" required placeholder="Enter Last Name" name="lname" >
+                                                    <input class="form-control" type="text" id="name" required placeholder="Enter Last Name" name="lname" value="<?php echo ($user1['last_name'] == '') ? '' : $user1['last_name']; ?> >
                                                     <!-- <input id="email" type="hidden" placeholder="" value="<?php echo  $user['id']; ?>" class="form-control" name="id"> -->
                                                 </div>
                                                
