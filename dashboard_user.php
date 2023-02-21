@@ -397,7 +397,7 @@ $user = adminmembers();
                             <div class="card tilebox-one">
                                 <div class="card-body">
                                     <i class="ri-shopping-basket-2-line float-end text-muted"></i>
-                                    <h6 class="text-muted text-uppercase mt-0">Staff</h6>
+                                    <h6 class="text-muted text-uppercase mt-0">Teller</h6>
                                     <h2 class="m-b-20"><?php echo totalstaff() ?></h2>
                                     <!-- <span class="badge bg-primary"> +11% </span> <span class="text-muted">From previous period</span> -->
                                 </div> <!-- end card-body-->

@@ -89,13 +89,13 @@ function upmembers()
 
 
 
-function updatestaff($id, $name, $email,  $contact, $bene, $event)
+function updatestaff($id, $name, $email,  $contact, $bene, $event, $fname, $lname)
 
 {
     include 'starter.php';
     // $id = $_GET['id'];
     extract($_POST);
-    $up = mysqli_query($conn, "UPDATE core_staffuser SET username = '$name', email='$email', contact= '$contact', bene_uid='$bene', event='$event'   WHERE id='$id'  ");
+    $up = mysqli_query($conn, "UPDATE core_staffuser SET first_name = '$fname', last_name = '$lname', username = '$name', email='$email', contact= '$contact', bene_uid='$bene', event='$event'   WHERE id='$id'  ");
     if ($up) {
         echo 'Updated Successfully';
     } else {
@@ -472,7 +472,7 @@ function register1($name, $contact, $tdate)
 }
 
 
-function addstaff($name, $contact, $bene, $pin, $event)
+function addstaff($name, $contact, $bene, $pin, $event, $fname, $lname)
 {
 
     include 'starter.php';
@@ -482,7 +482,7 @@ function addstaff($name, $contact, $bene, $pin, $event)
     $password = 'pbkdf2_sha256$390000$0fI0HMtqWSwTXVqj8L3c1s$dltZY9+TvH+cjLUTTGlXP+LnT85fQSG55QC6ktRtZjg=';
     $num = 1;
 
-    $ins = mysqli_query($conn, "INSERT INTO core_staffuser (username,contact,bene_uid,pin,password,is_staff,is_superuser,is_active,event) VALUES ('$name','$contact','$bene','$pin','$password','$num','$num','$num', '$event')");
+    $ins = mysqli_query($conn, "INSERT INTO core_staffuser (username,contact,bene_uid,pin,password,is_staff,is_superuser,is_active,event,first_name,last_name) VALUES ('$name','$contact','$bene','$pin','$password','$num','$num','$num', '$event', '$fname', '$lname')");
 
     if ($ins) {
         echo "staffadded";

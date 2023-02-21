@@ -15,7 +15,7 @@ $user = adminmembers();
 
 <head>
     <meta charset="utf-8" />
-    <title>Collections | OMNIBSIC - Staff</title>
+    <title>Collections | OMNIBSIC - Teller</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -159,10 +159,10 @@ $user = adminmembers();
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="#">OMNIBSIC</a></li>
                                         <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                                        <li class="breadcrumb-item active">Staff</li>
+                                        <li class="breadcrumb-item active">Teller</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Staff</h4>
+                                <h4 class="page-title">Teller</h4>
                             </div>
                         </div>
                     </div>
@@ -231,9 +231,9 @@ $user = adminmembers();
                             <div class="card">
                                 <div class="card-body">
 
-                                    <h4 class="header-title">Staff Table</h4>
+                                    <h4 class="header-title">Teller Table</h4>
                                     <p class="text-muted font-14">
-                                        Staff Table
+                                        Teller Table
                                     </p>
 
                         

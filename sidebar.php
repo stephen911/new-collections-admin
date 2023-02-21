@@ -322,7 +322,7 @@
         <a href="staff.php"  class="side-nav-link">
             <i class="uil-money-withdrawal"></i>
             <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
-            <span>Staffs</span>
+            <span>Tellers</span>
         </a>
     </li>
 
@@ -330,7 +330,7 @@
         <a href="add_staff.php"  class="side-nav-link">
             <i class="uil-sad-dizzy"></i>
             <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
-            <span> Add Staff</span>
+            <span> Add Teller</span>
         </a>
     </li>
 

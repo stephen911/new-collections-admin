@@ -21,7 +21,7 @@ $user = adminmembers();
 <html lang="en" data-layout-mode="detached" data-topbar-color="dark" data-sidenav-color="light" data-sidenav-user="true">
 <head>
     <meta charset="utf-8" />
-    <title>Collections | OMNIBSIC - Add Staff</title>
+    <title>Collections | OMNIBSIC - Add Teller</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -128,10 +128,10 @@ $user = adminmembers();
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="#">OMNIBSIC</a></li>
                                         <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                                        <li class="breadcrumb-item active">Add Staff</li>
+                                        <li class="breadcrumb-item active">Add Teller</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Add Staff</h4>
+                                <h4 class="page-title">Add Teller</h4>
                             </div>
                         </div>
                     </div>
@@ -144,15 +144,25 @@ $user = adminmembers();
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Add Staff</h4>
+                                    <h4 class="header-title">Add Teller</h4>
                                     <p class="text-muted font-14">
-                                        Add Staff Here
+                                        Add Teller Here
                                     </p>
 
 
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="form-row-preview">
                                             <form action="" novalidate method="get" class="staff" enctype='multipart/form-data'>
+                                            <div class="mb-3">
+                                                    <label for="emailaddress" class="form-label">First Name</label>
+                                                    <input class="form-control" type="text" id="name" required placeholder="Enter First Name" name="fname" >
+                                                    <!-- <input id="email" type="hidden" placeholder="" value="<?php echo  $user['id']; ?>" class="form-control" name="id"> -->
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="emailaddress" class="form-label">Last Name</label>
+                                                    <input class="form-control" type="text" id="name" required placeholder="Enter Last Name" name="lname" >
+                                                    <!-- <input id="email" type="hidden" placeholder="" value="<?php echo  $user['id']; ?>" class="form-control" name="id"> -->
+                                                </div>
                                                
 
                                                 <div class="mb-3">
@@ -164,7 +174,7 @@ $user = adminmembers();
                                              
                                                 <div class="mb-3">
                                                     <label for="emailaddress" class="form-label">Phone Number</label>
-                                                    <input class="form-control" type="text" id="name" required placeholder="Enter Staff's Phone Number" name="contact" >
+                                                    <input class="form-control" type="text" id="name" required placeholder="Enter Teller's Phone Number" name="contact" >
                                                 </div>
 
                                                 <div class="mb-3">
@@ -186,7 +196,7 @@ $user = adminmembers();
 
                                                 <div class="mb-3">
                                                     <label for="emailaddress" class="form-label">Pin</label>
-                                                    <input class="form-control" type="text" id="pin" required placeholder="Enter Staff's Pin" name="pin" >
+                                                    <input class="form-control" type="text" id="pin" required placeholder="Enter Teller's Pin" name="pin" >
                                                 </div>
 
                                                 
@@ -204,7 +214,7 @@ $user = adminmembers();
                                     
 
                                         <div class="mb-3 text-center">
-                                            <button class="btn btn-primary" type="submit"> Add Staff </button>
+                                            <button class="btn btn-primary" type="submit"> Add Teller </button>
                                         </div>
 
                                         </form>

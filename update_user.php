@@ -14,7 +14,7 @@ $user1 = userstaff();
 
 <head>
     <meta charset="utf-8" />
-    <title>Collections | OMNIBSIC - Update Staff</title>
+    <title>Collections | OMNIBSIC - Update Teller</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -146,6 +146,17 @@ $user1 = userstaff();
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="form-row-preview">
                                             <form action="" novalidate method="get" class="updatestaff" enctype='multipart/form-data'>
+                                            <div class="mb-3">
+                                                    <label for="emailaddress" class="form-label">First Name</label>
+                                                    <input class="form-control" type="text" id="name" required placeholder="Enter First Name" name="fname" >
+                                                    <!-- <input id="email" type="hidden" placeholder="" value="<?php echo  $user['id']; ?>" class="form-control" name="id"> -->
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="emailaddress" class="form-label">Last Name</label>
+                                                    <input class="form-control" type="text" id="name" required placeholder="Enter Last Name" name="lname" >
+                                                    <!-- <input id="email" type="hidden" placeholder="" value="<?php echo  $user['id']; ?>" class="form-control" name="id"> -->
+                                                </div>
+                                               
                                                
 
                                                 <div class="mb-3">

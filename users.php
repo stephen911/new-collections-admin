@@ -247,7 +247,7 @@ $user = adminmembers();
                             <th>ID</th>
                             <th>Donor Name</th>
                             <th>Beneficiary Name</th>
-                            <th>Staff Name</th>
+                            <th>Teller Name</th>
                             <th>Contact</th>
                             <th>Payment Method</th>
                            
@@ -266,7 +266,7 @@ $user = adminmembers();
                         <th>ID</th>
                         <th>Donor Name</th>
                         <th>Beneficiary Name</th>
-                        <th>Staff Name</th>
+                        <th>Teller Name</th>
                         <th>Contact</th>
                         <th>Payment Method</th>
 
