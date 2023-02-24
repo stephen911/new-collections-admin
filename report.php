@@ -214,7 +214,7 @@ $user = adminmembers();
                                             <div class="float-end">
                                                 <p><b>Beneficiary Name: &nbsp;<?php
                                                                                 if (isset($_GET['btnupdate'])) {
-                                                                                    echo ucwords($_GET['bene']);
+                                                                                    echo  ucwords(name_spec($_GET['bene']));
                                                                                 } else {
                                                                                     echo  'None';
                                                                                 }

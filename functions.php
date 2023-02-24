@@ -561,7 +561,7 @@ function transactions($bene)
     $id = $_SESSION['id'];
     include 'starter.php';
 
-    $sel = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene' ORDER BY  pay_date DESC");
+    $sel = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene' ORDER BY  pay_date DESC");
     $num = 1;
     while ($row = mysqli_fetch_array($sel)) {
         echo '<tr>
@@ -670,7 +670,7 @@ function getbene_spec()
 
         // $row2 = mysqli_fetch_array($y);
         echo '
-        <option value="' . $row['name'] . '">' . $row['name'] . '</option>
+        <option value="' . $row['id'] . '">' . $row['name'] . '</option>
         ';
 
         // echo '<input id="email" type="hidden"  value="' . $row['image'] . '" class="form-control" name="photo">';
@@ -842,10 +842,24 @@ function usd()
     echo  'USD ' . number_format($amount, 2);
 }
 
+function name_spec($bene)
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
+    $name = "None";
+    while ($row = mysqli_fetch_array($c)) {
+       
+            $name = $row['beneficiary_name'];
+      
+           
+    }
+    echo $name;
+}
+
 function usd_spec($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $amount = 0;
     while ($row = mysqli_fetch_array($c)) {
         if ($row['currency'] == 'USD') {
@@ -860,7 +874,7 @@ function usd_spec($bene)
 function cash_spec($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $amount = 0;
     $d = mysqli_query($conn, 'SELECT * FROM core_rates ORDER BY id DESC LIMIT 1');
     if ($d) {
@@ -912,7 +926,7 @@ function cash_spec($bene)
 function momo_spec($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
 
     $d = mysqli_query($conn, 'SELECT * FROM core_rates ORDER BY id DESC LIMIT 1');
     if ($d) {
@@ -970,7 +984,7 @@ function momo_spec($bene)
 function visa_spec($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $amount = 0;
     $d = mysqli_query($conn, 'SELECT * FROM core_rates ORDER BY id DESC LIMIT 1');
     if ($d) {
@@ -1022,7 +1036,7 @@ function visa_spec($bene)
 function cheque_spec($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $amount = 0;
     $d = mysqli_query($conn, 'SELECT * FROM core_rates ORDER BY id DESC LIMIT 1');
     if ($d) {
@@ -1077,7 +1091,7 @@ function cheque_spec($bene)
 function gifts_spec($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $gifts = 0;
 
     while ($row = mysqli_fetch_array($c)) {
@@ -1092,7 +1106,7 @@ function gifts_spec($bene)
 function cash_spec_num($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $cash = 0;
 
     while ($row = mysqli_fetch_array($c)) {
@@ -1106,7 +1120,7 @@ function cash_spec_num($bene)
 function momo_spec_num($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $momo = 0;
 
     while ($row = mysqli_fetch_array($c)) {
@@ -1122,7 +1136,7 @@ function momo_spec_num($bene)
 function visa_spec_num($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $visa = 0;
 
     while ($row = mysqli_fetch_array($c)) {
@@ -1136,7 +1150,7 @@ function visa_spec_num($bene)
 function cheque_spec_num($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $cheque = 0;
 
     while ($row = mysqli_fetch_array($c)) {
@@ -1150,7 +1164,7 @@ function cheque_spec_num($bene)
 function usd_spec_num($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $usd = 0;
 
     while ($row = mysqli_fetch_array($c)) {
@@ -1164,7 +1178,7 @@ function usd_spec_num($bene)
 function gbp_spec_num($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $gbp = 0;
 
     while ($row = mysqli_fetch_array($c)) {
@@ -1178,7 +1192,7 @@ function gbp_spec_num($bene)
 function eur_spec_num($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $eur = 0;
 
     while ($row = mysqli_fetch_array($c)) {
@@ -1192,7 +1206,7 @@ function eur_spec_num($bene)
 function cfa_spec_num($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $cfa = 0;
 
     while ($row = mysqli_fetch_array($c)) {
@@ -1220,7 +1234,7 @@ function gbp()
 function gbp_spec($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $amount = 0;
     while ($row = mysqli_fetch_array($c)) {
         if ($row['currency'] == 'GBP') {
@@ -1250,7 +1264,7 @@ function eur()
 function eur_spec($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $amount = 0;
     while ($row = mysqli_fetch_array($c)) {
         if ($row['currency'] == 'EUR') {
@@ -1279,7 +1293,7 @@ function cfa()
 function cfa_spec($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $amount = 0;
     while ($row = mysqli_fetch_array($c)) {
         if ($row['currency'] == 'CFA') {
@@ -1293,7 +1307,7 @@ function cfa_spec($bene)
 function countmembers_spec($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     include 'starter.php';
     // $c = mysqli_query($conn, 'SELECT * FROM core_account');
     $d = mysqli_query($conn, 'SELECT * FROM core_rates ORDER BY id DESC LIMIT 1');
@@ -1403,14 +1417,14 @@ function showdonors()
 function showdonors_spec($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene' ORDER BY  pay_date DESC");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene' ORDER BY  pay_date DESC");
 
     while ($row = mysqli_fetch_array($c)) {
 
         echo '<div class="border border-light p-3 rounded mb-3">
         <div class="d-flex justify-content-between align-items-center">
             <div style="height:30px;
-            width:10%;
+            width:30%;
             overflow:hidden;
             cursor:pointer;
             ">
@@ -1418,15 +1432,15 @@ function showdonors_spec($bene)
                 
             </div>
             <div  class="float-end" style="height:30px;
-            width:10%;
+            width:30%;
             overflow:hidden;
             cursor:pointer;
             "
             >
                 <p class="font-18 mb-1">' . ucwords($row['staff_name']) . '</p>                                
             </div>
-            <div  class="float-end" style="height:30px;
-            width:10%;
+            <div  class="float-end" style="height:40px;
+            width:30%;
             overflow:hidden;
             cursor:pointer;
             "
@@ -1435,7 +1449,7 @@ function showdonors_spec($bene)
 
         if ($row['amount'] == NULL) {
             echo ' 
-                <p class="text-success my-0"> Gifts </p>
+                <p class="text-success my-0">Gift (' . $row['desc'] . ')</p>
                 ';
         } else {
             echo '
@@ -1470,7 +1484,7 @@ function transactionstotal($bene)
     $id = $_SESSION['id'];
     include 'starter.php';
 
-    $u = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene' ORDER BY  pay_date DESC");
+    $u = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene' ORDER BY  pay_date DESC");
     // $y = mysqli_query($conn, 'SELECT * FROM transactions ORDER BY uid DESC ');
     // $c = mysqli_query($conn, 'SELECT * FROM core_account');
     $d = mysqli_query($conn, 'SELECT * FROM core_rates ORDER BY id DESC LIMIT 1');
@@ -1537,7 +1551,7 @@ function totalstatus()
 function totalstatus_spec($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene' ");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene' ");
 
     $count = mysqli_num_rows($c);
     echo $count;

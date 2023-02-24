@@ -222,7 +222,7 @@ $user = adminmembers();
                                                     <h4 class="mt-1 mb-1 text-white"><?php
 
                                                                                         if (isset($_GET['btnupdate'])) {
-                                                                                            echo  ucwords($_GET['bene']);
+                                                                                            echo  ucwords(name_spec($_GET['bene']));
                                                                                         } else {
                                                                                             echo  $user['first_name'];
                                                                                         }
@@ -232,11 +232,7 @@ $user = adminmembers();
 
                                                     <ul class="mb-0 list-inline text-light">
                                                         <?php
-                                                        // if (isset($_POST['btnupdate'])) {
-                                                        //     ssfoodstats($_POST['bene']);
-                                                        // } else {
-                                                        //     echo '<h4 class="card-title">District Statistics</h4>';
-                                                        // }
+                                                        
 
                                                         ?>
 
@@ -413,7 +409,7 @@ $user = adminmembers();
                                     <h2 class="m-b-20"><?php
 
                                                         if (isset($_GET['btnupdate'])) {
-                                                            echo ucwords($_GET['bene']);
+                                                             echo  ucwords(name_spec($_GET['bene']));
                                                         } else {
 
                                                             echo  "None";

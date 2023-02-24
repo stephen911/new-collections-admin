@@ -190,7 +190,7 @@ $user = adminmembers();
                                                         <ul class="mb-0 list-inline text-light">
                                                             <li class="list-inline-item me-3">
                                                                 <h5 class="mb-1 text-white"><?php echo totalstatus(); ?></h5>
-                                                                <p class="mb-0 font-13 text-white-50">Total Revenue</p>
+                                                                <p class="mb-0 font-13 text-white-50">Total Donors</p>
                                                             </li>
                                                             <li class="list-inline-item">
                                                                 <h5 class="mb-1 text-white"><?php echo countmembers() ?></h5>
