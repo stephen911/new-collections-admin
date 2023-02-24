@@ -196,7 +196,7 @@ $user = adminmembers();
                                     <!-- Report Logo-->
                                     <div class="clearfix">
                                         <div class="float-start mb-3">
-                                            <img src="assets/images/omni.png" alt="dark logo" height="42">
+                                            <img src="assets/images/omni_trans.png" alt="dark logo" height="42">
                                         </div>
                                         <div class="float-end">
                                             <h4 class="m-0 d-print-none">Report</h4>
