@@ -42,28 +42,7 @@ $user1 = userrate();
     <!-- sweetalert -->
     <link type="text/css" href="assets/css/sweetalert2.min.css" rel="stylesheet">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        $(document).ready(function() {
-            $('#example').DataTable({
-                "searching": true,
-                "paging": true,
-                "order": [
-                    [0, "asc"]
-                ],
-                "ordering": true,
-                dom: 'Bfrtip',
-                buttons: [
-                    'copy', 'csv', 'excel', 'pdf', 'print'
-                ],
 
-
-                "columnDefa": [{
-                    "targeta": [3], //column index/
-                    "orderable": false
-                }],
-            });
-        });
-    </script>
 
 
     <link href="assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
