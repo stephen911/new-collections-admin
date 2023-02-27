@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" data-layout-mode="detached" data-topbar-color="dark" data-sidenav-color="light" data-sidenav-user="true">
+<html lang="en" data-layout-mode="detached" data-topbar-color="dark" data-sidenav-color="light"
+    data-sidenav-user="true">
 
-
-<!-- Mirrored from coderthemes.com/hyper_2/modern/pages-login.php by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 14 Nov 2022 09:19:09 GMT -->
 
 <head>
     <meta charset="utf-8" />
-    <title>Log In | OMNIBSIC -  </title>
+    <title>Log In | OMNIBSIC - </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
-    <meta content="Coderthemes" name="author" />
+    <meta content="Collections Admin Panel" name="description" />
+    <meta content="Stephen Dapaah" name="author" />
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/bsic.ico">
@@ -37,7 +36,7 @@
                         <!-- Logo -->
                         <div class="card-header pt-4 pb-4 text-center bg-primary">
                             <a href="#">
-                                <span><img src="assets/images/omni.jpeg" alt="logo" height="60", width="120"></span>
+                                <span><img src="assets/images/omni.jpeg" alt="logo" height="60" , width="120"></span>
                             </a>
                         </div>
 
@@ -45,21 +44,23 @@
 
                             <div class="text-center w-75 m-auto">
                                 <h4 class="text-dark-50 text-center pb-0 fw-bold">Sign In</h4>
-                                <p class="text-muted mb-4">Enter your email address and password to access admin panel.</p>
+                                <p class="text-muted mb-4">Enter your email address and password to access admin panel.
+                                </p>
                             </div>
 
                             <form action="" novalidate method="post" class="login">
 
                                 <div class="mb-3">
                                     <label for="emailaddress" class="form-label">Email address</label>
-                                    <input class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email" name="email">
+                                    <input class="form-control" type="email" id="emailaddress" required=""
+                                        placeholder="Enter your email" name="email">
                                 </div>
 
                                 <div class="mb-3">
-                                    <!-- <a href="pages-recoverpw.php" class="text-muted float-end"><small>Forgot your password?</small></a> -->
                                     <label for="password" class="form-label">Password</label>
                                     <div class="input-group input-group-merge">
-                                        <input type="password" id="password" class="form-control" placeholder="Enter your password" name="password">
+                                        <input type="password" id="password" class="form-control"
+                                            placeholder="Enter your password" name="password">
                                         <div class="input-group-text" data-password="false">
                                             <span class="password-eye"></span>
                                         </div>
@@ -67,10 +68,7 @@
                                 </div>
 
                                 <div class="mb-3 mb-3">
-                                    <!-- <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="checkbox-signin" checked>
-                                        <label class="form-check-label" for="checkbox-signin">Remember me</label>
-                                    </div> -->
+
                                 </div>
 
                                 <div class="mb-3 mb-0 text-center">
@@ -82,11 +80,6 @@
                     </div>
                     <!-- end card -->
 
-                    <!-- <div class="row mt-3">
-                        <div class="col-12 text-center">
-                            <p class="text-muted">Don't have an account? <a href="pages-register.php" class="text-muted ms-1"><b>Sign Up</b></a></p>
-                        </div> 
-                    </div> -->
                     <!-- end row -->
 
                 </div> <!-- end col -->
@@ -98,7 +91,8 @@
     <!-- end page -->
 
     <footer class="footer footer-alt">
-        2021 - <script>
+        2021 -
+        <script>
             document.write(new Date().getFullYear())
         </script> © OMNIBSIC
     </footer>
@@ -114,6 +108,5 @@
 
 </body>
 
-<!-- Mirrored from coderthemes.com/hyper_2/modern/pages-login.php by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 14 Nov 2022 09:19:09 GMT -->
 
 </html>

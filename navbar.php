@@ -40,28 +40,7 @@
                     </button>
 
                     <ul class="list-unstyled topbar-menu float-end mb-0">
-                        <!-- <li class="dropdown notification-list d-lg-none">
-                            <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <i class="ri-search-line noti-icon"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-animated dropdown-lg p-0">
-                                <form class="p-3">
-                                    <input type="search" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
-                                </form>
-                            </div>
-                        </li> -->
-
-                        
-
-                        
-
-                        
-
-                        <!-- <li class="notification-list d-none d-sm-inline-block">
-                            <a class="nav-link" data-bs-toggle="offcanvas" href="#theme-settings-offcanvas">
-                                <i class="ri-settings-3-line noti-icon"></i>
-                            </a>
-                        </li> -->
+                    
 
                         <li class="notification-list d-none d-sm-inline-block">
                             <a class="nav-link" href="javascript:void(0)" id="light-dark-mode">
@@ -69,25 +48,17 @@
                             </a>
                         </li>
 
-                        <!-- <li class="notification-list d-none d-md-inline-block">
-                            <a class="nav-link" href="#" data-toggle="fullscreen">
-                                <i class="ri-fullscreen-line noti-icon"></i>
-                            </a>
-                        </li> -->
-
                         <li class="dropdown notification-list">
                             <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                                 aria-expanded="false">
-                                <!-- <span class="account-user-avatar"> 
-                                    <img src="assets/images/omni.jpeg" alt="user-image" class="rounded-circle">
-                                </span> -->
+
                                 <span>
                                     <span class="account-user-name"><?php echo $user['first_name'] ; ?></span>
                                     <span class="account-position"><?php echo $user['email'] ; ?></span>
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
-                                <!-- item-->
+ 
                                 <div class=" dropdown-header noti-title">
                                     <h6 class="text-overflow m-0">Welcome, <?php echo $user['first_name'] ; ?></h6>
                                 </div>
@@ -103,8 +74,6 @@
                         </li>
                     </ul>
 
-                    <!-- Topbar Search Form -->
                     
                 </div>
             </div>
-            <!-- ========== Topbar End ========== -->

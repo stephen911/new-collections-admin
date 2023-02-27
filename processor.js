@@ -226,7 +226,7 @@ $(function () {
     } else if (response == "loginfailed") {
       swal({
         title: "Oops!",
-        text: "Record not found in database! ",
+        text: "Login Details Incorrect",
         type: "error",
         padding: "2em",
       });
