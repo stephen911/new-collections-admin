@@ -481,6 +481,61 @@ function addstaff($name, $contact, $bene, $pin, $event, $fname, $lname)
 
     $password = 'pbkdf2_sha256$390000$0fI0HMtqWSwTXVqj8L3c1s$dltZY9+TvH+cjLUTTGlXP+LnT85fQSG55QC6ktRtZjg=';
     $num = 1;
+    $pinn = rand(1000, 9999);
+    $number = '+233'. substr($contact, 1);
+    $message = "Your pin is ". $pinn;
+    // $y = urlencode("TKawFu2w_+34a6GcudzQIw==");
+    // $v = urlencode("+k3RXNAovtTRYEgjtmYsY0wVMPKR0UY8leSYYGNsTl0=");
+    // $url = "https://konnect.kirusa.com/api/v1/Accounts/TKawFu2w_%2B34a6GcudzQIw%3D%3D/Messages?id=1234&to=$number&body=$message&sender_mask=OmniBSIC&callback_url=&track_url=&expiry=&priority=&url_to_track=&api_token=%2Bk3RXNAovtTRYEgjtmYsY0wVMPKR0UY8leSYYGNsTl0%3D";
+
+    // // $post = ['batch_id'=> "2"];
+    // $ch = curl_init($url);
+    // // curl_setopt($ch, CURLOPT_URL,"https://konnect.kirusa.com/api/v1/Accounts/$y/Messages?id=1234&to=$number&body=$message&sender_mask=OmniBSIC&callback_url=&track_url=&expiry=&priority=&url_to_track=&api_token=$v");
+    // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    // // curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post));
+    // $response = curl_exec($ch);
+    // $result = json_decode($response, true);
+    // // $last$result;
+    // curl_close($ch); // Close the connection
+    // $new =   $result->status;
+    // if($new == "1")
+    // {
+    //   echo "<script>alert('Student list')</script>";
+    // }
+    // else 
+    // {
+    //     echo "<script>alert('Student listt')</script>" . $response;
+    // }
+
+    // $GLOBALS['SMSGateway'] = array();
+
+// $GLOBALS['SMSGateway']['APIUsername'] = "";
+// $GLOBALS['SMSGateway']['APIPassword'] = "";
+// $GLOBALS['SMSGateway']['APIAppToken'] = "TKawFu2w_+34a6GcudzQIw==";
+// $GLOBALS['SMSGateway']['APIToken'] = "+k3RXNAovtTRYEgjtmYsY0wVMPKR0UY8leSYYGNsTl0=";
+// $GLOBALS['SMSGateway']['APISenderMask'] = "OmniBSIC";
+
+// $GLOBALS['SMSGateway']['SMSDispatchEndpoint'] = array();
+// $GLOBALS['SMSGateway']['Name']="Kirusa SMS Gateway";
+// $GLOBALS['SMSGateway']['Scheme']="https";
+// $GLOBALS['SMSGateway']['SubDomain']="konnect";
+// $GLOBALS['SMSGateway']['HostName']="kirusa.com";
+// $GLOBALS['SMSGateway']['HostPort']=80;
+// $GLOBALS['SMSGateway']['HostNameAppendString'] = "/api/v1/Accounts/<#frrnr morph['AppToken']; #>/Messages?id=<#frrnr morph['MessageID']; #>&to=<#frrnr morph['RecipientNumber']; #>&body=<#frrnr morph['MessageBody']; #>&sender_mask=<#frrnr morph['SenderMask']; #>&callback_url=&track_url=&expiry=&priority=&url_to_track=&api_token=<#frrnr morph['AccountToken']; #>";
+
+// $GLOBALS['SMSGateway']['SMSDispatchEndpoint']['URLTemplate'] = $GLOBALS['SMSGateway']['Scheme'] . "://"
+//                                                             . "" . $GLOBALS['SMSGateway']['SubDomain']
+//                                                             . "." . $GLOBALS['SMSGateway']['HostName']
+//                                                             . "" . $GLOBALS['SMSGateway']['HostNameAppendString']
+//                                                             . "";
+
+// $GLOBALS['SMSGateway']['SMSDispatchEndpoint']['URLFormatted'] = $GLOBALS['SMSGateway']['SMSDispatchEndpoint']['URLTemplate'];
+// $GLOBALS['SMSGateway']['SMSDispatchEndpoint']['URLFormatted'] = str_replace("<#frrnr morph['AppToken']; #>", urlencode($GLOBALS['SMSGateway']['APIAppToken']), $GLOBALS['SMSGateway']['SMSDispatchEndpoint']['URLFormatted']);
+// $GLOBALS['SMSGateway']['SMSDispatchEndpoint']['URLFormatted'] = str_replace("<#frrnr morph['SenderMask']; #>", urlencode($GLOBALS['SMSGateway']['APISenderMask']), $GLOBALS['SMSGateway']['SMSDispatchEndpoint']['URLFormatted']);
+// $GLOBALS['SMSGateway']['SMSDispatchEndpoint']['URLFormatted'] = str_replace("<#frrnr morph['AccountToken']; #>", urlencode($GLOBALS['SMSGateway']['APIToken']), $GLOBALS['SMSGateway']['SMSDispatchEndpoint']['URLFormatted']);
+
+    // $context = stream_context_create(array('http' => array('ignore_errors' => true),));
+    // $xml = file_get_contents("https://konnect.kirusa.com/api/v1/Accounts/TKawFu2w_%2B34a6GcudzQIw%3D%3D/Messages?id=1234&to=$number&body=$message&sender_mask=OmniBSIC&callback_url=&track_url=&expiry=&priority=&url_to_track=&api_token=%2Bk3RXNAovtTRYEgjtmYsY0wVMPKR0UY8leSYYGNsTl0%3D", false, $context);
 
     $ins = mysqli_query($conn, "INSERT INTO core_staffuser (username,contact,bene_uid,pin,password,is_staff,is_superuser,is_active,event,first_name,last_name) VALUES ('$name','$contact','$bene','$pin','$password','$num','$num','$num', '$event', '$fname', '$lname')");
 
