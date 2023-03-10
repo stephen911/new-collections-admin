@@ -3,7 +3,7 @@ include 'functions.php';
 
 checker();
 $user = adminmembers();
-$user1 = userrate();
+
 ?>
 
 
@@ -12,16 +12,15 @@ $user1 = userrate();
 
 
 
-
 <head>
     <meta charset="utf-8" />
-    <title>Collections | OMNIBSIC - Update Rates</title>
+    <title>Profile | OMNIBSIC - Add Event</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Collections Admin Panel" name="description" />
     <meta content="Stephen Dapaah" name="author" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon2.ico">
+    <link rel="shortcut icon" href="assets/images/bsic.ico">
 
     <!-- Theme Config Js -->
     <script src="assets/js/hyper-config.js"></script>
@@ -74,17 +73,8 @@ $user1 = userrate();
 
             <!-- Sidebar -left -->
             <div class="h-100" id="leftside-menu-container" data-simplebar>
-                <!-- Leftbar User -->
-                <div class="leftbar-user">
-                    <a href="#">
-                        <img src="assets/images/omni.jpeg" alt="user-image" height="42" class="rounded-circle shadow-sm">
-                        <span class="leftbar-user-name"><strong><?php echo $user['first_name']; ?></strong></span>
-                    </a>
-                </div>
 
-                <!--- Sidemenu -->
                 <?php include "sidebar.php" ?>
-
 
 
                 <div class="clearfix"></div>
@@ -112,10 +102,10 @@ $user1 = userrate();
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="#">OMNIBSIC</a></li>
                                         <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                                        <li class="breadcrumb-item active">Edit Info</li>
+                                        <li class="breadcrumb-item active">Add Banks</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Edit Info</h4>
+                                <h4 class="page-title">Add Banks</h4>
                             </div>
                         </div>
                     </div>
@@ -128,48 +118,25 @@ $user1 = userrate();
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Rates</h4>
+                                    <h4 class="header-title">Add Banks</h4>
                                     <p class="text-muted font-14">
-                                        Add Rates
+                                        Add Banks here
                                     </p>
 
 
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="form-row-preview">
-                                            <form action="" novalidate method="get" class="updaterate" enctype='multipart/form-data'>
-                                               
-
+                                            <form action="" novalidate method="get" class="bank">
                                                 <div class="mb-3">
-                                                    <label for="emailaddress" class="form-label">USD</label>
-                                                    <!-- <input class="form-control" type="text" id="name" required placeholder="United States Dollars" name="usd" > -->
-                                                    <input class="form-control" type="text" id="name" required placeholder="United States Dollars" name="usd" value="<?php echo ($user1['usd'] == '') ? '' : $user1['usd']; ?>">
-                                                    <input id="email" type="hidden" placeholder="" value="<?php echo  $user1['id']; ?>" class="form-control" name="id">
-                                                </div>
-
-                                                <div class="mb-3">
-                                                    <label for="emailaddress" class="form-label">GBP</label>
-                                                    <!-- <input class="form-control" type="text" id="name" required placeholder="Great British Pounds" name="gbp" > -->
-                                                    <input class="form-control" type="text" id="name" required placeholder="Great British Pounds" name="gbp" value="<?php echo ($user1['gbp'] == '') ? '' : $user1['gbp']; ?>">
-
-                                                </div>
-
-                                                <div class="mb-3">
-                                                    <label for="emailaddress" class="form-label">EUR</label>
-                                                    <!-- <input class="form-control" type="text" id="name" required placeholder="Euro" name="eur" > -->
-                                                    <input class="form-control" type="text" id="name" required placeholder="Euro" name="eur" value="<?php echo ($user1['eur'] == '') ? '' : $user1['eur']; ?>">
-
-                                                    
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="emailaddress" class="form-label">CFA</label>
-                                                    <!-- <input class="form-control" type="text" id="name" required placeholder="CFA" name="cfa" > -->
-                                                    <input class="form-control" type="text" id="name" required placeholder="CFA" name="cfa" value="<?php echo ($user1['cfa'] == '') ? '' : $user1['cfa']; ?>">
-
-                                                    
-                                                </div>  
+                                                    <label for="emailaddress" class="form-label">Bank Name</label>
+                                                    <input class="form-control" type="text" id="name" required placeholder="Enter Name of Bank" name="name" >
+                                                    <input id="email" type="hidden" placeholder="" value="<?php echo  $user['id']; ?>" class="form-control" name="id">
+                                                </div>         
                                         </div>
+
+
                                         <div class="mb-3 text-center">
-                                            <button class="btn btn-primary" type="submit"> Update Rate </button>
+                                            <button class="btn btn-primary" type="submit"> Add Bank </button>
                                         </div>
 
                                         </form>
@@ -182,24 +149,27 @@ $user1 = userrate();
                         </div> <!-- end card-->
                     </div> <!-- end col -->
                 </div>
+                <!-- end row -->
 
-                </div> <!-- container -->
+            </div> <!-- container -->
 
-            </div> <!-- content -->
+        </div> <!-- content -->
 
-            <!-- Footer Start -->
-            <?php include "footer.php" ?>
-            <!-- end Footer -->
+        <!-- Footer Start -->
+        <?php include "footer.php" ?>
+        <!-- end Footer -->
 
-        </div>
+    </div>
 
-        <!-- ============================================================== -->
-        <!-- End Page content -->
-        <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
 
     </div>
     <!-- END wrapper -->
-   
+
+    <!-- Theme Settings -->
+    
 
     <!-- Vendor js -->
     <script src="assets/js/vendor.min.js"></script>
@@ -211,11 +181,14 @@ $user1 = userrate();
     <script src="assets/js/pages/demo.profile.js"></script>
 
     <script src="assets/js/sweetalert2.all.min.js"></script>
+    <!-- <script src="assets/js/regions.js"></script>
 
+    <script src="assets/js/view.js"></script> -->
 
     <!-- App js -->
     <script src="assets/js/app.min.js"></script>
     <script src="processor.js"></script>
+    <script src="processor.php"></script>
 
 
 </body>

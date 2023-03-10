@@ -89,13 +89,13 @@ function upmembers()
 
 
 
-function updatestaff($id, $name, $email,  $contact, $bene, $event)
+function updatestaff($id, $name, $email,  $contact, $bene, $event, $fname, $lname)
 
 {
     include 'starter.php';
     // $id = $_GET['id'];
     extract($_POST);
-    $up = mysqli_query($conn, "UPDATE core_staffuser SET username = '$name', email='$email', contact= '$contact', bene_uid='$bene', event='$event'   WHERE id='$id'  ");
+    $up = mysqli_query($conn, "UPDATE core_staffuser SET first_name = '$fname', last_name = '$lname', username = '$name', email='$email', contact= '$contact', bene_uid='$bene', event='$event'   WHERE id='$id'  ");
     if ($up) {
         echo 'Updated Successfully';
     } else {
@@ -472,7 +472,7 @@ function register1($name, $contact, $tdate)
 }
 
 
-function addstaff($name, $contact, $bene, $pin, $event)
+function addstaff($name, $contact, $bene, $pin, $event, $fname, $lname)
 {
 
     include 'starter.php';
@@ -481,8 +481,63 @@ function addstaff($name, $contact, $bene, $pin, $event)
 
     $password = 'pbkdf2_sha256$390000$0fI0HMtqWSwTXVqj8L3c1s$dltZY9+TvH+cjLUTTGlXP+LnT85fQSG55QC6ktRtZjg=';
     $num = 1;
+    $pinn = rand(1000, 9999);
+    $number = '+233'. substr($contact, 1);
+    $message = "Your pin is ". $pinn;
+    // $y = urlencode("TKawFu2w_+34a6GcudzQIw==");
+    // $v = urlencode("+k3RXNAovtTRYEgjtmYsY0wVMPKR0UY8leSYYGNsTl0=");
+    // $url = "https://konnect.kirusa.com/api/v1/Accounts/TKawFu2w_%2B34a6GcudzQIw%3D%3D/Messages?id=1234&to=$number&body=$message&sender_mask=OmniBSIC&callback_url=&track_url=&expiry=&priority=&url_to_track=&api_token=%2Bk3RXNAovtTRYEgjtmYsY0wVMPKR0UY8leSYYGNsTl0%3D";
 
-    $ins = mysqli_query($conn, "INSERT INTO core_staffuser (username,contact,bene_uid,pin,password,is_staff,is_superuser,is_active,event) VALUES ('$name','$contact','$bene','$pin','$password','$num','$num','$num', '$event')");
+    // // $post = ['batch_id'=> "2"];
+    // $ch = curl_init($url);
+    // // curl_setopt($ch, CURLOPT_URL,"https://konnect.kirusa.com/api/v1/Accounts/$y/Messages?id=1234&to=$number&body=$message&sender_mask=OmniBSIC&callback_url=&track_url=&expiry=&priority=&url_to_track=&api_token=$v");
+    // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    // // curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post));
+    // $response = curl_exec($ch);
+    // $result = json_decode($response, true);
+    // // $last$result;
+    // curl_close($ch); // Close the connection
+    // $new =   $result->status;
+    // if($new == "1")
+    // {
+    //   echo "<script>alert('Student list')</script>";
+    // }
+    // else 
+    // {
+    //     echo "<script>alert('Student listt')</script>" . $response;
+    // }
+
+    // $GLOBALS['SMSGateway'] = array();
+
+// $GLOBALS['SMSGateway']['APIUsername'] = "";
+// $GLOBALS['SMSGateway']['APIPassword'] = "";
+// $GLOBALS['SMSGateway']['APIAppToken'] = "TKawFu2w_+34a6GcudzQIw==";
+// $GLOBALS['SMSGateway']['APIToken'] = "+k3RXNAovtTRYEgjtmYsY0wVMPKR0UY8leSYYGNsTl0=";
+// $GLOBALS['SMSGateway']['APISenderMask'] = "OmniBSIC";
+
+// $GLOBALS['SMSGateway']['SMSDispatchEndpoint'] = array();
+// $GLOBALS['SMSGateway']['Name']="Kirusa SMS Gateway";
+// $GLOBALS['SMSGateway']['Scheme']="https";
+// $GLOBALS['SMSGateway']['SubDomain']="konnect";
+// $GLOBALS['SMSGateway']['HostName']="kirusa.com";
+// $GLOBALS['SMSGateway']['HostPort']=80;
+// $GLOBALS['SMSGateway']['HostNameAppendString'] = "/api/v1/Accounts/<#frrnr morph['AppToken']; #>/Messages?id=<#frrnr morph['MessageID']; #>&to=<#frrnr morph['RecipientNumber']; #>&body=<#frrnr morph['MessageBody']; #>&sender_mask=<#frrnr morph['SenderMask']; #>&callback_url=&track_url=&expiry=&priority=&url_to_track=&api_token=<#frrnr morph['AccountToken']; #>";
+
+// $GLOBALS['SMSGateway']['SMSDispatchEndpoint']['URLTemplate'] = $GLOBALS['SMSGateway']['Scheme'] . "://"
+//                                                             . "" . $GLOBALS['SMSGateway']['SubDomain']
+//                                                             . "." . $GLOBALS['SMSGateway']['HostName']
+//                                                             . "" . $GLOBALS['SMSGateway']['HostNameAppendString']
+//                                                             . "";
+
+// $GLOBALS['SMSGateway']['SMSDispatchEndpoint']['URLFormatted'] = $GLOBALS['SMSGateway']['SMSDispatchEndpoint']['URLTemplate'];
+// $GLOBALS['SMSGateway']['SMSDispatchEndpoint']['URLFormatted'] = str_replace("<#frrnr morph['AppToken']; #>", urlencode($GLOBALS['SMSGateway']['APIAppToken']), $GLOBALS['SMSGateway']['SMSDispatchEndpoint']['URLFormatted']);
+// $GLOBALS['SMSGateway']['SMSDispatchEndpoint']['URLFormatted'] = str_replace("<#frrnr morph['SenderMask']; #>", urlencode($GLOBALS['SMSGateway']['APISenderMask']), $GLOBALS['SMSGateway']['SMSDispatchEndpoint']['URLFormatted']);
+// $GLOBALS['SMSGateway']['SMSDispatchEndpoint']['URLFormatted'] = str_replace("<#frrnr morph['AccountToken']; #>", urlencode($GLOBALS['SMSGateway']['APIToken']), $GLOBALS['SMSGateway']['SMSDispatchEndpoint']['URLFormatted']);
+
+    // $context = stream_context_create(array('http' => array('ignore_errors' => true),));
+    // $xml = file_get_contents("https://konnect.kirusa.com/api/v1/Accounts/TKawFu2w_%2B34a6GcudzQIw%3D%3D/Messages?id=1234&to=$number&body=$message&sender_mask=OmniBSIC&callback_url=&track_url=&expiry=&priority=&url_to_track=&api_token=%2Bk3RXNAovtTRYEgjtmYsY0wVMPKR0UY8leSYYGNsTl0%3D", false, $context);
+
+    $ins = mysqli_query($conn, "INSERT INTO core_staffuser (username,contact,bene_uid,pin,password,is_staff,is_superuser,is_active,event,first_name,last_name) VALUES ('$name','$contact','$bene','$pin','$password','$num','$num','$num', '$event', '$fname', '$lname')");
 
     if ($ins) {
         echo "staffadded";
@@ -523,6 +578,20 @@ function addevent($name)
 }
 
 
+function addbank($name)
+{
+
+    include 'starter.php';
+
+    $ins = mysqli_query($conn, "INSERT INTO core_banks (name) VALUES ('$name')");
+    if ($ins) {
+        echo "bankadded";
+    } else {
+        echo "failed";
+    }
+}
+
+
 
 
 function changepass($id, $password, $newpass)
@@ -547,7 +616,7 @@ function transactions($bene)
     $id = $_SESSION['id'];
     include 'starter.php';
 
-    $sel = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene' ORDER BY  pay_date DESC");
+    $sel = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene' ORDER BY  pay_date DESC");
     $num = 1;
     while ($row = mysqli_fetch_array($sel)) {
         echo '<tr>
@@ -576,16 +645,33 @@ function transactions($bene)
             </div>
         </td>
 
-        <td>
-        <div class="d-flex align-items-center">
+        ';
+
+        if($row['payment_method'] == "Gifts"){
+            echo '<td>
+            <div class="d-flex align-items-center">
+            <small class="text-uppercase text-muted mr-2">  ' . $row['payment_method'] . ' ('  . $row['desc'] . ')</small>
+            
+        </div> </td></tr>';
+
+        }else{
+            echo '
+            <td>
+            <div class="d-flex align-items-center">
             <small class="text-uppercase text-muted mr-2">' . $row['payment_method'] . '</small>
             
         </div>
-    </td>
+        </td>
+        
+        </tr>';
+        }
+
+        
+   
         
         
         
-    </tr>';
+    
 
         $num = $num + 1;
         // code...
@@ -639,7 +725,7 @@ function getbene_spec()
 
         // $row2 = mysqli_fetch_array($y);
         echo '
-        <option value="' . $row['name'] . '">' . $row['name'] . '</option>
+        <option value="' . $row['id'] . '">' . $row['name'] . '</option>
         ';
 
         // echo '<input id="email" type="hidden"  value="' . $row['image'] . '" class="form-control" name="photo">';
@@ -656,11 +742,14 @@ function registered()
     include 'starter.php';
     $u = mysqli_query($conn, 'SELECT * FROM core_account ORDER BY id DESC ');
     // $y = mysqli_query($conn, 'SELECT * FROM transactions ORDER BY uid DESC ');
+   
 
     while ($row = mysqli_fetch_array($u)) {
         // $y = mysqli_query($conn, 'SELECT * FROM transactions WHERE uid = ' . $row['id'] . ' ');
 
         // $row2 = mysqli_fetch_array($y);
+        $parsed = date_parse($row['pay_date']);
+        $unix_timestamp = mktime($parsed['hour'], $parsed['minute'], $parsed['second'], $parsed['month'], $parsed['day'], $parsed['year']);
         echo '<tr>
         <td>' . $row['id'] . '</td>
         <td>' . $row['donor_name'] . '</td>
@@ -671,7 +760,7 @@ function registered()
         <td><span class="js-lists-values-employee-title">' . $row['payment_method'] . '</span></td>
         <td><span class="js-lists-values-employee-district">' . $row['currency'] . ' ' . $row['amount'] . '</span>
    
-        <td><span class="js-lists-values-employee-paid">' . $row['pay_date'] . '</span></td> 
+        <td><span class="js-lists-values-employee-paid">' .  date("l jS \of F Y h:i:s A", $unix_timestamp) .  '</span></td> 
        
 
 
@@ -808,10 +897,24 @@ function usd()
     echo  'USD ' . number_format($amount, 2);
 }
 
+function name_spec($bene)
+{
+    include 'starter.php';
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
+    $name = "None";
+    while ($row = mysqli_fetch_array($c)) {
+       
+            $name = $row['beneficiary_name'];
+      
+           
+    }
+    echo $name;
+}
+
 function usd_spec($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $amount = 0;
     while ($row = mysqli_fetch_array($c)) {
         if ($row['currency'] == 'USD') {
@@ -826,7 +929,7 @@ function usd_spec($bene)
 function cash_spec($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $amount = 0;
     $d = mysqli_query($conn, 'SELECT * FROM core_rates ORDER BY id DESC LIMIT 1');
     if ($d) {
@@ -878,7 +981,7 @@ function cash_spec($bene)
 function momo_spec($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
 
     $d = mysqli_query($conn, 'SELECT * FROM core_rates ORDER BY id DESC LIMIT 1');
     if ($d) {
@@ -936,7 +1039,7 @@ function momo_spec($bene)
 function visa_spec($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $amount = 0;
     $d = mysqli_query($conn, 'SELECT * FROM core_rates ORDER BY id DESC LIMIT 1');
     if ($d) {
@@ -988,7 +1091,7 @@ function visa_spec($bene)
 function cheque_spec($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $amount = 0;
     $d = mysqli_query($conn, 'SELECT * FROM core_rates ORDER BY id DESC LIMIT 1');
     if ($d) {
@@ -1043,7 +1146,7 @@ function cheque_spec($bene)
 function gifts_spec($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $gifts = 0;
 
     while ($row = mysqli_fetch_array($c)) {
@@ -1058,7 +1161,7 @@ function gifts_spec($bene)
 function cash_spec_num($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $cash = 0;
 
     while ($row = mysqli_fetch_array($c)) {
@@ -1072,7 +1175,7 @@ function cash_spec_num($bene)
 function momo_spec_num($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $momo = 0;
 
     while ($row = mysqli_fetch_array($c)) {
@@ -1088,7 +1191,7 @@ function momo_spec_num($bene)
 function visa_spec_num($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $visa = 0;
 
     while ($row = mysqli_fetch_array($c)) {
@@ -1102,7 +1205,7 @@ function visa_spec_num($bene)
 function cheque_spec_num($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $cheque = 0;
 
     while ($row = mysqli_fetch_array($c)) {
@@ -1116,7 +1219,7 @@ function cheque_spec_num($bene)
 function usd_spec_num($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $usd = 0;
 
     while ($row = mysqli_fetch_array($c)) {
@@ -1130,7 +1233,7 @@ function usd_spec_num($bene)
 function gbp_spec_num($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $gbp = 0;
 
     while ($row = mysqli_fetch_array($c)) {
@@ -1144,7 +1247,7 @@ function gbp_spec_num($bene)
 function eur_spec_num($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $eur = 0;
 
     while ($row = mysqli_fetch_array($c)) {
@@ -1158,7 +1261,7 @@ function eur_spec_num($bene)
 function cfa_spec_num($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $cfa = 0;
 
     while ($row = mysqli_fetch_array($c)) {
@@ -1186,7 +1289,7 @@ function gbp()
 function gbp_spec($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $amount = 0;
     while ($row = mysqli_fetch_array($c)) {
         if ($row['currency'] == 'GBP') {
@@ -1216,7 +1319,7 @@ function eur()
 function eur_spec($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $amount = 0;
     while ($row = mysqli_fetch_array($c)) {
         if ($row['currency'] == 'EUR') {
@@ -1245,7 +1348,7 @@ function cfa()
 function cfa_spec($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     $amount = 0;
     while ($row = mysqli_fetch_array($c)) {
         if ($row['currency'] == 'CFA') {
@@ -1259,7 +1362,7 @@ function cfa_spec($bene)
 function countmembers_spec($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene'");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene'");
     include 'starter.php';
     // $c = mysqli_query($conn, 'SELECT * FROM core_account');
     $d = mysqli_query($conn, 'SELECT * FROM core_rates ORDER BY id DESC LIMIT 1');
@@ -1331,7 +1434,7 @@ function showdonors()
                                         >
                                             <p class="font-18 mb-1">' . ucwords($row['staff_name']) . '</p>                                
                                         </div>
-                                        <div  class="float-end" style="height:30px;
+                                        <div  class="float-end" style="height:40px;
                                         width:10%;
                                         overflow:hidden;
                                         cursor:pointer;
@@ -1341,7 +1444,7 @@ function showdonors()
 
         if ($row['amount'] == NULL) {
             echo ' 
-                                            <p class="text-success my-0"> Gifts </p>
+                                            <p class="text-success my-0"> ' . $row['desc'] . '</p>
                                             ';
         } else {
             echo '
@@ -1369,14 +1472,14 @@ function showdonors()
 function showdonors_spec($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene' ORDER BY  pay_date DESC");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene' ORDER BY  pay_date DESC");
 
     while ($row = mysqli_fetch_array($c)) {
 
         echo '<div class="border border-light p-3 rounded mb-3">
         <div class="d-flex justify-content-between align-items-center">
             <div style="height:30px;
-            width:10%;
+            width:30%;
             overflow:hidden;
             cursor:pointer;
             ">
@@ -1384,15 +1487,15 @@ function showdonors_spec($bene)
                 
             </div>
             <div  class="float-end" style="height:30px;
-            width:10%;
+            width:30%;
             overflow:hidden;
             cursor:pointer;
             "
             >
                 <p class="font-18 mb-1">' . ucwords($row['staff_name']) . '</p>                                
             </div>
-            <div  class="float-end" style="height:30px;
-            width:10%;
+            <div  class="float-end" style="height:40px;
+            width:30%;
             overflow:hidden;
             cursor:pointer;
             "
@@ -1401,7 +1504,7 @@ function showdonors_spec($bene)
 
         if ($row['amount'] == NULL) {
             echo ' 
-                <p class="text-success my-0"> Gifts </p>
+                <p class="text-success my-0">Gift (' . $row['desc'] . ')</p>
                 ';
         } else {
             echo '
@@ -1436,7 +1539,7 @@ function transactionstotal($bene)
     $id = $_SESSION['id'];
     include 'starter.php';
 
-    $u = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene' ORDER BY  pay_date DESC");
+    $u = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene' ORDER BY  pay_date DESC");
     // $y = mysqli_query($conn, 'SELECT * FROM transactions ORDER BY uid DESC ');
     // $c = mysqli_query($conn, 'SELECT * FROM core_account');
     $d = mysqli_query($conn, 'SELECT * FROM core_rates ORDER BY id DESC LIMIT 1');
@@ -1503,7 +1606,7 @@ function totalstatus()
 function totalstatus_spec($bene)
 {
     include 'starter.php';
-    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE beneficiary_name = '$bene' ");
+    $c = mysqli_query($conn, "SELECT * FROM core_account WHERE bene_id = '$bene' ");
 
     $count = mysqli_num_rows($c);
     echo $count;
